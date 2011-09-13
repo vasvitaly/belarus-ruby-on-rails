@@ -1,0 +1,10 @@
+<div id=<%= 'comment' + show.id.to_s %>>
+  <hr/>
+  <div>
+    <b><%= h(show.author) %></b> <%= distance_of_time_in_words_to_now(show.created_at) %> ago write:
+    <%= link_to_if true, "Delete", { :controller => "comments", :action => "destroy", :id => show.id, :post => show.post },  confirm: 'Are you sure?', :remote => true %>
+  </div>
+  <div>
+    <%= link_to_if true, show.body, { :controller => "comments", :action => "update", :id => show.id }, :remote => true %>
+  </div>
+</div>
