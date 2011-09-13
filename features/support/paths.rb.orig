@@ -10,12 +10,15 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+<<<<<<< HEAD
 
     when /the sign up page/
       '/users/sign_up'
 
     when /the sign in page/
       '/users/sign_in'
+
+=======
       
     when /^the custom_news page$/
       '/custom_news'
@@ -27,6 +30,7 @@ module NavigationHelpers
       '/custom_news/id/edit'
       
       
+>>>>>>> 472dcbc... Added Cucumbber tests for custom news
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
