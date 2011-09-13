@@ -4,16 +4,13 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require_tree .
+//= require jquery
+//= require jquery_ujs
 <<<<<<< HEAD
+//= require_tree .
 
 function update_edit_custom_news_action() {
     jQuery('.edit_custom_news input[name="_method"]').val('delete');
-}
 =======
-//= require prototype
-//= require prototype_ujs
-//= require effects
-//= require dragdrop
-//= require controls
->>>>>>> 3a8f014... Added comments functionality
+//= require_tree .
+>>>>>>> 76877a6... JQuery comments functionality

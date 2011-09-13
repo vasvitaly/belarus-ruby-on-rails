@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'mysql2'
 
+gem 'jquery-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,11 +22,14 @@ gem 'cancan'
 
 gem 'will_paginate'
 
+<<<<<<< HEAD
 gem 'jquery-rails'
 
 gem 'ckeditor'
 gem 'paperclip'
 
+=======
+>>>>>>> 76877a6... JQuery comments functionality
 gem 'rspec-rails', :groups => [:development, :test]
 
 group :test do

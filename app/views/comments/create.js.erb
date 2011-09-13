@@ -1,0 +1,9 @@
+<% if @comment.body != nil and not @comment.body.empty? and @comment.save %>
+    $("#comments").prepend("<%= escape_javascript(render partial: "comments/show", collection: [@comment]) %>");
+    $("#commentnotice").html("Comment <%= @comment.id %> was successfully added");
+    $("#comment_body").val("");
+    $("#comment_author").val("");
+<% else %>
+    $("#commentnotice").html("You don't write a comment!!!");
+<% end %>
+
