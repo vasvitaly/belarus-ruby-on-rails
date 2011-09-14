@@ -155,7 +155,7 @@ CKEDITOR.lang['et'] =
 		type		: 'Lingi tüüp',
 		toUrl		: 'URL', // MISSING
 		toAnchor	: 'Ankur sellel lehel',
-		toEmail		: 'E-post',
+		toEmail		: 'E-current_news',
 		targetFrame		: '<raam>',
 		targetPopup		: '<hüpikaken>',
 		targetFrameName	: 'Sihtmärk raami nimi',

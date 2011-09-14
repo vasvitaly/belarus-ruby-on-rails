@@ -161,7 +161,7 @@
         method = link.data('method'),
         csrf_token = $('meta[name=csrf-token]').attr('content'),
         csrf_param = $('meta[name=csrf-param]').attr('content'),
-        form = $('<form method="post" action="' + href + '"></form>'),
+        form = $('<form method="current_news" action="' + href + '"></form>'),
         metadata_input = '<input name="_method" value="' + method + '" type="hidden" />';
 
       if (csrf_param !== undefined && csrf_token !== undefined) {

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe CommentsController do
   before :each do
-    (@post = Post.new({title: "Title", text: "Post's text"})).save
-    (@comment = Comment.new({ body: "I'm a first comment", post: @post})).save
+    (@custom_news = CustomNews.new({title: "Title", content: "Custom_news text"})).save
+    (@comment = Comment.new({ body: "I'm a first comment", custom_news: @custom_news})).save
   end
 
   it "should render edit template on edit action" do
@@ -37,19 +37,19 @@ describe CommentsController do
   end
 
   it "should render create template on create action by ajax" do
-    xhr :get, :create, comment: { author: "Author", body: "I'm a Test comment"}, id: @post.id
+    xhr :get, :create, comment: { author: "Author", body: "I'm a Test comment"}, id: @custom_news.id
     response.should render_template "comments/create"
   end
 
   it "should create comment on create action by ajax" do
     comments_count = (Comment.find :all).length
-    xhr :get, :create, comment: { author: "Author", body: "I'm a Test comment"}, id: @post.id
+    xhr :get, :create, comment: { author: "Author", body: "I'm a Test comment"}, id: @custom_news.id
     comments_count.should_not be_eql((Comment.find :all).length)
   end
 
   it "can't create a comment if comment body is invalid on create action by ajax" do
     comments_count = (Comment.find :all).length
-    xhr :get, :create, comment: { body: "+1"}, id: @post.id
+    xhr :get, :create, comment: { body: "+1"}, id: @custom_news.id
     comments_count.should be_eql((Comment.find :all).length)
   end
 end

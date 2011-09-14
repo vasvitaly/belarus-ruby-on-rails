@@ -1316,7 +1316,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			alert( editor.lang.pastefromword.error );
 		}
 
-		/* Below post processing those things that are unable to delivered by filter rules. */
+		/* Below current_news processing those things that are unable to delivered by filter rules. */
 
 		// Remove 'cke' namespaced attribute used in filter rules as marker.
 		data = data.replace( /cke:.*?".*?"/g, '' );

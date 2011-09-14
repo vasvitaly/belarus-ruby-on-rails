@@ -1,4 +1,4 @@
-<%= form_for @comment, :as => :comment, :url => {:controller => "comments", :action => "create", :id => @post.id}, :remote => true do |f| %>
+<%= form_for @comment, :as => :comment, :url => {:controller => "comments", :action => "create", :id => @custom_news.id}, :remote => true do |f| %>
 <table width="100%">
   <tr><td align="center"><%= f.label :title, "Name" %></td></tr>
   <tr><td align="center"><%= f.text_field :author, :style => "width: 300px;" %></td></tr>

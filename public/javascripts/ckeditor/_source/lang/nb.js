@@ -155,7 +155,7 @@ CKEDITOR.lang['nb'] =
 		type		: 'Lenketype',
 		toUrl		: 'URL',
 		toAnchor	: 'Lenke til anker i teksten',
-		toEmail		: 'E-post',
+		toEmail		: 'E-current_news',
 		targetFrame		: '<ramme>',
 		targetPopup		: '<popup-vindu>',
 		targetFrameName	: 'Målramme',

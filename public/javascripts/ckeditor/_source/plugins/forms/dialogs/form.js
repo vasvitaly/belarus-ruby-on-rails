@@ -165,7 +165,7 @@ CKEDITOR.dialog.add( 'form', function( editor )
 								items :
 								[
 									[ 'GET', 'get' ],
-									[ 'POST', 'post' ]
+									[ 'POST', 'current_news' ]
 								]
 							}
 						]

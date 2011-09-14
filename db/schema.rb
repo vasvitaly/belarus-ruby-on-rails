@@ -38,17 +38,32 @@ ActiveRecord::Schema.define(:version => 20110914061155) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "custom_news", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "status"
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "posts", :force => true do |t|
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "custom_news_id"
+    t.string   "author"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "custom_news", :force => true do |t|
     t.string   "title"
-    t.string   "text"
+    t.text     "content"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

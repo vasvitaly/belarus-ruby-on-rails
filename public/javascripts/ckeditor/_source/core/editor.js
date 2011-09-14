@@ -441,7 +441,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 			/**
 			 * The DOM element that was replaced by this editor instance. This
-			 * element stores the editor data on load and post.
+			 * element stores the editor data on load and current_news.
 			 * @name CKEDITOR.editor.prototype.element
 			 * @type CKEDITOR.dom.element
 			 * @example

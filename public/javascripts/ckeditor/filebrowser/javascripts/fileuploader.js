@@ -1131,7 +1131,7 @@ qq.extend(qq.UploadHandlerForm.prototype, {
     _createForm: function(iframe, params){
         // We can't use the following code in IE6
         // var form = document.createElement('form');
-        // form.setAttribute('method', 'post');
+        // form.setAttribute('method', 'current_news');
         // form.setAttribute('enctype', 'multipart/form-data');
         // Because in this case file won't be attached to request
         var form = qq.toElement('<form enctype="multipart/form-data"></form>');

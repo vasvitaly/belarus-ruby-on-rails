@@ -24,7 +24,7 @@ BelarusRubyOnRails::Application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #       current_news 'toggle'
   #     end
   #
   #     collection do

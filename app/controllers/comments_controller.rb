@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.author.blank? or @comment.author.empty?
       @comment.author = "Anonym"
     end
-		@comment.post = Post.find(params[:id])
+		@comment.custom_news = CustomNews.find params[:id]
     if not @comment.body.blank? and not @comment.body.empty?  and @comment.save
       @saved = true
     else
