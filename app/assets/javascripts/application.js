@@ -10,3 +10,13 @@
 
 function update_edit_custom_news_action() {
     jQuery('.edit_custom_news input[name="_method"]').val('delete');
+
+function comment_notify(message){
+    $("#commentnotice").html(message);
+    $("#commentnotice").hide();
+    $("#commentnotice").slideToggle("slow", function () {
+        setTimeout(function () {
+            $("#commentnotice").slideToggle("slow")
+        },2000)
+    });
+}

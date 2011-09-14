@@ -1,2 +1,2 @@
-$("#comment<%= params[:id] %>").remove();
-$("#commentnotice").html("Comment <%= params[:id] %> was successfully destroyed")
+$("#comment<%= params[:id] %>").slideToggle("slow")
+comment_notify("Comment <%= params[:id] %> was successfully destroyed");

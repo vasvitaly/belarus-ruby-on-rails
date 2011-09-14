@@ -1,9 +1,10 @@
-<% if @comment.body != nil and not @comment.body.empty? and @comment.save %>
+<% if @saved %>
     $("#comments").prepend("<%= escape_javascript(render partial: "comments/show", collection: [@comment]) %>");
-    $("#commentnotice").html("Comment <%= @comment.id %> was successfully added");
+    $("#comment<%= @comment.id %>").hide();
+    $("#comment<%= @comment.id %>").slideToggle("slow");
+    comment_notify("Comment <%= @comment.id %> was successfully added");
     $("#comment_body").val("");
     $("#comment_author").val("");
 <% else %>
-    $("#commentnotice").html("You don't write a comment!!!");
+    comment_notify("You don't write a comment (its length must be greater then 4)!!!");
 <% end %>
-

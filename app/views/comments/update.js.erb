@@ -1,11 +1,8 @@
-<% if not (newbody = params[:comment][:body]).empty? %>
-    <% @comment.body = newbody %>
+<% if @saved %>
+    $("#comment<%= params[:id] %>").slideToggle("fast", function () {
     $("#comment<%= params[:id] %>").html("<%= escape_javascript(render :partial => "comments/show", :collection => [@comment]) %>");
-  <% if @comment.save %>
-        $("#commentnotice").html("Comment <%= params[:id] %> was successfully changed");
-  <% else %>
-        $("#commentnotice").html("Comment <%= params[:id] %> was successfully changed");
-  <% end %>
-<% else %>
-    $("#commentnotice").html("Write something");
+    $("#comment<%= params[:id] %>").hide();
+    $("#comment<%= params[:id] %>").slideToggle("fast")
+    });
 <% end %>
+comment_notify("<%= @notify %>");
