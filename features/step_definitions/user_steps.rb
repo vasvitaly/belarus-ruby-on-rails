@@ -7,10 +7,7 @@ Given /^I am a user named "([^"]*)" and surnamed "([^"]*)" with an email "([^"]*
             :last_name => last_name,
             :email => email,
             :password => password,
-            :password_confirmation => password,
-            :confirmation_token => nil,
-            :confirmed_at => Time.now,
-            :confirmation_sent_at => Time.now).save!
+            :password_confirmation => password).confirm!
 end
 
 Then /^I should be already signed in$/ do

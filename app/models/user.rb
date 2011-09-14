@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation,
-                  :remember_me, :confirmed_at, :is_admin
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
+
+  def admin!
+    self.is_admin = true
+    self.save(:validate => false)
+    self
+  end
 end
