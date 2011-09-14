@@ -5,9 +5,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
-
-  def admin!
-    self.is_admin = true
-    self.save(:validate => false)
-  end
 end
