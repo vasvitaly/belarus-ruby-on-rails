@@ -9,6 +9,5 @@ class User < ActiveRecord::Base
   def admin!
     self.is_admin = true
     self.save(:validate => false)
-    self
   end
 end
