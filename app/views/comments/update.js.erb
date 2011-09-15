@@ -1,8 +1,12 @@
 <% if @saved %>
     $("#comment<%= params[:id] %>").slideToggle("fast", function () {
-    $("#comment<%= params[:id] %>").html("<%= escape_javascript(render :partial => "comments/show", :collection => [@comment]) %>");
-    $("#comment<%= params[:id] %>").hide();
-    $("#comment<%= params[:id] %>").slideToggle("fast")
+        $("#comment<%= params[:id] %>").html("<%= escape_javascript(render :partial => "comments/show", :collection => [@comment]) %>");
+        $("#comment<%= params[:id] %>").hide();
+        $("#comment<%= params[:id] %>").slideToggle("fast");
     });
+
+
+    $("#comment_body").val("");
+    $("#comment_author").val("");
 <% end %>
 comment_notify("<%= @notify %>");
