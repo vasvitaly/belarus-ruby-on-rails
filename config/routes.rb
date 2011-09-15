@@ -1,5 +1,5 @@
 BelarusRubyOnRails::Application.routes.draw do
-  resources :posts
+  resources :custom_news
   resources :comments
 
   get "welcome/index"
