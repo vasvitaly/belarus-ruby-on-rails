@@ -25,19 +25,19 @@ Given /^I have (\d+) comment for custom news article "([^"]*)"$/ do |arg1, arg2|
   end
 end
 
-When /^I am on custom news path for "([^"]*)"$/ do |arg1|
+When /^I am stay on custom news path for "([^"]*)"$/ do |arg1|
   @custom_news = CustomNews.find_by_title arg1
 end
 
-When /^(?:|I )follow "Delete comment"$/ do
+When /^(?:|I )push "Delete comment"$/ do
   (CustomNews.find @custom_news.id).comments[0].delete
 end
 
-When /^(?:|I )follow "Add comment"$/ do
+When /^(?:|I )push "Add comment"$/ do
   Comment.new({ body: "I'm a test comment", custom_news: @custom_news}).save
 end
 
-When /^(?:|I )fill in "Message" with "([^"]*)"$/ do |value|
+When /^(?:|I )type "([^"]*)" in "Message" textarea$/ do |value|
   (CustomNews.find @custom_news.id).comments[0].body = value
   (CustomNews.find @custom_news.id).comments[0].save
 end

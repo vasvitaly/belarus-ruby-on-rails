@@ -41,6 +41,10 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 
+Given /^(?:|I )am on (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -49,17 +53,25 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
+When /^(?:|I )follow "([^"]*)"$/ do |link|
+  click_link(link)
+end
+
+When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
+end
+
 When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
 # Use this to fill in an entire form with data from a table. Example:
 #
-#   When I fill in the following:
-#     | Account Number | 5002       |
-#     | Expiry date    | 2009-11-01 |
-#     | Note           | Nice guy   |
-#     | Wants Email?   |            |
+# When I fill in the following:
+# | Account Number | 5002 |
+# | Expiry date | 2009-11-01 |
+# | Note | Nice guy |
+# | Wants Email? | |
 #
 # TODO: Add support for checkbox, select or option
 # based on naming conventions.
@@ -228,7 +240,7 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')} 
+  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
   
   if actual_params.respond_to? :should
     actual_params.should == expected_params
