@@ -1,0 +1,286 @@
+ru:
+  omniauth:
+    successfully_binded: 'Провайдер %{provider_name} успешно подключён'
+    bind_with: 'Связать с %{provider_name}'
+    set_profile: 'Создание профайла'
+  admin:
+    dashboard: 'Панель админа'
+    you_can: 'Вы можете'
+    users:
+      edit: 'управлять учетными записями пользователей'
+      edit_current_user: 'Редактирование пользователя'
+      users_list: 'Список пользователей'
+      filter_list: 'Список фильтров'
+      filter: 'Фильтровать'
+      all_user_remark: 'Снимите выделение для выбора всех пользователей'
+      download_csv: 'Скачать CSV'
+      send_to: 'Выслать  емейл %{name}'
+      edit_profile: 'Редактировать профиль пользователя'
+      not_found: 'Пользователь не найден'
+      manage_users_title: 'Управление учетными записями пользователей'
+      remove_admin: 'Отозвать права администратора'
+      make_admin: 'Дать права администратора'
+      ban: 'Забанить'
+      unban: 'Снять бан'
+      reset_password: 'Сбросить пароль пользователя'
+      reset_password_notice: 'На электронную почту пользователя были отправлены инструкции по смене пароля'
+    messages:
+      title: 'Рассылка'
+      invalid_user_group: ' содержит неправильный фильтр'
+      successfully_sent: 'Сообщение будет отослано'
+      send: 'осуществлять рассылку'
+      send_button: 'Послать сообщение'
+  errors:
+    changes_not_saved: 'Не удалось сохранить изменения'
+  profile:
+    subscribed_for_comments: 'Я хочу получать по почте уведомления о новых комментариях:'
+    edit_profile: 'Редактирование профиля'
+    show_profile: 'Показать профиль'
+    show_profile_title: 'Профиль пользователя'
+    social_networks: 'Социальные сети'
+    main_info: 'Основная информация'
+    password: 'Пароль'
+    subscriptions: 'Рассылки'
+    userpic: 'Изображение'
+    image: 'Изображение'
+    change_image: 'Изменить изображение'
+    delete_image: 'Удалить'
+    wrong_image_type: 'Аватарка не является картинкой'
+    profile_updated: "Ваша учётная запись изменена успешно."
+  labels:
+    date: 'Дата'
+    place: 'Место проведения'
+    all: 'все'
+  meetup:
+    attend_to: 'Стать участником'
+    incorrect_datetime_format: 'заданы в неверном формате'
+    datetime_must_future: 'должны быть из будущего'
+    topic: 'Тема'
+    description: 'Описание'
+    place: 'Место'
+    date_and_time: 'Дата и время'
+    date: 'Дата'
+    time: 'Время'
+    create_page: 'Создание митапа'
+    update_page: 'Редактирование митапа'
+    show_page: 'Митап'
+    create_ok: 'Митап успешно создан'
+    cancel_ok: 'Митап успешно отменён'
+    update_ok: 'Митап успешно отредактирован'
+    cancel_link: 'Отменить митап'
+    create_link: 'Создать митап'
+    update_link: 'Редактировать митап'
+    back_link: 'Отмена'
+    meetups_link: 'управлять митапами'
+    save_button: 'Сохранить!'
+    register_at: 'Зарегистрироваться на митап'
+    signed_in_to_attend: 'Ты должен быть зарегистрированным пользователем, чтобы записаться на митап'
+    registered: 'Вы участвуете'
+  articles:
+    article_successfully_created: 'Статья была успешно сохранена'
+    article_successfully_updated: 'Статья была успешно обновлена'
+    article_successfully_deleted: 'Статья была успешно удалена'
+    comments: 'Комментарии'
+    leave_a_comment: 'Комментировать'
+    comment_added: 'Комментарий был успешно добавлен'
+    comment_edit: 'Редактировать комментарий'
+    comment_updated: 'Комментарий был успешно изменён'
+    comment_length_warning: 'Длина комментария  должна быть не менее 5-ти символов!'
+    comment_deleted: "Комментарий был успешно удалён"
+    comment_answer: 'Ответить'
+    comment_cancel: 'Отмена'
+    login_to_comment: 'Пожалуйста %{href} чтобы оставлять комментарии'
+    log_in_href: 'войдите'
+    unable_save: 'Не удалось сохранить статью'
+    no_news: 'Нет статей в настоящий момент'
+    title: 'Заголовок'
+    content: 'Содержимое'
+    delete: 'Удалить'
+    edit: 'Изменить'
+    update: 'Обновить'
+    create: 'Создать'
+    add_an_article: 'добавить статью'
+    see_articles_list: 'управлять статьями'
+    see_aggregated_articles_list: 'управлять RSS статьями'
+    editing_article: 'Редактирование статьи'
+    new_article: 'Новая статья'
+    show: 'Читать статью полностью'
+    listing_articles: 'Список статей'
+    listing_aggregated_articles: 'Список rss статей'
+    status: 'Статус'
+    published: 'Опубликовано'
+    unpublished: 'Не опубликовано'
+    rss_link: 'Ссылка на источник'
+    more_tip: 'Используйте {MORE} что бы отделить первую часть статьи'
+  users:
+    login: 'Вход'
+    logout: 'Выход'
+    registration: 'Регистрация'
+    edit_registration: 'Регистрационные данные'
+    edit_profile: 'Профайл'
+    sign_up: 'Зарегистрироваться'
+    sign_in: 'Войти'
+    via_networks: 'Через соцсети'
+    forgot_your_password: 'Забыли пароль?'
+    didnt_receive_confirmation_instructions: 'Не получили письмо с подтверждением?'
+    didnt_receive_unlock_instructions: 'Не получили инструкции по разблокировке?'
+    all_fields_are_required: 'Все поля обязательны для заполнения'
+    reset_my_password: 'Сбросить пароль'
+    cancel_my_account: 'Удалить аккаунт'
+    leave_blank_if_no_changes: 'оставьте это поле пустым, если не хотите его менять'
+    we_need_your_password: 'нам нужен Ваш текущий пароль, что бы подтвердить изменения'
+    no_passwd_no_data_changes: 'Сейчас Вы не можете изменить данные, т.к. у Вас не задан пароль. Пожалуйства пройдите по ссылке ниже, что бы задать пароль.'
+    get_new_password: 'Получить новый пароль'
+  general:
+    altoros: 'ООО Альторос Девелопмент'
+    more_information: 'Подробнее'
+    partners: 'Партнёры'
+    site_name: 'Belarus Ruby on Rails User Group'
+  menu:
+    main: 'Главная'
+    news: 'Новости Ruby on Rails'
+    about: 'О нас'
+    friends: 'Друзья'
+    control_panel: 'Админка'
+    contact: 'Связаться с нами'
+  common:
+    create: 'Создать'
+    update: 'Сохранить'
+    are_you_sure: 'Вы уверены?'
+  activerecord:
+    models:
+      experience: 'Уровень владения Ruby on Rails'
+    attributes:
+      article:
+        title: 'Заголовок'
+        content: 'Содержимое'
+        published: 'Статус'
+      experience:
+        level: 'Уровень'
+        prompt: 'Выбрать'
+      profile:
+        experience_id: 'Уровень владения Ruby on Rails'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        subscribed: 'Получать новости по E-mail'
+      user:
+        email: 'Электронная почта'
+        password: 'Пароль'
+        password_confirmation: 'Подтвердите пароль'
+        current_password: 'Текущий пароль'
+        created_at: 'Создан'
+        remember_me: 'Запомнить меня'
+      message:
+        recipient_group: 'Адресаты'
+        subject: 'Тема'
+        body: 'Содержание'
+      meetup:
+        topic: 'Тема'
+        description: 'Содержание'
+        place: 'Место'
+        date_and_time: 'Дата и время'
+      twitter_block:
+        search: 'Поиск'
+        title: 'Заголовок'
+        subject: 'Тема'
+        footer_text: 'Нижний текст'
+      static_page:
+        title: 'Заголовок'
+        permalink: 'Постоянная ссылка'
+        content: 'Содержание'
+      aggregator_configuration:
+        source: 'Источник'
+      comment:
+        body: 'Коментарий'
+    errors:
+      models:
+        profile:
+          attributes:
+            last_name:
+              blank: 'не может быть пустой'
+        user:
+          attributes:
+            email:
+              blank: 'не может быть пустой'
+        meetup:
+          attributes:
+            topic:
+              blank: 'не может быть пустой'
+        comment:
+          attributes:
+            body:
+              blank: 'не может быть пустой'
+              too_short: "недостаточной длины"
+      messages:
+        too_long:
+          one:   'слишком большой длины (не может быть больше чем %{count} символ)'
+          few:   'слишком большой длины (не может быть больше чем %{count} символа)'
+          many:  'слишком большой длины (не может быть больше чем %{count} символов)'
+          other: 'слишком большой длины (не может быть больше чем %{count} символа)'
+        too_short:
+          one:   'недостаточной длины (не может быть меньше %{count} символа)'
+          few:   'недостаточной длины (не может быть меньше %{count} символов)'
+          many:  'недостаточной длины (не может быть меньше %{count} символов)'
+          other: 'недостаточной длины (не может быть меньше %{count} символа)'
+  activemodel:
+    attributes:
+      message:
+         recipient_group: 'Адресаты'
+         subject: 'Тема'
+         body: 'Содержание'
+    errors:
+      models:
+        message:
+          blank: 'не может быть пустой'
+          too_short: "недостаточной длины"
+          attributes:
+            body:
+              blank: 'не может быть пустым'
+  actionview:
+    helpers:
+      select:
+        prompt: 'Пожалуйста, выберите'
+  notifier:
+    comments_notifier_email: 'К статье %{article_title} были оставлены новые комментарии, чтобы просмотреть их пожалуйста пройдите по ссылке %{article_link}.'
+  static_pages:
+    title: 'Название'
+    list: 'Список статических страниц'
+    new: 'Создать статическую страницу'
+    created: 'Страница была успешно создана'
+    manage: 'управлять статическими страницами'
+    edit: 'Редактирование страницы'
+    page_successfully_updated: 'Страница была успешно обновлена'
+    unable_save: 'Ошибка сохранения страницы'
+    deleted: 'Страница была успешно удалена'
+    not_found: 'Страница не найдена'
+    show: 'Показать'
+    back: 'Назад к списку'
+    no_pages: 'В данный момент статические страницы отсутствуют'
+    friends:
+      title: 'Друзья'
+    about:
+      title: 'О нас'
+  exception:
+    no_icon_for_provider: 'Нет иконки для провайдера %{provider_name}'
+  twitter_blocks:
+    edit: 'Изменить настройки сообщений из twitter'
+    new_block: 'Добавить новый twitter блок'
+    listing_blocks: 'управлять twitter блоками'
+    list_title: 'Список twitter блоков'
+    title: 'Заголовок'
+    delete: 'Удалить'
+    are_you_sure: 'Вы уверены, что хотите удалить блок?'
+    add_a_block: 'Добавить блок'
+    no_blocks: 'Еще пока нету блоков'
+    successfully_deleted: 'Успешно удален'
+    successfully_created: 'Успешно создан'
+    unable_save: 'Не удалось сохранить настройки сообщений из twitter'
+    update: 'Обновить'
+    successfully_updated: 'Нстройки успешно обновлены'
+  aggregator_configurations:
+    edit: 'Изменение настроек аггрегатора'
+    edit_title: 'изменить настройки RSS аггрегатора'
+    successfully_updated: 'Настройки аггрегатора успешно сохранены'
+    unable_save: 'Не удалось сохранить настройки аггрегатора'
+  will_paginate:
+    page_gap: '...'

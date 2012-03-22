@@ -1,14 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>BelarusRubyOnRails</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= t('general.site_name') %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= yield :head %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <div class="wrapper">
+      <div class="header">
+        <div class="block">
+          <div class="logo_row">
+            <%= link_to image_tag("logo_ror_belarus.png", { :alt => t('general.site_name') }), root_path, :class => :logo %>
+            <div class="sublinks">
+              <%= render 'devise/menu/login_items' %>
+            </div>
+          </div>
+          <div class="menu_row">
+            <ul>
+              <li><%= link_to_unless_current t('menu.main'), root_path %></li>
+              <li><%= link_to_unless_current t('menu.news'), aggregated_articles_path %></li>
+              <%= static_page_links %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <% flash.each do |type, msg| %>
+        <% notification_class = 'notification-error' %>
+        <% notification_class = 'notification' if type == :notice %>
+        <% if msg.is_a?(String) %>
+          <%= content_tag :div, content_tag(:div, content_tag(:div, msg), :class => 'block'), :class => notification_class %>
+        <% end %>
+      <% end %>
+      <div class="block">
+        <div class="left">
+          <%= yield %>
+        </div>
+        <div class="right">
+          <%= render_widget :meetup %>
+          <%= render :partial => "facebook_block" unless Rails.env == 'test' %>
+          <%= render :partial => "vkontakte_block" unless Rails.env == 'test' %>
+          <%= render :partial => "twitter_block" %>
+        </div>
+        <div class="cl_all"></div>
+        <div class="left">
+          <div class="partners">
+            <h4><%= t('general.partners') %></h4>
+            <div class="links">
+              <%= link_to image_tag("logo_altoros_dev.png", {:height => 49, :width => 213, :alt => t('general.altoros')}), "http://altoros.com/" %>
+              <%= link_to image_tag("logo_miu.png", {:height => 49, :width => 213, :alt => ""}), "http://www.miu.by/" %>
+              <%= link_to image_tag("logo_rubymine.png", {:height => 30, :width => 120, :alt => ""}), "http://www.jetbrains.com/ruby/" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="block"><span class="copy">&copy; <%= t('general.site_name') %>, 2011</span><%= link_to t('menu.contact'), '#' %></div>
+      </div>
+    </div>
+  </body>
 </html>

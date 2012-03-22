@@ -1,0 +1,35 @@
+<% resource.build_profile if resource.profile.nil? %>
+<div class="forms">
+  <h1><%= t('users.sign_up') %></h1>
+  <div class="required"><%= t('users.all_fields_are_required') %></div>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <table class="loginTBL">
+      <%= f.fields_for :profile do |ff|%>
+        <%= render 'profiles/name', :f => ff %>
+      <% end %>
+      <tr>
+        <td><%= f.label :email %></td>
+        <td>
+          <div class="field"><%= f.email_field :email %></div>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.label :password %></td>
+        <td><div class="field"><%= f.password_field :password %></div></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password_confirmation %></td>
+        <td><div class="field"><%= f.password_field :password_confirmation %></div></td>
+      </tr>
+      <%= f.fields_for :profile do |ff| %>
+        <%= render 'profiles/level', :f => ff %>
+      <% end %>
+      <tr>
+        <td></td>
+        <td class="save">
+          <button type="submit"><span><span><%= t('users.sign_up') %></span></span></button>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

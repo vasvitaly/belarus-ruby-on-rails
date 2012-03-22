@@ -1,0 +1,38 @@
+development: &development
+  facebook:
+    app_id:
+    secret_key:
+  vkontakte:
+    app_id:
+    secret_key:
+  github:
+    app_id:
+    secret_key:
+  twitter:
+    app_id:
+    secret_key:
+  linkedin:
+    app_id:
+    secret_key:
+  social_groups_id:
+    facebook:
+    vkontakte:
+    vkontakte_apiId:
+test:
+  <<: *development
+production:
+  facebook:
+    app_id:
+    secret_key:
+  vkontakte:
+    app_id:
+    secret_key:
+  github:
+    app_id:
+    secret_key:
+  twitter:
+    app_id:
+    secret_key:
+  linkedin:
+    app_id:
+    secret_key:

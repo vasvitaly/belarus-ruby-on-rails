@@ -1,0 +1,37 @@
+<h1><%= t('meetup.show_page') %></h1>
+
+<div class="profile">
+  <div class="info">
+    <% if @meetup %>
+        <table>
+          <tbody>
+           <tr>
+             <th><%= t('meetup.topic') %>:</th>
+             <td><%= @meetup.topic %><td>
+           </tr>
+           <tr>
+             <th><%= t('meetup.description') %>:</th>
+             <td><%= @meetup.description %></td>
+           </tr>
+           <tr>
+             <th><%= t('meetup.place') %>:</th>
+             <td><%= @meetup.place %></td>
+           </tr>
+           <tr>
+             <th><%= t('meetup.date') %>:</th>
+             <td><%= l(@meetup.date_and_time.to_date, :format => :long) %></td>
+           </tr>
+           <tr>
+             <th><%= t('meetup.time') %>:</th>
+             <td><%= @meetup.date_and_time.to_s(:time) %></td>
+           </tr>
+          </tbody>
+        </table>
+
+      <%= link_to button_inner_html(t('meetup.cancel_link')), admin_meetup_cancel_path(@meetup), :confirm => t('common.are_you_sure'), :method => :put, :class => 'button' %>
+      <%= link_to button_inner_html(t('meetup.update_link')), edit_admin_meetup_path(@meetup), :class => 'button' %>
+    <% else %>
+      <%= link_to button_inner_html(t('meetup.create_link')), new_admin_meetup_path, :class => 'button' %>
+    <% end %>
+  </div>
+</div>

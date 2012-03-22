@@ -7,7 +7,6 @@ gem 'rails', '3.1.0'
 
 gem 'mysql2'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -19,12 +18,36 @@ end
 # Authorization and permissions
 gem 'devise'
 gem 'cancan'
+gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'oa-vkontakte'
+gem 'oa-openid', :require => 'omniauth/openid'
+gem 'twitter'
 
 gem 'will_paginate'
 
 gem 'jquery-rails'
 
+gem 'ckeditor'
+gem 'paperclip'
+
 gem 'rspec-rails', :groups => [:development, :test]
+
+gem 'delayed_job'
+
+gem 'cells'
+gem 'apotomo'
+
+gem 'russian'
+gem 'i18n-js'
+
+gem 'friendly_id', '~> 4.0.0.beta14'
+gem 'babosa'
+
+gem 'truncate_html'
+
+gem 'acts_as_tree'
+
+gem 'feedzirra'
 
 group :test do
   gem 'cucumber-rails'
@@ -33,6 +56,8 @@ group :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'guard-cucumber'
+  gem 'rspec-apotomo'
+  gem 'shoulda'
 end
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -42,4 +67,3 @@ end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-

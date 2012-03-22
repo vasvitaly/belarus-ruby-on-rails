@@ -67,11 +67,11 @@ end
 
 # Use this to fill in an entire form with data from a table. Example:
 #
-#   When I fill in the following:
-#     | Account Number | 5002       |
-#     | Expiry date    | 2009-11-01 |
-#     | Note           | Nice guy   |
-#     | Wants Email?   |            |
+# When I fill in the following:
+# | Account Number | 5002 |
+# | Expiry date | 2009-11-01 |
+# | Note | Nice guy |
+# | Wants Email? | |
 #
 # TODO: Add support for checkbox, select or option
 # based on naming conventions.
@@ -226,7 +226,7 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label
     end
   end
 end
- 
+
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -240,8 +240,8 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')} 
-  
+  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
+
   if actual_params.respond_to? :should
     actual_params.should == expected_params
   else
@@ -252,3 +252,28 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /^(?:|I )should see xpath (.*)$/ do |xpath|
+  if page.respond_to? :should
+    page.should have_xpath(xpath)
+  else
+    assert page.has_xpath?(xpath)
+  end
+end
+
+Then /^(?:|I )should not see xpath (.*)$/ do |xpath|
+  if page.respond_to? :should
+    page.should_not have_xpath(xpath)
+  else
+    assert page.has_no_xpath?(xpath)
+  end
+end
+
+When /^I confirm popup$/ do
+  page.driver.browser.switch_to.alert.accept
+end
+
+When /^I dismiss popup$/ do
+  page.driver.browser.switch_to.alert.dismiss
+end
+

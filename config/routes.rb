@@ -1,4 +1,47 @@
 BelarusRubyOnRails::Application.routes.draw do
+  resources :articles, :only => [:index, :show] do
+    resources :comments, :only => [ :create, :edit, :update, :destroy ], :shallow => true do
+      resource :comments, :only => :new
+    end
+  end
+
+  resources :aggregated_articles, :only => [:index, :show], :path => '/news/'
+  resources :profiles
+  resources :profiles do
+    delete 'avatar' => 'profiles#delete_avatar', :on => :member
+  end
+
+  get 'page/:permalink', :to => 'static_pages#show', :as => 'static_page'
+
+  devise_for :users, :controllers => { :confirmations => "confirmations", :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" } do
+    scope "/users/" do
+      get 'sign_in', :to => "devise/sessions#new", :as => 'login'
+      post 'sign_in', :to => "devise/sessions#create", :as => 'login'
+      delete 'sign_out', :to => "devise/sessions#destroy", :as => 'logout'
+      get 'auth/:provider', :to => 'omniauth#passthru'
+      get ':id/reset_password', :to => 'users#reset_password', :as => 'user_reset_password'
+    end
+  end
+
+  resources :users, :only => [:new, :create], :path => '/users/omniauth/'
+
+  namespace :admin do
+    resources :users, :except => [:create] do
+      post '/' => 'users#index', :on => :collection
+    end
+    resource :message
+    resource :dashboard, :only => :show
+    resources :articles, :except => [:show]
+    resources :static_pages, :except => [:show]
+    resources :aggregated_articles, :only => [:index, :destroy], :path => '/news/'
+    resource :aggregator_configurations, :only => [:edit, :update, :create]
+    root :to => 'dashboards#show'
+    resources :meetups do
+      put 'cancel' => 'meetups#cancel'
+    end
+    resources :twitter_blocks
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -17,7 +60,7 @@ BelarusRubyOnRails::Application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #       current_news 'toggle'
   #     end
   #
   #     collection do
@@ -48,11 +91,14 @@ BelarusRubyOnRails::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'articles#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  match ':controller(/:action(/:id(.:format)))'
+
+  get ':id', :to => 'articles#show'
+
 end
