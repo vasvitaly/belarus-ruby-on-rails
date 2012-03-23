@@ -31,6 +31,9 @@ gem 'ckeditor'
 gem 'paperclip'
 
 gem 'rspec-rails', :groups => [:development, :test]
+group :development do
+  gem 'capistrano'
+end
 
 gem 'delayed_job'
 
