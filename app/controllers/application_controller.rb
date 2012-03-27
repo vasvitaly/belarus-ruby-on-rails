@@ -37,11 +37,10 @@ class ApplicationController < ActionController::Base
 
   protected
   def ckeditor_authenticate
-    authorize! action_name, @asset
-  end
-
-  def ckeditor_before_create_asset(asset)
-    asset.assetable = current_user
-    return true
+    if current_user.try(:is_admin?)
+      self.class_eval do
+        skip_authorization_check
+      end
+    end
   end
 end
