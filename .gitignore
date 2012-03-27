@@ -12,6 +12,6 @@ public/files/
 public/images/
 public/pub/
 app/assets/javascripts/i18n/translations.js
-#public/ckeditor_assets/attachments
-#public/ckeditor_assets/pictures
+public/ckeditor_assets/attachments
+public/ckeditor_assets/pictures
 
