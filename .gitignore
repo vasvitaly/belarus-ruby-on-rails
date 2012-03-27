@@ -12,7 +12,7 @@ public/files/
 public/images/
 public/pub/
 public/assets
-app/assets/javascripts/i18n/translations.js
+#app/assets/javascripts/i18n/translations.js
 public/ckeditor_assets/attachments
 public/ckeditor_assets/pictures
 
