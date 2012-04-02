@@ -10,8 +10,8 @@ Devise.setup do |config|
                 { :scope => 'email',
                   :client_options => { :ssl => { :ca_path => "/etc/ssl/certs" }}}
 
-  credentials = SOCIAL_CONFIG['vkontakte'] || {}
-  config.omniauth :vkontakte, credentials['app_id'], credentials['secret_key']
+  # credentials = SOCIAL_CONFIG['vkontakte'] || {}
+  # config.omniauth :vkontakte, credentials['app_id'], credentials['secret_key']
 
   credentials = SOCIAL_CONFIG['twitter'] || {}
   config.omniauth :twitter, credentials['app_id'], credentials['secret_key']
