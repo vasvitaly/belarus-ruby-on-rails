@@ -33,10 +33,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def name
-    [first_name, last_name].compact.join(' ')
-  end
-
   def password_required?
     (user_tokens.empty? || password.present? || reset_password_token.present? ) && super
   end

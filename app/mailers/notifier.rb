@@ -19,6 +19,6 @@ class Notifier < ActionMailer::Base
   def new_participant_for_meetup_for_admin(meetup, participant)
     @meetup = meetup
     mail :to => "info@belarusrubyonrails.org", :subject => "#{@meetup.topic} - новый участник мероприятия",
-      :body => "ID участника: #{participant.id}, email: #{participant.email}, имя: #{participant.name}"
+      :body => "ID участника: #{participant.id}, email: #{participant.email}"
   end
 end
