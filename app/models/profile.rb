@@ -8,7 +8,7 @@ class Profile < ActiveRecord::Base
                   :experience_id,
                   :subscribed_for_comments,
                   :avatar
-  has_attached_file :avatar, :styles => { :medium => "98x98>", :thumb => "50x50>" },
+  has_attached_file :avatar, :styles => { :medium => "98x98#", :thumb => "50x50#" },
                     :url => "/system/:attachment/#{Rails.env}/:id/:style/:filename"
 
   validates :first_name, :presence => true,
