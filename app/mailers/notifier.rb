@@ -9,4 +9,9 @@ class Notifier < ActionMailer::Base
     @article = article
     mail(:to => to)
   end
+
+  def new_participant_for_meetup(meetup, participant)
+    @meetup = meetup
+    mail :to => participant.email, :subject => t('subject_for_new_participant_message')
+  end
 end

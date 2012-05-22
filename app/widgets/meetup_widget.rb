@@ -15,6 +15,7 @@ class MeetupWidget < Apotomo::Widget
 
   def register
     participant = @meetup.participants.create(:user_id => @current_user.id)
+    Notifier.new_participant_for_meetup(@meetup, participant).deliver
     render :text => "$('.attend_button').replaceWith($('<img src=\"#{ asset_path('you-participate.png') }\" />'))" if participant
   end
 
