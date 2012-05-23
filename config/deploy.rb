@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require "whenever/capistrano"
 set :application, "belarus-on-rails"
 set :deploy_to, "/home/deploy/belarus-on-rails"
 set :rails_env, 'production'
@@ -11,6 +12,7 @@ set :user, "deploy"
 set :scm, :git
 set :repository, "git@github.com:Altoros/belarus-ruby-on-rails.git"
 set :deploy_via, :checkout
+set :whenever_command, "bundle exec whenever"
 
 namespace :deploy do
   desc "Restart Application"

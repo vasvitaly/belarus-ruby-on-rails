@@ -12,7 +12,6 @@ namespace 'aggregator' do
 
     #getting feed_object from database
     feed_object = config.feed_object
-
     #check if we have same url in feedzirra
     if feed_object && feed_object.feed_url == config.source
       #updating feed
