@@ -19,6 +19,7 @@ namespace 'aggregator' do
 
       #check if feed has been updated since last running this rake task
       if !feed_object.has_new_entries?
+        puts "There are no new feeds"
         exit 0
       end
 
