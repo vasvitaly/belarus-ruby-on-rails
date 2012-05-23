@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Notifier < ActionMailer::Base
-  default :from => "no-reply@belarusrubyonrails.org", :charset => 'utf-8'
+  default :from => "Белорусское сообщество Ruby On Rails <no-reply@belarusrubyonrails.org>", :charset => 'utf-8'
 
   def custom(to, subject, body)
     mail(:to => to, :subject => subject, :body => body)
