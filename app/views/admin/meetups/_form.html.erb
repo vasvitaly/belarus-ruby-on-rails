@@ -1,3 +1,5 @@
+<%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+
 <%= form_for [:admin, @meetup] do |f| %>
   <table class="loginTBL">
     <tr>
@@ -27,15 +29,15 @@
     <tr>
       <td><%= f.label :letter_body, 'Текст письма уведомления' %></td>
       <td>
-        <div class="field"><%= f.text_area :letter_body %></div>
+        <div class="field"><%= f.cktext_area :letter_body %></div>
       </td>
     </tr>
 
     <tr>
       <td><%= f.label "date_and_time", t('meetup.date_and_time') %></td>
       <td>
-                <div class="field">
-                  <%= f.text_field :date_and_time,  :value => ( @meetup.date_and_time.present? ? @meetup.date_and_time.strftime('%Y-%m-%d %H:%M:%S') : ''), :class => 'datepicker' %>
+        <div class="field">
+          <%= f.text_field :date_and_time,  :value => ( @meetup.date_and_time.present? ? @meetup.date_and_time.strftime('%Y-%m-%d %H:%M:%S') : ''), :class => 'datepicker' %>
         </div>
       </td>
     </tr>
