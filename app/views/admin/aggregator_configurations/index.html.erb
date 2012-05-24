@@ -1,0 +1,22 @@
+<h1><%= t('aggregators.listing_aggregators') %></h1>
+
+<%= link_to button_inner_html(t('aggregators.add_an_aggregator')), new_admin_aggregator_configuration_path, :class => :button %>
+<%= link_to button_inner_html(t('aggregators.fetch')), fetch_admin_aggregator_configurations_path, :class => :button %>
+
+<% if @aggregator_configurations.empty? %>
+  <%= t('aggregators.no_aggregators') %>
+<% else %>
+  <table class='list-table'>
+    <tr>
+      <th><%= t('aggregators.source') %></th>
+      <th></th>
+    </tr>
+    <% @aggregator_configurations.each do |aggregator| %>
+      <tr>
+        <td><%= link_to aggregator.source, edit_admin_aggregator_configuration_path(aggregator), :title => t('aggregators.editing_aggregator') %></td>
+        <td><%= link_to t('aggregators.delete'), admin_aggregator_configuration_path(aggregator), :confirm => t('common.are_you_sure'), :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<%= will_paginate @aggregator_configurations %>

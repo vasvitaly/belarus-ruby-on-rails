@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every 2.hours do
-  rake "aggregator:collect"
+  runner "RSS.fetch_aggregators"
 end

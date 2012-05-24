@@ -34,7 +34,11 @@ BelarusRubyOnRails::Application.routes.draw do
     resources :articles, :except => [:show]
     resources :static_pages, :except => [:show]
     resources :aggregated_articles, :only => [:index, :destroy], :path => '/news/'
-    resource :aggregator_configurations, :only => [:edit, :update, :create]
+    resources :aggregator_configurations do
+      collection do
+        get 'fetch'
+      end
+    end
     root :to => 'dashboards#show'
     resources :meetups do
       put 'cancel' => 'meetups#cancel'

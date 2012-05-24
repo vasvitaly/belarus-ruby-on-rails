@@ -280,8 +280,19 @@ ru:
     successfully_updated: 'Нстройки успешно обновлены'
   aggregator_configurations:
     edit: 'Изменение настроек аггрегатора'
+    new: 'Добавление аггрегатора'
     edit_title: 'изменить настройки RSS аггрегатора'
     successfully_updated: 'Настройки аггрегатора успешно сохранены'
+    successfully_deleted: 'Аггрегатор удален успешно'
     unable_save: 'Не удалось сохранить настройки аггрегатора'
+    fetched: 'Последние новости с аггрегаторов обновлены успешно'
   will_paginate:
     page_gap: '...'
+  aggregators:
+    editing_aggregator: 'Изменить данный аггрегатор'
+    delete: 'Удалить'
+    add_an_aggregator: 'Добавить аггрегатор'
+    no_aggregators: 'Список аггрегаторов пуст'
+    source: 'Источник'
+    listing_aggregators: 'Список аггрегаторов'
+    fetch: 'Обновить новости'

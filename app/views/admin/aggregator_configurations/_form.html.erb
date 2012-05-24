@@ -1,0 +1,18 @@
+<div class="forms">
+    <%= form_for [:admin, @aggregator_configuration] do |f| %>
+        <table class="loginTBL">
+            <tr>
+                <td><%= f.label :source %></td>
+                <td>
+                  <div class="field"><%= f.text_field :source %></div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="save">
+                    <button type="submit"><span><span><%= t('common.update') %></span></span></button>
+                </td>
+            </tr>
+        </table>
+    <% end %>
+</div>

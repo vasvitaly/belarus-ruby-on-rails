@@ -1,21 +1,3 @@
-<div class="forms">
-    <h1><%= t('aggregator_configurations.edit') %></h1>
+<h1><%= t('aggregator_configurations.edit') %></h1>
 
-    <%= form_for @aggregator_configuration, :url => admin_aggregator_configurations_path do |f| %>
-        <table class="loginTBL">
-            <tr>
-                <td><%= f.label :source, t('activerecord.attributes.aggregator_configurations.source') %></td>
-                <td>
-                  <div class="field"><%= f.text_area :source %></div>
-                </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td class="save">
-                    <button type="submit"><span><span><%= t('common.update') %></span></span></button>
-                </td>
-            </tr>
-        </table>
-    <% end %>
-</div>
+<%= render 'form' %>
