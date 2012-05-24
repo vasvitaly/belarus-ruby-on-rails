@@ -1,5 +1,7 @@
 class Provider::LinkedIn < Provider::Provider
   def profile_link
-    'http://www.linkedin.com/pub/' + @uid if @uid
+    if @uid
+      @uid =~ /^http/ ? @uid : "http://www.linkedin.com/pub/#{@uid}"
+    end
   end
 end
