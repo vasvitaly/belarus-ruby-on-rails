@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :export_i18n_messages
+  before_filter :set_current_meetup
+
   rescue_from CanCan::AccessDenied do |e|
     if current_user
       respond_to do |format|
@@ -11,16 +13,11 @@ class ApplicationController < ActionController::Base
         format.html { redirect_to login_path }
         format.js   { render :js => "window.location='#{ login_path }'" }
       end
-
     end
   end
 
   protect_from_forgery
   include SessionsHelper
-
-  has_widgets do |root|
-    root << widget(:meetup, :user => current_user)
-  end
 
   def export_i18n_messages
     SimplesIdeias::I18n.export! if Rails.env.development?
@@ -36,6 +33,11 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def set_current_meetup
+    @meetup = Meetup.active.recent.first
+  end
+
   def ckeditor_authenticate
     if current_user.try(:is_admin?)
       self.class_eval do

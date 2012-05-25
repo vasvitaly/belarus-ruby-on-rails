@@ -41,7 +41,7 @@
           <%= yield %>
         </div>
         <div class="right">
-          <%= render_widget :meetup %>
+          <%= render :partial => 'meetup' %>
           <%= render :partial => "facebook_block" unless Rails.env == 'test' %>
           <%= render :partial => "twitter_block" %>
         </div>

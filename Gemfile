@@ -41,7 +41,6 @@ end
 gem 'delayed_job'
 
 gem 'cells'
-gem 'apotomo'
 
 gem 'russian'
 gem 'i18n-js'

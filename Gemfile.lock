@@ -290,7 +290,6 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_tree
-  apotomo
   babosa
   cancan
   capistrano

@@ -3,11 +3,8 @@
 <%= link_to button_inner_html(t('articles.add_an_article')), new_admin_article_path, :class => :button %>
 
 <% if @articles.empty? %>
-
   <%= t('articles.no_news') %>
-
 <% else %>
-
   <table class='list-table'>
     <tr>
       <th><%= t('articles.title') %></th>
@@ -21,7 +18,6 @@
       </tr>
     <% end %>
   </table>
-
 <% end %>
 
 <%= will_paginate @articles %>
