@@ -240,3 +240,4 @@ ul.task-list li a { text-decoration: none; }
 .item .iteminfo { float: left; }
 .item .addthis_toolbox { float: right; }
 .participate .addthis_toolbox { margin:  15px auto 0; width: 125px; }
+div.fields .required {position: static; color: #000;}

@@ -42,6 +42,12 @@
       </td>
     </tr>
     <tr>
+      <td colspan='2'>
+        <%= f.fields_for :questions %>
+        <p><%= f.link_to_add 'Добавить вопрос', :questions %></p>
+      </td>
+    </tr>
+    <tr>
       <td></td>
       <td class="save">
         <%= content_tag :button, :type => :submit, :name => :commit do %>
@@ -55,6 +61,4 @@
       </td>
     </tr>
   </table>
-  <%= f.fields_for :questions %>
-  <p><%= f.link_to_add 'Добавить вопрос', :questions %></p>
 <% end %>
