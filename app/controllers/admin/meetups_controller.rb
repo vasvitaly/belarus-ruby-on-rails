@@ -1,6 +1,10 @@
 class Admin::MeetupsController < ApplicationController
   load_and_authorize_resource :class => Meetup
 
+  def new
+    @meetup = Meetup.new
+  end
+
   def create
     @meetup = Meetup.new(params[:meetup])
 

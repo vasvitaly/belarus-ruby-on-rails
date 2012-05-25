@@ -1,4 +1,4 @@
-<% if @meetup.present? %>
+<% if @meetup.try(:persisted?) %>
 <div class="participate">
   <div id='meetup'>
     <h3><%= @meetup.topic %></h3>
