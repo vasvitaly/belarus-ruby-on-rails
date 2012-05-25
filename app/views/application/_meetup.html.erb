@@ -10,10 +10,10 @@
     <p><%= @meetup.description %></p>
 
     <% if @current_user %>
-      <% if @is_participant %>
+      <% if current_user_is_participant? %>
         <%= image_tag("you-participate.png", { :alt => t('meetup.registered'), :title => t('meetup.registered') }) %>
       <% else %>
-        <%= link_to image_tag("btn_participate.png", { :alt => t('meetup.attend_to'), :title => t('meetup.attend_to') }), '#', :class => 'attend_button' %>
+        <%= link_to image_tag("btn_participate.png", { :alt => t('meetup.attend_to'), :title => t('meetup.attend_to') }), new_participant_path, :class => 'attend_button' %>
       <% end %>
     <% else %>
       <%= t('meetup.signed_in_to_attend') %> <%= link_to t('users.login'), login_path %>

@@ -1,6 +1,10 @@
 class Participant < ActiveRecord::Base
+  attr_accessible :user, :meetup, :quizzes_attributes
   belongs_to :user
   belongs_to :meetup
+  has_many :quizzes
+
+  accepts_nested_attributes_for :quizzes
 
   delegate :email, :to => :user
 

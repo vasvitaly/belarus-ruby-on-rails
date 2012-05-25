@@ -1,4 +1,6 @@
 BelarusRubyOnRails::Application.routes.draw do
+  resources :participants, :only => [:new, :create]
+
   resources :articles, :only => [:index, :show] do
     resources :comments, :only => [ :create, :edit, :update, :destroy ], :shallow => true do
       resource :comments, :only => :new

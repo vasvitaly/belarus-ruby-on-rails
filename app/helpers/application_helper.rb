@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def current_user_is_participant?
+    @meetup.participants.map(&:user_id).include? current_user.id
+  end
+
   def errors_for(object, message = nil)
     html = ""
     unless object.errors.blank?

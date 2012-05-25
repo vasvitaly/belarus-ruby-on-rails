@@ -2,7 +2,7 @@
 <%= f.input :kind_of_response, :as => :select,
                                :hint => 'От этого зависит, каким образом может ответить на вопрос пользователь',
                                :collection => Question.response_type_options_for_select,
-                               :selected => f.object.kind_of_response
+                               :include_blank => false
                                %>
 <%= f.fields_for :answers %>
 <%= f.link_to_add 'Добавить ответ', :answers %>

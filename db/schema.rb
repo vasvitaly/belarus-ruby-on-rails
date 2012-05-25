@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525115333) do
+ActiveRecord::Schema.define(:version => 20120525132001) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
@@ -119,6 +119,14 @@ ActiveRecord::Schema.define(:version => 20120525115333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "kind_of_response"
+  end
+
+  create_table "quizzes", :force => true do |t|
+    t.integer  "participant_id"
+    t.integer  "question_id"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "static_pages", :force => true do |t|
