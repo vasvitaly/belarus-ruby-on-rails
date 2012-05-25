@@ -6,9 +6,9 @@ class Notifier < ActionMailer::Base
     mail(:to => to, :subject => subject, :body => body)
   end
 
-  def comment(to, article)
+  def comment(article)
     @article = article
-    mail(:to => to)
+    mail(:to => "info@belarusrubyonrails.org")
   end
 
   def new_participant_for_meetup(meetup, participant)

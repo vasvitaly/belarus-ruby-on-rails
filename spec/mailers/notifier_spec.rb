@@ -22,7 +22,7 @@ describe Notifier do
   describe '.comment' do
     let(:user) { Factory.stub(:user) }
     let(:article) { Factory.stub(:article) }
-    let(:mail) { Notifier.comment(user.email, article) }
+    let(:mail) { Notifier.comment(article) }
 
     it 'renders the article title' do
       mail.body.should include(article.title)

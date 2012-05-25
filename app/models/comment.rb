@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
 
   def deliver
     commentators_without.each do |user|
-      Notifier.comment(user.email, article).deliver
+      Notifier.comment(article).deliver
     end
   end
 
