@@ -152,6 +152,14 @@ ru:
     models:
       experience: 'Уровень владения Ruby on Rails'
     attributes:
+      question:
+        gist: 'Вопрос'
+        kind_of_response: 'Вид ответа'
+        dropdown: 'Выпадающийся список'
+        checkboxes: 'Галочки'
+        text_field: 'Текстовое поле'
+      answer:
+        gist: 'Ответ'
       article:
         title: 'Заголовок'
         content: 'Содержимое'

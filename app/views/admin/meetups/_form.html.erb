@@ -1,6 +1,6 @@
 <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
 
-<%= form_for [:admin, @meetup] do |f| %>
+<%= simple_nested_form_for [:admin, @meetup] do |f| %>
   <table class="loginTBL">
     <tr>
       <td><%= f.label :topic, t('meetup.topic') %></td>
@@ -55,4 +55,6 @@
       </td>
     </tr>
   </table>
+  <%= f.fields_for :questions %>
+  <p><%= f.link_to_add 'Добавить вопрос', :questions %></p>
 <% end %>

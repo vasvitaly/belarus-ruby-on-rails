@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ka8725/nested_form.git
+  revision: 2badd9a4f071dd144160a1acd0b3aa4d8817682c
+  specs:
+    nested_form (0.2.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -244,6 +250,9 @@ GEM
       json_pure
       rubyzip
     shoulda (2.11.3)
+    simple_form (2.0.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     simple_oauth (0.1.5)
     sprockets (2.0.0)
       hike (~> 1.2)
@@ -301,6 +310,7 @@ DEPENDENCIES
   i18n-js
   jquery-rails
   mysql2
+  nested_form!
   oa-oauth
   oa-openid
   paperclip
@@ -310,6 +320,7 @@ DEPENDENCIES
   russian
   sass-rails (~> 3.1.0)
   shoulda
+  simple_form
   truncate_html
   twitter
   uglifier

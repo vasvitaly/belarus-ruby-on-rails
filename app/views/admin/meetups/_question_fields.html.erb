@@ -1,0 +1,8 @@
+<%= f.input :gist %>
+<%= f.input :kind_of_response, :as => :select,
+                               :hint => 'От этого зависит, каким образом может ответить на вопрос пользователь',
+                               :collection => Question.response_type_options_for_select
+                               %>
+<%= f.fields_for :answers %>
+<%= f.link_to_add 'Добавить ответ', :answers %>
+<%= f.link_to_remove 'Удалить' %>

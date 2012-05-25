@@ -23,6 +23,9 @@ gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'twitter'
 
+gem "nested_form", :git => "git://github.com/ka8725/nested_form.git"
+gem "simple_form"
+
 gem 'will_paginate'
 
 gem 'jquery-rails'

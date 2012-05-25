@@ -1,7 +1,10 @@
 class Meetup < ActiveRecord::Base
-  attr_accessible :topic, :description, :place, :date_and_time
+  attr_accessible :topic, :description, :place, :date_and_time, :questions_attributes
 
   has_many :participants
+  has_many :questions
+
+  accepts_nested_attributes_for :questions
 
   validates :topic, :presence => true
   validates :topic, :length => {:maximum => 255}

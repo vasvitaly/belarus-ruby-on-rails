@@ -11,11 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522151929) do
+ActiveRecord::Schema.define(:version => 20120525115333) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
     t.text   "feed_object"
+  end
+
+  create_table "answers", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "gist"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "articles", :force => true do |t|
@@ -104,6 +111,14 @@ ActiveRecord::Schema.define(:version => 20120522151929) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "gist"
+    t.integer  "meetup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "kind_of_response"
   end
 
   create_table "static_pages", :force => true do |t|
