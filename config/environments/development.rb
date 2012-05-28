@@ -23,8 +23,8 @@ BelarusRubyOnRails::Application.configure do
 #  config.action_mailer.default :charset => 'utf-8',
 #                               :from => 'no-reply@belarusrubyonrails.org'
 #
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.sendmail_settings = { :arguments => '-i' }
+#  config.action_mailer.delivery_method = :sendmail
+#  config.action_mailer.sendmail_settings = { :arguments => '-i' }
   config.action_mailer.default :charset => 'utf-8',
                                :from => 'no-reply@belarusrubyonrails.org'
 
@@ -39,5 +39,8 @@ BelarusRubyOnRails::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end
 

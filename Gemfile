@@ -36,6 +36,7 @@ gem 'paperclip'
 gem 'rspec-rails', :groups => [:development, :test]
 group :development do
   gem 'capistrano'
+  gem 'mailcatcher'
 end
 
 gem 'delayed_job'

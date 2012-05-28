@@ -3,7 +3,7 @@ class Notifier < ActionMailer::Base
   default :from => "Белорусское сообщество Ruby On Rails <no-reply@belarusrubyonrails.org>", :charset => 'utf-8'
 
   def custom(to, subject, body)
-    mail(:to => to, :subject => subject, :body => body)
+    mail(:to => to, :subject => subject, :body => body, :content_type => "text/html")
   end
 
   def comment(article)
@@ -13,7 +13,7 @@ class Notifier < ActionMailer::Base
 
   def new_participant_for_meetup(meetup, participant)
     @meetup = meetup
-    mail :to => participant.email, :subject => @meetup.letter_subject, :body => @meetup.letter_body
+    mail :to => participant.email, :subject => @meetup.letter_subject, :body => @meetup.letter_body, :content_type => "text/html"
   end
 
   def new_participant_for_meetup_for_admin(meetup, participant)
