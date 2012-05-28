@@ -250,3 +250,4 @@ div.fields .required {position: static; color: #000;}
 .registration .input > label {display:inline-block;width:190px;padding-right:10px;float:left;}
 .registration .field {float:left;width:228px;}
 .registration .field > label {display:block;}
+.registration .error {color:#c46969}
