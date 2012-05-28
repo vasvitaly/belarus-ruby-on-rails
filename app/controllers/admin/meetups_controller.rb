@@ -13,7 +13,10 @@ class Admin::MeetupsController < ApplicationController
       redirect_to admin_meetups_url
     else
       respond_to do |format|
-        format.html  { render :action => "new" }
+        format.html  {
+          flash[:notice] = @meetup.errors.full_messages.join("\n")
+          render :action => "new"
+        }
         format.json  { head :ok }
       end
     end
@@ -39,7 +42,10 @@ class Admin::MeetupsController < ApplicationController
       redirect_to admin_meetups_path
     else
       respond_to do |format|
-        format.html  { render :action => "edit" }
+        format.html  {
+          flash[:notice] = @meetup.errors.full_messages.join("\n")
+          render :action => "edit"
+        }
         format.json  { render :json => @meetup.errors }
       end
     end
