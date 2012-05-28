@@ -241,3 +241,12 @@ ul.task-list li a { text-decoration: none; }
 .item .addthis_toolbox { float: right; }
 .participate .addthis_toolbox { margin:  15px auto 0; width: 125px; }
 div.fields .required {position: static; color: #000;}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+.registration .input {padding-bottom:16px;}
+.registration .input > label {display:inline-block;width:190px;padding-right:10px;float:left;}
+.registration .field {float:left;width:228px;}
+.registration .field > label {display:block;}

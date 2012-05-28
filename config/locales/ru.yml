@@ -77,6 +77,8 @@ ru:
     signed_in_to_attend: 'Ты должен быть зарегистрированным пользователем, чтобы записаться на мероприятие'
     registered: 'Вы участвуете'
     subject_for_new_participant_message: 'Участие в мероприятии'
+    registration_to_meetup: 'Регистрация на мероприятие'
+    confirm_participation: 'Участие подтверждаю'
   articles:
     article_successfully_created: 'Статья была успешно сохранена'
     article_successfully_updated: 'Статья была успешно обновлена'

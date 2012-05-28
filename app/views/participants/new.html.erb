@@ -1,19 +1,24 @@
-<h2>Решистрация на мероприятие</h2>
-<h3><%= @meetup.topic %></h3>
-<p><%= @meetup.description %></p>
-<%= simple_form_for @participant do |f| %>
-  <div class='fields'>
-  <%= f.fields_for :quizzes do |ff| %>
-    <%= ff.hidden_field :question_id %>
-    <% question = ff.object.question %>
-    <% if question.text_field? %>
-      <%= ff.input :answer, :label => question.gist %>
-    <% elsif question.dropdown? %>
-      <%= ff.input :answer, :as => :select, :collection => question.answers.map(&:gist), :include_blank => false, :label => question.gist %>
-    <% elsif question.checkboxes? %>
-      <%= ff.input :answer, :as => :check_boxes, :collection => question.answers.map(&:gist), :label => question.gist %>
-    <% end %>
+<div class="forms registration">
+  <h2><%= t("meetup.registration_to_meetup") %></h2>
+
+  <h3><%= @meetup.topic %></h3>
+
+  <p><%= @meetup.description %></p>
+
+  <%= simple_form_for @participant do |f| %>
+      <div class='fields'>
+        <%= f.fields_for :quizzes do |ff| %>
+            <%= ff.hidden_field :question_id %>
+            <% question = ff.object.question %>
+            <% if question.text_field? %>
+                <%= ff.input :answer, :label => question.gist %>
+            <% elsif question.dropdown? %>
+                <%= ff.input :answer, :as => :select, :collection => question.answers.map(&:gist), :include_blank => false, :label => question.gist %>
+            <% elsif question.checkboxes? %>
+                <%= ff.input :answer, :as => :check_boxes, :collection => question.answers.map(&:gist), :label => question.gist %>
+            <% end %>
+        <% end %>
+      </div>
+      <button type="submit"><span><span><%= t("meetup.confirm_participation") %></span></span></button>
   <% end %>
-  </div>
-  <button type="submit"><span><span>Участие подтверждаю</span></span></button>
-<% end %>
+</div>
