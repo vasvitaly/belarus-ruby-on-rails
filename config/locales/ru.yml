@@ -79,6 +79,9 @@ ru:
     subject_for_new_participant_message: 'Участие в мероприятии'
     registration_to_meetup: 'Регистрация на мероприятие'
     confirm_participation: 'Участие подтверждаю'
+    successfully_registered: 'Вы зарегистрировались на мероприятие успешно'
+    registration_form_incorrect: 'Регистрационная форма содержит ошибки'
+    nothing_selected: 'Ничего не выбрано'
   articles:
     article_successfully_created: 'Статья была успешно сохранена'
     article_successfully_updated: 'Статья была успешно обновлена'

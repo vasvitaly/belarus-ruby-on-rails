@@ -13,9 +13,9 @@ class ParticipantsController < ApplicationController
     if @participant.save
       Notifier.new_participant_for_meetup(@meetup, @participant).deliver
       Notifier.new_participant_for_meetup_for_admin(@meetup, @participant).deliver
-      redirect_to root_path, :notice => 'Вы зарегистрировались на мероприятие успешно'
+      redirect_to root_path, :notice => t('meetup.successfully_registered')
     else
-      flash[:error] = 'Форма содержит ошибки'
+      flash[:error] = t("meetup.registration_form_incorrect")
       render :new
     end
   end
