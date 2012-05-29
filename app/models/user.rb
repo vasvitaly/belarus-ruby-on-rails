@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
                 I18n.t('activerecord.attributes.user.created_at'),
                 I18n.t('admin.users.answered_questions') ]
 
-    CSV.generate(:col_sep => ";", :row_sep => "\n", :quote_char => "\"") do |tsv|
+    CSV.generate(:col_sep => ";", :quote_char => "\"", :force_quotes => true, :encoding => "Windows-1251") do |tsv|
       tsv << headers
       users.each do |user|
         tsv << [user.profile.first_name, user.profile.last_name, user.email, user.profile.experience.level, I18n.l(user.created_at, :format => :short), user.answered_questions(filters).join("\n")]
