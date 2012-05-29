@@ -24,6 +24,7 @@ ru:
       unban: 'Снять бан'
       reset_password: 'Сбросить пароль пользователя'
       reset_password_notice: 'На электронную почту пользователя были отправлены инструкции по смене пароля'
+      answered_questions: 'Ответы'
     messages:
       title: 'Рассылка'
       invalid_user_group: ' содержит неправильный фильтр'

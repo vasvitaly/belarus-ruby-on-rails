@@ -111,20 +111,36 @@ class User < ActiveRecord::Base
     io
   end
 
-  def self.to_csv(users)
+  def self.to_csv(users, filters)
     require "csv"
 
     headers = [ I18n.t('activerecord.attributes.profile.first_name'),
                 I18n.t('activerecord.attributes.profile.last_name'),
                 I18n.t('activerecord.attributes.user.email'),
                 I18n.t('activerecord.attributes.experience.level'),
-                I18n.t('activerecord.attributes.user.created_at') ]
+                I18n.t('activerecord.attributes.user.created_at'),
+                I18n.t('admin.users.answered_questions') ]
 
-    CSV.generate(:col_sep => "\t") do |tsv|
+    CSV.generate(:col_sep => ";", :row_sep => "\n", :quote_char => "\"") do |tsv|
       tsv << headers
       users.each do |user|
-        tsv << [user.profile.first_name, user.profile.last_name, user.email, user.profile.experience.level, I18n.l(user.created_at, :format => :short)]
+        tsv << [user.profile.first_name, user.profile.last_name, user.email, user.profile.experience.level, I18n.l(user.created_at, :format => :short), user.answered_questions(filters).join("\n")]
       end
     end
+  end
+
+  def answered_questions(filter)
+    answered_questions = []
+    participants.participants_on(filter).each do |participant|
+      participant.quizzes.each do |quiz|
+        answer = quiz.answer
+        if answer.class == Array
+          answer -= [""]
+          answer = answer.join(", ")
+        end
+        answered_questions << "#{quiz.question.gist}: #{answer};"
+      end
+    end
+    answered_questions
   end
 end

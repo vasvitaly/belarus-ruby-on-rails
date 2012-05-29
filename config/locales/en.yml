@@ -24,6 +24,7 @@ en:
       unban: 'Unban'
       reset_password: 'Reset user password'
       reset_password_notice: 'Instructions about password resetting  were sent to user email'
+      answered_questions: 'Answers'
     messages:
       title: 'Send mail to users'
       invalid_user_group: ' contains not valid user group'
