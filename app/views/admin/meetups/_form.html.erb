@@ -21,18 +21,23 @@
       </td>
     </tr>
     <tr>
-      <td><%= f.label :letter_subject, 'Тема письма уведомления' %></td>
+      <td><%= f.label :letter_subject, t('meetup.letter_subject') %></td>
       <td>
         <div class="field"><%= f.text_field :letter_subject %></div>
       </td>
     </tr>
     <tr>
-      <td><%= f.label :letter_body, 'Текст письма уведомления' %></td>
+      <td><%= f.label :letter_body, t('meetup.letter_body') %></td>
       <td>
         <div class="field"><%= f.cktext_area :letter_body %></div>
       </td>
     </tr>
-
+    <tr>
+      <td><%= f.label :url, t('meetup.url') %></td>
+      <td>
+        <div class="field"><%= f.text_field :url %></div>
+      </td>
+    </tr>
     <tr>
       <td><%= f.label "date_and_time", t('meetup.date_and_time') %></td>
       <td>

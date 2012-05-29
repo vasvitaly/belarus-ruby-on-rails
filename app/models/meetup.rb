@@ -1,5 +1,5 @@
 class Meetup < ActiveRecord::Base
-  attr_accessible :topic, :description, :place, :date_and_time, :questions_attributes, :letter_subject, :letter_body
+  attr_accessible :topic, :description, :place, :date_and_time, :questions_attributes, :letter_subject, :letter_body, :url
 
   has_many :participants
   has_many :questions

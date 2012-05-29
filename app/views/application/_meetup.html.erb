@@ -8,6 +8,9 @@
     </div>
 
     <p><%= @meetup.description %></p>
+    <% unless @meetup.url.blank? %>
+        <p><%= link_to t('meetup.more_info'), @meetup.url %></p>
+    <% end %>
 
     <% if @current_user %>
       <% if current_user_is_participant? %>
@@ -20,6 +23,6 @@
     <% end %>
   </div>
 
-  <%= render :file => "app/views/application/_sharing_buttons.html.erb", :locals => { :share => @share } %>
+  <%= render :file => "app/views/application/_sharing_buttons.html.erb", :locals => { :share => @meetup_share } %>
 </div>
 <% end %>
