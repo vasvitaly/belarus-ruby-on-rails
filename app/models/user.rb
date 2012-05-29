@@ -114,7 +114,8 @@ class User < ActiveRecord::Base
   def self.to_csv(users, filters)
     require "csv"
 
-    headers = [ I18n.t('activerecord.attributes.profile.first_name'),
+    headers = [ I18n.t('admin.users.number'),
+                I18n.t('activerecord.attributes.profile.first_name'),
                 I18n.t('activerecord.attributes.profile.last_name'),
                 I18n.t('activerecord.attributes.user.email'),
                 I18n.t('activerecord.attributes.experience.level'),
@@ -123,8 +124,8 @@ class User < ActiveRecord::Base
 
     CSV.generate(:col_sep => ";", :quote_char => "\"", :force_quotes => true, :encoding => "Windows-1251") do |tsv|
       tsv << headers
-      users.each do |user|
-        tsv << [user.profile.first_name, user.profile.last_name, user.email, user.profile.experience.level, I18n.l(user.created_at, :format => :short), user.answered_questions(filters).join("\n")]
+      users.each_with_index do |user, index|
+        tsv << [index + 1, user.profile.first_name, user.profile.last_name, user.email, user.profile.experience.level, I18n.l(user.created_at, :format => :short), user.answered_questions(filters).join("\n")]
       end
     end
   end
