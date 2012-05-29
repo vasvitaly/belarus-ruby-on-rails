@@ -34,6 +34,8 @@ class Ability
       end
 
       can :read, StaticPage
+
+      can :thanks, Participant
     end
   end
 end
