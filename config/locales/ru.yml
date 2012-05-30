@@ -92,7 +92,7 @@ ru:
     letter_subject: 'Тема письма уведомления'
     letter_body: 'Текст письма уведомления'
     url: 'URL для мероприятия'
-    more_info: 'Подробнее...'
+    more_info: 'Подробнее.'
   articles:
     article_successfully_created: 'Статья была успешно сохранена'
     article_successfully_updated: 'Статья была успешно обновлена'
