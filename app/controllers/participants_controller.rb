@@ -27,6 +27,7 @@ class ParticipantsController < ApplicationController
       @participants = User.find(params[:user_id]).participants.participants_on(params[:filters])
     else
       @participants = User.find(current_user.id).participants.participants_on(@meetup.id)
+      Notifier.removed_participant_for_meetup_for_admin(@meetup, current_user).deliver
     end
     @participants.destroy_all
 
