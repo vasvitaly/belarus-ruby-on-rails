@@ -83,6 +83,7 @@ en:
     register_at: 'Register to meetup'
     signed_in_to_attend: 'You need to be signed in to attempt to meetup'
     registered: 'You are participant !!!'
+    unregister: 'unregister'
     registration_to_meetup: 'Registration to event'
     confirm_participation: 'Confirm participation'
     successfully_registered: 'You have been registered successfully'

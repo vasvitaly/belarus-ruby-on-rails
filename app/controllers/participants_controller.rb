@@ -22,11 +22,16 @@ class ParticipantsController < ApplicationController
   end
 
   def destroy
-    @participants = User.find(params[:user_id]).participants.participants_on(params[:filters])
+    as_admin = current_user.is_admin && params[:user_id] && params[:filters]
+    if as_admin
+      @participants = User.find(params[:user_id]).participants.participants_on(params[:filters])
+    else
+      @participants = User.find(current_user.id).participants.participants_on(@meetup.id)
+    end
     @participants.destroy_all
 
     respond_to do |format|
-      format.html { redirect_to admin_users_path, :notice => t('admin.participants.participant_successfully_deleted') }
+      format.html { redirect_to as_admin ? admin_users_path : root_path, :notice => t('admin.participants.participant_successfully_deleted') }
       format.json { head :ok }
     end
   end

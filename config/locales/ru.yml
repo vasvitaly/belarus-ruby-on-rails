@@ -83,6 +83,7 @@ ru:
     register_at: 'Зарегистрироваться на мероприятие'
     signed_in_to_attend: 'Ты должен быть зарегистрированным пользователем, чтобы записаться на мероприятие'
     registered: 'Вы участвуете'
+    unregister: 'отказаться'
     subject_for_new_participant_message: 'Участие в мероприятии'
     registration_to_meetup: 'Регистрация на мероприятие'
     confirm_participation: 'Участие подтверждаю'
