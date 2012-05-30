@@ -33,5 +33,9 @@
     <% else %>
       <%= link_to button_inner_html(t('meetup.create_link')), new_admin_meetup_path, :class => 'button' %>
     <% end %>
+
+    <p></p>
+    <%= render :partial => "admin/meetups/event", :collection => @events %>
+    <%= will_paginate @events %>
   </div>
 </div>

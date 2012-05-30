@@ -1,0 +1,5 @@
+<div>
+
+  <%= event.topic %>
+  <%= link_to('x', admin_meetup_path(event), :method => :delete, :confirm => t('common.are_you_sure')) if can? :destroy, event %>
+</div>

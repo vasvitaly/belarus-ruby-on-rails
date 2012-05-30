@@ -23,6 +23,16 @@ class Admin::UsersController < ApplicationController
     redirect_to :action => :index
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_users_path, :notice => t('admin.users.delete_ok') }
+      format.json { head :ok }
+    end
+  end
+
   protected
 
   def export_csv(filters)

@@ -26,12 +26,16 @@ en:
       reset_password_notice: 'Instructions about password resetting  were sent to user email'
       answered_questions: 'Answers'
       number: 'Number'
+      delete_ok: 'User deleted successfully'
     messages:
       title: 'Send mail to users'
       invalid_user_group: ' contains not valid user group'
       successfully_sent: 'Message is being sent'
       send: 'send mail'
       send_button: 'Send Message'
+    participants:
+      participant_successfully_deleted: 'Participant successfully deleted'
+      delete: 'Cancel participation in meetup'
   errors:
     changes_not_saved: 'Unable to save changes'
   profile:
@@ -69,6 +73,7 @@ en:
     create_ok: 'Meetup created successfully'
     cancel_ok: 'Meetup cancelled successfully'
     update_ok: 'Meetup updated successfully'
+    delete_ok: 'Meetup deleted successfully'
     cancel_link: 'Cancel meetup'
     create_link: 'Create meetup'
     update_link: 'Edit meetup'

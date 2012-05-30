@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ParticipantsController < ApplicationController
   load_and_authorize_resource
+
   def new
     @participant = Participant.new
     @meetup.questions.each do |q|
@@ -17,6 +18,16 @@ class ParticipantsController < ApplicationController
     else
       flash[:error] = t("meetup.registration_form_incorrect")
       render :new
+    end
+  end
+
+  def destroy
+    @participants = User.find(params[:user_id]).participants.participants_on(params[:filters])
+    @participants.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to admin_users_path, :notice => t('admin.participants.participant_successfully_deleted') }
+      format.json { head :ok }
     end
   end
 end

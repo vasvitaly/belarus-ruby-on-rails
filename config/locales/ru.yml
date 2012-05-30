@@ -26,12 +26,16 @@ ru:
       reset_password_notice: 'На электронную почту пользователя были отправлены инструкции по смене пароля'
       answered_questions: 'Ответы'
       number: 'Номер'
+      delete_ok: 'Пользователь успешно удален'
     messages:
       title: 'Рассылка'
       invalid_user_group: ' содержит неправильный фильтр'
       successfully_sent: 'Сообщение будет отослано'
       send: 'осуществлять рассылку'
       send_button: 'Послать сообщение'
+    participants:
+      participant_successfully_deleted: 'Участник успешно удален'
+      delete: 'Отменить участие в мероприятии'
   errors:
     changes_not_saved: 'Не удалось сохранить изменения'
   profile:
@@ -69,6 +73,7 @@ ru:
     create_ok: 'Мероприятие успешно создано'
     cancel_ok: 'Мероприятие успешно отменено'
     update_ok: 'Мероприятие успешно отредактировано'
+    delete_ok: 'Мероприятие успешно удалено'
     cancel_link: 'Отменить мероприятие'
     create_link: 'Создать мероприятие'
     update_link: 'Редактировать мероприятие'

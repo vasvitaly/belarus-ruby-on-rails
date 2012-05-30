@@ -11,8 +11,12 @@
   <td><%= user.answered_questions(params[:filters]).join("<br />").html_safe %></td>
   <td>
     <ul>
-        <li><%= link_to(link_to_admin_title(user), admin_user_path(user, :attr => 'admin'), :method => :put, :confirm => t('common.are_you_sure')) if can? :update, user %> </li>
-        <li><%= link_to(link_to_banned_title(user), admin_user_path(user, :attr => 'banned'), :method => :put) if can? :ban, user %> </li>
+      <li><%= link_to(link_to_admin_title(user), admin_user_path(user, :attr => 'admin'), :method => :put, :confirm => t('common.are_you_sure')) if can? :update, user %> </li>
+      <li><%= link_to(link_to_banned_title(user), admin_user_path(user, :attr => 'banned'), :method => :put) if can? :ban, user %> </li>
+      <% if params[:filters] %>
+          <li><%= link_to(t('admin.participants.delete'), participants_destroy_path(:user_id => user.id, :filters => params[:filters]), :method => :delete) if can? :destroy, user %> </li>
+      <% end %>
+      <li><%= link_to(t('users.cancel_my_account'), admin_user_path(user), :method => :delete, :confirm => t('common.are_you_sure')) if can? :destroy, user %> </li>
     </ul>
   </td>
 </tr>

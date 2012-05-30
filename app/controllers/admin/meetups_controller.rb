@@ -13,17 +13,18 @@ class Admin::MeetupsController < ApplicationController
       redirect_to admin_meetups_url
     else
       respond_to do |format|
-        format.html  {
+        format.html {
           flash[:notice] = @meetup.errors.full_messages.join("\n")
           render :action => "new"
         }
-        format.json  { head :ok }
+        format.json { head :ok }
       end
     end
   end
 
   def index
     @meetup = Meetup.active.recent.first
+    @events = Meetup.paginate(:per_page => 10, :page => params[:page], :order => 'meetups.date_and_time DESC')
   end
 
   def cancel
@@ -42,12 +43,22 @@ class Admin::MeetupsController < ApplicationController
       redirect_to admin_meetups_path
     else
       respond_to do |format|
-        format.html  {
+        format.html {
           flash[:notice] = @meetup.errors.full_messages.join("\n")
           render :action => "edit"
         }
-        format.json  { render :json => @meetup.errors }
+        format.json { render :json => @meetup.errors }
       end
+    end
+  end
+
+  def destroy
+    @meetup = Meetup.find(params[:id])
+    @meetup.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_meetups_path, :notice => t('meetup.delete_ok') }
+      format.json { head :ok }
     end
   end
 end
