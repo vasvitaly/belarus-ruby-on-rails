@@ -38,4 +38,4 @@
     <%= render :partial => "admin/users/user", :collection => @users %>
 </table>
 
-<%= will_paginate @users %>
+<%= will_paginate @users, :params=>{:filters=>params[:filters]} %>
