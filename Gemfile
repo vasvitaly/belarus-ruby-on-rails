@@ -56,11 +56,8 @@ gem 'acts_as_tree'
 gem 'feedzirra'
 
 gem 'sunspot_rails'
+gem 'sunspot_solr'
 gem 'progress_bar'
-
-group :test, :development do
-  gem 'sunspot_solr'
-end
 
 group :test do
   gem 'cucumber-rails'
