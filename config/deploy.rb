@@ -38,15 +38,13 @@ task :before_update_code do
   run "cd #{current_path} && rake sunspot:solr:stop RAILS_ENV=#{rails_env}"
 end
 
-after "deploy:solr:symlink"
-
 namespace :solr do
-  desc <<-DESC
-Symlink in-progress deployment to a shared Solr index.
-  DESC
   task :symlink, :except => {:no_release => true} do
     run "ln -nfs #{shared_path}/solr #{current_path}/solr"
     run "ls -al #{current_path}/solr/pids/"
+    run "cd #{current_path} && rake sunspot:solr:reindex RAILS_ENV=#{rails_env}"
     run "cd #{current_path} && rake sunspot:solr:start RAILS_ENV=#{rails_env}"
   end
 end
+
+after "deploy:restart", "solr:symlink"
