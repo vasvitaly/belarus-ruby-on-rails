@@ -25,6 +25,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update_attributes params[:profile]
+        @profile.user.index!
         format.html { redirect_to get_stored_location, :notice => t('profile.profile_updated') }
       else
         format.html { render :action => :edit }

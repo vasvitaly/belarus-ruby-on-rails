@@ -6,8 +6,17 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       format.html {
-        @users = User.filter(params[:filters])
-        .paginate(:per_page => 10, :page => params[:page], :order => params[:filters] ? 'participants.created_at DESC' : 'users.created_at DESC')
+        @users = User.search do
+          fulltext params[:search][:query] unless params.try(:[], :search).try(:[], :query).blank?
+          with :meetup_id, params[:filters] unless params[:filters].blank?
+          unless params.try(:[], :search).try(:[], :date).try(:[], :start).blank? || params.try(:[], :search).try(:[], :date).try(:[], :end).blank?
+            with :created_at, params[:search][:date][:start]..params[:search][:date][:end]
+            with :created_participant_at, params[:search][:date][:start]..params[:search][:date][:end]
+          end
+          order_by params[:filters].blank? ? :created_at : :created_last_participant_at, :desc
+          paginate :per_page => 10, :page => params[:page]
+        end
+        .results
       }
       format.csv { export_csv(params[:filters]) }
     end

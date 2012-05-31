@@ -205,7 +205,7 @@ ul.task-list { list-style-type:circle; list-style-position:inside; margin-bottom
 ul.task-list li { margin-left: 10px; }
 ul.task-list li a { text-decoration: none; }
 
-.i-warn-message { font-style: italic; font-size:12px; display: block; }
+.i-warn-message, .hint { font-style: italic; font-size:12px; display: block; }
 .warn-message { font-weight: bold; display:block; }
 
 .list-table {

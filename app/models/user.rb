@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :encryptable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_attributes, :created_at
   accepts_nested_attributes_for :profile
 
   validates_associated :profile
@@ -24,6 +24,26 @@ class User < ActiveRecord::Base
   scope :filter, lambda{ |*filters|
     includes(:profile => :experience).joins(:profile).merge(Profile.filter(filters))
   }
+
+  searchable do
+    text :email
+    text :first_name do
+      self.profile.first_name
+    end
+    text :last_name do
+      self.profile.last_name
+    end
+    string :meetup_id, :multiple => true do
+      self.participants.collect(&:meetup_id)
+    end
+    time :created_at, :trie => true
+    time :created_participant_at, :multiple => true, :trie => true do
+      self.participants.collect(&:created_at)
+    end
+    time :created_last_participant_at do
+      self.participants.last.try(:created_at)
+    end
+  end
 
   def self.new_with_session(params, session)
     super.tap do |user|

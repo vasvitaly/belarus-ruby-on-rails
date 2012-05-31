@@ -1,41 +1,40 @@
-<h1><%= t 'admin.users.manage_users_title' %></h1>
-<%= form_tag(admin_users_path, :method => "post", :class=>'forms') do %>
-    <table class='loginTBL'>
-      <tr>
-        <td><%= t 'admin.users.filter_list' %><span class='i-warn-message'><%= t 'admin.users.all_user_remark' %></span></td>
-        <td>
-          <div class='field'>
-            <%= select_tag 'filters',
-                           options_from_collection_for_select(Meetup.order('topic').all, 'id', 'topic', params[:filters]),
-                           { :multiple => true } %>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td></td><td></td>
-      </tr>
-      <tr>
-        <td class='field' colspan='2'>
-            <button type="submit" onclick="$(this).closest('form').attr('action', '<%= admin_users_path %>');">
-              <span><span><%= t 'admin.users.filter' %></span></span>
-            </button>
-            <button type="submit" onclick="$(this).closest('form').attr('action', '<%= admin_users_path(:format => 'csv') %>');">
-              <span><span><%= t 'admin.users.download_csv' %></span></span>
-            </button>
-        </td>
-    </table>
-<% end %>
+<div class="forms">
+  <h1><%= t 'admin.users.manage_users_title' %></h1>
+
+  <%= simple_form_for('search', {:wrapper => :default, :action => admin_users_path, :method => "post", :class => 'forms'}) do |f| %>
+      <%= f.input :filters,
+                  :collection => Meetup.order('date_and_time DESC').limit(100).all.collect { |m| [m.topic, m.id] },
+                  :selected => params.try(:[], :filters),
+                  :input_html => {:multiple => true, :name => 'filters[]'},
+                  :label => t('admin.users.filter_list'),
+                  :hint => t('admin.users.all_user_remark'),
+                  :required => false %>
+
+      <%= f.input :query, :label => t('admin.users.search'), :required => false, :input_html => {:value => params.try(:[], :search).try(:[], :query)} %>
+
+      <%= f.input :start, :label => t('admin.users.period'), :required => false, :input_html => {:class => 'datepicker', :name => 'search[date][start]', :value => params.try(:[], :search).try(:[], :date).try(:[], :start)} %>
+      <%= f.input :end, :label => false, :required => false, :input_html => {:class => 'datepicker', :name => 'search[date][end]', :value => params.try(:[], :search).try(:[], :date).try(:[], :end)} %>
+
+      <button type="submit" onclick="$(this).closest('form').attr('action', '<%= admin_users_path %>');">
+        <span><span><%= t 'admin.users.filter' %></span></span>
+      </button>
+      <button type="submit" onclick="$(this).closest('form').attr('action', '<%= admin_users_path(:format => 'csv') %>');">
+        <span><span><%= t 'admin.users.download_csv' %></span></span>
+      </button>
+
+  <% end %>
+</div>
 
 <table class='list-table'>
-    <tr>
-      <th><%= t 'admin.users.number' %></th>
-      <th><%= t 'activerecord.attributes.profile.first_name' %></th>
-      <th><%= t 'activerecord.attributes.user.email' %></th>
-      <th><%= t 'activerecord.attributes.user.created_at' %></th>
-      <th><%= t 'admin.users.answered_questions' %></th>
-      <th></th>
-    </tr>
-    <%= render :partial => "admin/users/user", :collection => @users %>
+  <tr>
+    <th><%= t 'admin.users.number' %></th>
+    <th><%= t 'activerecord.attributes.profile.first_name' %></th>
+    <th><%= t 'activerecord.attributes.user.email' %></th>
+    <th><%= t 'activerecord.attributes.user.created_at' %></th>
+    <th><%= t 'admin.users.answered_questions' %></th>
+    <th></th>
+  </tr>
+  <%= render :partial => "admin/users/user", :collection => @users %>
 </table>
 
-<%= will_paginate @users, :params=>{:filters=>params[:filters]} %>
+<%= will_paginate @users, :params => {:filters => params[:filters], :search => params[:search]} %>

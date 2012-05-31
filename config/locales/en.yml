@@ -13,6 +13,8 @@ en:
       filter_list: 'List of filters'
       filter: 'Filter'
       all_user_remark: 'Select nothing to reset all filters'
+      search: 'Search'
+      period: 'Period'
       download_csv: 'Download CSV'
       send_to: 'Send mail to %{name}'
       edit_profile: 'Edit profile'

@@ -7,7 +7,7 @@
   <td>
     <%= mail_to user.email, user.email, :title => t('admin.users.send_to', :name => user.profile.full_name) %>
   </td>
-  <td><%= l user.created_at, :format => :short %></td>
+  <td><%= l params[:filters] ? user.participants.last.created_at : user.created_at, :format => :short %></td>
   <td><%= user.answered_questions(params[:filters]).join("<br />").html_safe %></td>
   <td>
     <ul>
