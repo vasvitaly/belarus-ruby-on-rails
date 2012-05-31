@@ -5,8 +5,10 @@ class Admin::UsersController < ApplicationController
     store_location
 
     respond_to do |format|
-      format.html { @users = User.filter(params[:filters])
-        .paginate(:per_page => 10, :page => params[:page], :order => 'users.created_at DESC') }
+      format.html {
+        @users = User.filter(params[:filters])
+        .paginate(:per_page => 10, :page => params[:page], :order => params[:filters] ? 'participants.created_at DESC' : 'users.created_at DESC')
+      }
       format.csv { export_csv(params[:filters]) }
     end
   end
