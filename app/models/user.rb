@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_attributes, :created_at
   accepts_nested_attributes_for :profile
 
+  validates_presence_of :email
+  validates_uniqueness_of :email
   validates_associated :profile
   validates :profile, :presence => true
 
