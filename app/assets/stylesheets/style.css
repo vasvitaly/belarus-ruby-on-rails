@@ -252,3 +252,7 @@ div.fields .required {position: static; color: #000;}
 .registration .field {float:left;width:228px;}
 .registration .field > label {display:block;}
 .registration .error {color:#c46969}
+
+table.styled {border:1px solid black;}
+table.styled th, table.styled td {border:1px solid black;padding:2px 5px;}
+table.styled th {font-weight:bold;}
