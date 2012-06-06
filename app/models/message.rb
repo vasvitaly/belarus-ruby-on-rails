@@ -9,8 +9,8 @@ class Message
     filters = Meetup.all.map{ |el| el.id.to_s }
     model.errors.add attribute, I18n.t('admin.messages.invalid_user_group')  if values && values != (values & filters)
   end
-  validates :subject, :presence=> true, :length => {:minimum => 3, :maximum => 100}
-  validates :body, :presence => true, :length => {:minimum => 5, :maximum => 500}
+  validates :subject, :presence=> true
+  validates :body, :presence => true
 
   def initialize(attributes = {})
     attributes.each do |name, value|
