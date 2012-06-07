@@ -22,3 +22,7 @@
 every 2.hours do
   runner "RSS.fetch_aggregators"
 end
+
+every 1.day, :at => '4:30 am' do
+  command "backup perform --trigger my_backup -c ~/Backup/config.rb"
+end

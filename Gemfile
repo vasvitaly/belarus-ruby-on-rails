@@ -60,6 +60,8 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'progress_bar'
 
+gem 'backup'
+
 group :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
