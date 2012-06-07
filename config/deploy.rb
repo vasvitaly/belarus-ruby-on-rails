@@ -37,7 +37,7 @@ end
 
 task :before_update_code do
   #stop solr:
-  run "cd #{current_path} && rake sunspot:solr:stop RAILS_ENV=#{rails_env}"
+  run "cd #{current_path} && bundle exec rake sunspot:solr:stop RAILS_ENV=#{rails_env}"
 end
 
 namespace :solr do
