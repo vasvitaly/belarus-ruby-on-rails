@@ -346,6 +346,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 3.1.0)
   cucumber-rails
+  daemons
   database_cleaner
   delayed_job (~> 3.0.3)
   delayed_job_active_record (~> 0.3.2)
