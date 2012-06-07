@@ -7,6 +7,7 @@ set :rails_env, 'production'
 set :branch, 'master'
 server '50.57.221.109', :web, :app, :db, :primary => true
 set :normalize_asset_timestamps, false
+set :keep_releases, 5
 
 set :use_sudo, false
 set :user, "deploy"
