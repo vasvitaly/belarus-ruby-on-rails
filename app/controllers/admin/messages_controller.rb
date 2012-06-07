@@ -9,7 +9,9 @@ class Admin::MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.valid?
-      Message.delay.deliver(@message.recipient_group, @message.subject, @message.body)
+      Profile.subscribed.filter(@message.recipient_group).includes(:user).uniq.each do |recipient|
+        Notifier.delay.broadcast_message(recipient.user.email, @message.subject, @message.body)
+      end
       redirect_to admin_root_url, :notice => I18n.t('admin.messages.successfully_sent')
     else
       render :action => 'new'

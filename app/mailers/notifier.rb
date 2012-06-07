@@ -2,7 +2,7 @@
 class Notifier < ActionMailer::Base
   default :from => "Белорусское сообщество Ruby On Rails <no-reply@belarusrubyonrails.org>", :charset => 'utf-8'
 
-  def custom(to, subject, body)
+  def broadcast_message(to, subject, body)
     mail(:to => to, :subject => subject, :body => body, :content_type => "text/html")
   end
 

@@ -22,9 +22,4 @@ class Message
     false
   end
 
-  def self.deliver(recipient_group, subject, body)
-    Profile.subscribed.filter(recipient_group).includes(:user).each do |recipient|
-      Notifier.custom(recipient.user.email, subject, body).deliver
-    end
-  end
 end

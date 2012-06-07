@@ -1,5 +1,6 @@
 require 'bundler/capistrano'
 require "whenever/capistrano"
+require "delayed/recipes"
 set :application, "belarus-on-rails"
 set :deploy_to, "/home/deploy/belarus-on-rails"
 set :rails_env, 'production'
@@ -48,3 +49,7 @@ namespace :solr do
 end
 
 after "deploy:restart", "solr:symlink"
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
