@@ -29,6 +29,7 @@ en:
       answered_questions: 'Answers'
       number: 'Number'
       delete_ok: 'User deleted successfully'
+      reversed: 'For everybody except selected groups'
     messages:
       title: 'Send mail to users'
       invalid_user_group: ' contains not valid user group'
@@ -189,6 +190,7 @@ en:
         recipient_group: 'Recipient group'
         subject: 'Subject'
         body: 'Body'
+        reversed: 'Reversed'
       twitter_block:
         search: 'Search'
         title: 'Title'

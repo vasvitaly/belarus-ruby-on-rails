@@ -3,7 +3,7 @@ class Message
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :recipient_group, :subject, :body
+  attr_accessor :recipient_group, :subject, :body, :reversed
 
   validates_each :recipient_group do |model, attribute, values|
     filters = Meetup.all.map{ |el| el.id.to_s }

@@ -29,6 +29,7 @@ ru:
       answered_questions: 'Ответы'
       number: 'Номер'
       delete_ok: 'Пользователь успешно удален'
+      reversed: 'Для каждого кроме выбранных групп'
     messages:
       title: 'Рассылка'
       invalid_user_group: ' содержит неправильный фильтр'
@@ -202,6 +203,7 @@ ru:
         recipient_group: 'Адресаты'
         subject: 'Тема'
         body: 'Содержание'
+        reversed: 'Реверсивно'
       meetup:
         topic: 'Тема'
         description: 'Содержание'

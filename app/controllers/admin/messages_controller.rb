@@ -9,7 +9,16 @@ class Admin::MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.valid?
-      Profile.subscribed.filter(@message.recipient_group).includes(:user).uniq.each do |recipient|
+      recipients = if @message.reversed == "yes"
+        if @message.recipient_group
+          Profile.subscribed.includes(:user).uniq - Profile.subscribed.filter(@message.recipient_group).includes(:user).uniq
+        else
+          Profile.subscribed.includes(:user).uniq
+        end
+      else
+        Profile.subscribed.filter(@message.recipient_group).includes(:user).uniq
+      end
+      recipients.each do |recipient|
         #Notifier.delay.broadcast_message(recipient.user.email, @message.subject, @message.body)
         Notifier.broadcast_message(recipient.user.email, @message.subject, @message.body).deliver
       end
