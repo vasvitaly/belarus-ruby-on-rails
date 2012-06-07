@@ -157,8 +157,8 @@ ru:
     partners: 'Партнёры'
     site_name: 'Belarus Ruby on Rails User Group'
   menu:
-    main: 'Главная'
-    news: 'Новости Ruby on Rails'
+    main: 'Блог'
+    news: 'Планета Ruby'
     about: 'О нас'
     friends: 'Друзья'
     control_panel: 'Админка'
