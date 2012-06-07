@@ -35,12 +35,12 @@ task :symlink_config_files do
   run "chmod -R g+rw #{release_path}/public"
 end
 
-task :before_update_code do
-  #stop solr:
-  run "cd #{current_path} && bundle exec rake sunspot:solr:stop RAILS_ENV=#{rails_env}"
-end
-
 namespace :solr do
+  task :kill, :except => {:no_release => true} do
+    #run "cd #{current_path} && bundle exec rake sunspot:solr:stop RAILS_ENV=#{rails_env}"
+    run "pidof java | xargs kill"
+  end
+
   task :symlink, :except => {:no_release => true} do
     run "ln -nfs #{shared_path}/solr #{current_path}/solr"
     run "ls -al #{current_path}/solr/pids/"
@@ -49,10 +49,10 @@ namespace :solr do
   end
 end
 
+before "deploy:update_code", "solr:kill"
 after "deploy:restart", "solr:symlink"
 
-after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start"
-after "deploy:restart", "delayed_job:restart"
+before "deploy:update_code", "delayed_job:stop"
+after "deploy:update_code", "delayed_job:start"
 
 after "deploy:restart", "deploy:cleanup"
