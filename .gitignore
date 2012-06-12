@@ -18,3 +18,5 @@ public/ckeditor_assets/attachments
 public/ckeditor_assets/pictures
 solr/data/**/*
 solr/pids/**/*
+.idea/
+
