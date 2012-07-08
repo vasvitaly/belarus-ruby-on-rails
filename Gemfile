@@ -45,7 +45,7 @@ gem 'daemons', '~> 1.1.8'
 
 gem 'cells'
 
-gem 'russian'
+gem 'russian', '~> 0.6.0'
 gem 'i18n-js'
 
 gem 'friendly_id', '~> 4.0.0.beta14'
