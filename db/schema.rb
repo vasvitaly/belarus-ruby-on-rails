@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525132001) do
+ActiveRecord::Schema.define(:version => 20120607172722) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20120525132001) do
     t.string   "locked_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "queue"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20120525132001) do
     t.boolean  "cancelled",      :default => false
     t.string   "letter_subject"
     t.text     "letter_body"
+    t.string   "url"
   end
 
   create_table "participants", :force => true do |t|
