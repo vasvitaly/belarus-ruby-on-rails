@@ -23,6 +23,7 @@
       </tr>
       <%= f.fields_for :profile do |ff| %>
         <%= render 'profiles/level', :f => ff %>
+        <%= render 'profiles/locale', :f => ff %>
       <% end %>
       <tr>
         <td></td>

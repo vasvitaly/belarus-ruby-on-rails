@@ -192,6 +192,8 @@ ru:
         first_name: 'Имя'
         last_name: 'Фамилия'
         subscribed: 'Получать новости по E-mail'
+        locale: 'Язык'
+        prompt: 'Выбрать'
       user:
         email: 'Электронная почта'
         password: 'Пароль'
@@ -325,3 +327,6 @@ ru:
     source: 'Источник'
     listing_aggregators: 'Список аггрегаторов'
     fetch: 'Обновить новости'
+  languages:
+    ru: "Русский"
+    en: "Английский"

@@ -19,6 +19,10 @@
                 <th><%= t('activerecord.attributes.profile.experience_id') %></th>
                 <td><%= @profile.experience.level %></td>
             </tr>
+            <tr>
+                <th><%= t('activerecord.attributes.profile.locale') %></th>
+                <td><%= @profile.locale %></td>
+            </tr>
         </table>
         <% if @profile.subscribed_for_comments %>
           <p><%= t('profile.subscribed_for_comments') %></p>

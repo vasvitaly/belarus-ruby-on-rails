@@ -192,6 +192,8 @@ en:
         first_name: 'First name'
         last_name: 'Last name'
         subscribed: 'Receive news E-mails'
+        locale: 'Language'
+        prompt: 'Please select'
       user:
         email: 'Email'
         password: 'Password'
@@ -325,3 +327,6 @@ en:
     source: 'Source'
     listing_aggregators: 'List of aggregators'
     fetch: 'Update news'
+  languages:
+    ru: "Russian"
+    en: "English"

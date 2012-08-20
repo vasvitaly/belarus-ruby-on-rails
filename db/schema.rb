@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607172722) do
+ActiveRecord::Schema.define(:version => 20120820150436) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20120607172722) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "locale",                  :default => "ru"
   end
 
   create_table "questions", :force => true do |t|

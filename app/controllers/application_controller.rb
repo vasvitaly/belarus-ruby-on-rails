@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   before_filter :export_i18n_messages
   before_filter :set_current_meetup
+  before_filter :set_locale
+
+  def set_locale
+    I18n.locale = current_user.profile.locale.to_sym if current_user
+  end
 
   rescue_from CanCan::AccessDenied do |e|
     if current_user

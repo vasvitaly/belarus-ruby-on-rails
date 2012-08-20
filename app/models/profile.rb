@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
+  LOCALES = [[I18n.t("languages.ru"), "ru"], [I18n.t("languages.en"), "en"]]
+
   belongs_to :user
   belongs_to :experience
 
@@ -7,7 +9,8 @@ class Profile < ActiveRecord::Base
                   :subscribed,
                   :experience_id,
                   :subscribed_for_comments,
-                  :avatar
+                  :avatar,
+                  :locale
   has_attached_file :avatar, :styles => { :medium => "98x98#", :thumb => "50x50#" },
                     :url => "/system/:attachment/#{Rails.env}/:id/:style/:filename"
 
