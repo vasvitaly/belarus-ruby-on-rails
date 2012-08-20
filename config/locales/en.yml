@@ -87,6 +87,7 @@ en:
     signed_in_to_attend: 'You need to be signed in to attempt to meetup'
     registered: 'You are participant !!!'
     unregister: 'unregister'
+    subject_for_new_participant_message: 'Participating in event'
     registration_to_meetup: 'Registration to event'
     confirm_participation: 'Confirm participation'
     successfully_registered: 'You have been registered successfully'
@@ -171,6 +172,18 @@ en:
     models:
       experience: 'Ruby on Rails level'
     attributes:
+      question:
+        gist: 'Question'
+        kind_of_response: 'Answer type'
+        dropdown: 'Drop down'
+        checkboxes: 'Check boxes'
+        text_field: 'Text field'
+      answer:
+        gist: 'Answer'
+      article:
+        title: 'Title'
+        content: 'Content'
+        published: 'Status'
       experience:
         level: 'Level'
         prompt: 'Please select'
@@ -191,15 +204,68 @@ en:
         subject: 'Subject'
         body: 'Body'
         reversed: 'Reversed'
+      meetup:
+        topic: 'Topic'
+        description: 'Description'
+        place: 'Place'
+        date_and_time: 'Date and time'
       twitter_block:
         search: 'Search'
         title: 'Title'
         subject: 'Subject'
         footer_text: 'Footer text'
       static_pages:
+        title: 'Title'
         permalink: 'Permalink'
-    aggregator_configurations:
-      source: 'Source'
+        content: 'Content'
+      aggregator_configuration:
+        source: 'Source'
+      comment:
+        body: 'Comment'
+    errors:
+      models:
+        profile:
+          attributes:
+            last_name:
+              blank: "can't be blank"
+        user:
+          attributes:
+            email:
+              blank: "can't be blank"
+        meetup:
+          attributes:
+            topic:
+              blank: "can't be blank"
+        comment:
+          attributes:
+            body:
+              blank: "can't be blank"
+              too_short: "too short"
+      messages:
+        too_long:
+          one:   "too long (can't be greater than %{count} symbol)"
+          few:   "too long (can't be greater than %{count} symbols)"
+          many:  "too long (can't be greater than %{count} symbols)"
+          other: "too long (can't be greater than %{count} symbols)"
+        too_short:
+          one:   "too short (can't be less than %{count} symbol)"
+          few:   "too short (can't be less than %{count} symbols)"
+          many:  "too short (can't be less than %{count} symbols)"
+          other: "too short (can't be less than %{count} symbols)"
+  activemodel:
+    attributes:
+      message:
+         recipient_group: 'Recipients'
+         subject: 'Subject'
+         body: 'Body'
+    errors:
+      models:
+        message:
+          blank: "can't be blank"
+          too_short: "too short"
+          attributes:
+            body:
+              blank: "can't be blank"
   actionview:
     helpers:
       select:
@@ -242,9 +308,20 @@ en:
     update: 'Update'
     successfully_updated: 'Settings successfully updated'
   aggregator_configurations:
-    edit: 'Edit RSS aggregator settings'
-    edit_title: 'edit RSS aggregator settings'
-    successfully_updated: 'Aggregator settings succesfully updated'
-    unable_save: 'Unable to save aggregator settings'
+    edit: 'Edit agregator settings'
+    new: 'Add aggregator'
+    edit_title: 'Change aggregator settings'
+    successfully_updated: 'Aggregator setting was successfully saved'
+    successfully_deleted: 'Aggregator was successfully deleted'
+    unable_save: 'Failed to save aggregator settings'
+    fetched: 'Last news successfully updated'
   will_paginate:
     page_gap: '...'
+  aggregators:
+    editing_aggregator: 'Edit aggregator'
+    delete: 'Delete'
+    add_an_aggregator: 'Add an aggregator'
+    no_aggregators: 'No aggregators found'
+    source: 'Source'
+    listing_aggregators: 'List of aggregators'
+    fetch: 'Update news'
