@@ -37,6 +37,7 @@ gem 'rspec-rails', :groups => [:development, :test]
 group :development do
   gem 'capistrano'
   gem 'mailcatcher'
+  gem 'thin'
 end
 
 gem 'delayed_job', '~> 3.0.3'
