@@ -19,4 +19,4 @@ public/ckeditor_assets/pictures
 solr/data/**/*
 solr/pids/**/*
 .idea/
-
+log/sunspot-solr-development.log.lck
