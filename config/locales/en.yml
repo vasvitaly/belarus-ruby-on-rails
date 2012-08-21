@@ -157,6 +157,7 @@ en:
     more_information: 'More information'
     partners: 'Partners'
     site_name: 'Belarus Ruby on Rails User Group'
+    error_page: "Page you requested doesn't exists"
   menu:
     main: 'Home'
     news: 'Ruby on Rails News'

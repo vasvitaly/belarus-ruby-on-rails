@@ -21,6 +21,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_error_page
+  rescue_from StandardError, :with => :render_error_page
+
+  # Catches any missing methods and calls the general render_error_page method
+  def method_missing(*args)
+    render_error_page
+  end
+
+  # General method to render a 404
+  def render_error_page
+    render :template => "shared/error_page", :status => 404
+  end
+
   protect_from_forgery
   include SessionsHelper
 

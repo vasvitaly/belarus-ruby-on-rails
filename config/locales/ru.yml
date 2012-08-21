@@ -157,6 +157,7 @@ ru:
     more_information: 'Подробнее'
     partners: 'Партнёры'
     site_name: 'Belarus Ruby on Rails User Group'
+    error_page: 'Запрошенная страница не существует'
   menu:
     main: 'Блог'
     news: 'Планета Ruby'
