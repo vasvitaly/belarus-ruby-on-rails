@@ -8,6 +8,7 @@
     <%= yield :head %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
+    <%= auto_discovery_link_tag(:rss, articles_path(:format => :rss)) %>
   </head>
   <body>
     <div id="fb-root"></div>
