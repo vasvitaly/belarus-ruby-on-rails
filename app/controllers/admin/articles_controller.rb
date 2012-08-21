@@ -21,6 +21,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /admin/articles/new.json
   def new
     @article = Article.internal.new
+    @admins = User.admin.keep_if{|x| x.id != current_user.id}.insert(0, current_user)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,6 +32,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /admin/articles/1/edit
   def edit
     @article = Article.internal.find(params[:id])
+    @admins = User.admin.keep_if{|x| x.id != current_user.id}.insert(0, current_user)
   end
 
   # POST /admin/articles

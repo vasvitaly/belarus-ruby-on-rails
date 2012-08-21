@@ -20,6 +20,13 @@
             </tr>
 
             <tr>
+              <td><%= f.label :user_id, t('articles.author') %></td>
+              <td>
+                <div class="field"><%= f.select(:user_id, @admins.map{|x| ["#{x.profile.first_name} #{x.profile.last_name}", x.id]}) %></div>
+              </td>
+            </tr>
+
+            <tr>
                 <td><%= f.label :published, t('articles.status') %></td>
                 <td>
                   <div class="field"><%= f.select(:published, [[t('articles.published'), true], [t('articles.unpublished'), false]]) %></div>

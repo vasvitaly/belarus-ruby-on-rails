@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :encryptable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_attributes, :created_at
+  attr_accessible :id, :email, :password, :password_confirmation, :remember_me, :profile_attributes, :created_at
   accepts_nested_attributes_for :profile
 
   validates_presence_of :email
@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates_associated :profile
   validates :profile, :presence => true
 
+  scope :admin, where('is_admin = ?', true)
   scope :not_admin, where('is_admin = ?', false)
   scope :banned, where('banned = ?', true)
   scope :filter, lambda{ |*filters|

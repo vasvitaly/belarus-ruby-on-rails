@@ -9,7 +9,6 @@ class Article < ActiveRecord::Base
 
   belongs_to :user
   validates_associated :user
-  attr_protected :user_id
   scope :published, where(:published => true)
   scope :internal, where('rss_link IS NULL')
 
