@@ -97,6 +97,7 @@ en:
     letter_body: 'Notification email body'
     url: 'URL for event'
     more_info: 'More info...'
+    can_not_be_blank: "Can't be blank"
   articles:
     article_successfully_created: 'Article was successfully created'
     article_successfully_updated: 'Article was successfully updated'
@@ -180,6 +181,7 @@ en:
         dropdown: 'Drop down'
         checkboxes: 'Check boxes'
         text_field: 'Text field'
+        required: 'Required'
       answer:
         gist: 'Answer'
       article:

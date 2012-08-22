@@ -97,6 +97,7 @@ ru:
     letter_body: 'Текст письма уведомления'
     url: 'URL для мероприятия'
     more_info: 'Подробнее.'
+    can_not_be_blank: 'Не может быть пустым'
   articles:
     article_successfully_created: 'Статья была успешно сохранена'
     article_successfully_updated: 'Статья была успешно обновлена'
@@ -180,6 +181,7 @@ ru:
         dropdown: 'Выпадающийся список'
         checkboxes: 'Галочки'
         text_field: 'Текстовое поле'
+        required: 'Обязательно'
       answer:
         gist: 'Ответ'
       article:

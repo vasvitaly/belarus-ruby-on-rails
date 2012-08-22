@@ -114,6 +114,7 @@ a.logo { float:left; margin-top:24px;}
 .forms {position:relative;}
 .forms h2 { margin-bottom:20px; color:#c0c0c0;font:bold 24px Arial, Helvetica, sans-serif;}
 .forms label {font-size:15px; line-height:22px;}
+.forms label.boolean {float:left;padding-right: 10px;}
 .forms label + input[type="file"] { display:block; height:22px; border:1px solid #cfcfcf;}
 .req { float:right; color:#989898; font-size:12px; line-height:22px;}
 .note {color:#7d7d7d; font-size:13px; line-height:22px; font-style:italic;}

@@ -11,11 +11,11 @@
             <%= ff.hidden_field :question_id %>
             <% question = ff.object.question %>
             <% if question.text_field? %>
-                <%= ff.input :answer, :label => question.gist %>
+                <%= ff.input :answer, :label => "#{question.gist} #{'*' if question.required}" %>
             <% elsif question.dropdown? %>
-                <%= ff.input :answer, :as => :select, :collection => question.answers.map(&:gist), :include_blank => false, :label => question.gist %>
+                <%= ff.input :answer, :as => :select, :collection => question.answers.map(&:gist), :include_blank => false, :label => "#{question.gist} #{'*' if question.required}" %>
             <% elsif question.checkboxes? %>
-                <%= ff.input :answer, :as => :check_boxes, :collection => question.answers.map(&:gist), :label => question.gist %>
+                <%= ff.input :answer, :as => :check_boxes, :collection => question.answers.map(&:gist), :label => "#{question.gist} #{'*' if question.required}" %>
             <% end %>
         <% end %>
       </div>
