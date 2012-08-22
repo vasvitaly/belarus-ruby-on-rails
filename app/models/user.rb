@@ -46,6 +46,9 @@ class User < ActiveRecord::Base
     time :created_last_participant_at do
       self.participants.last.try(:created_at)
     end
+    string :accepted, :multiple => true do
+      self.participants.map{|x| "#{x.meetup_id}_#{x.accepted ? "1" : "0"}"}
+    end
   end
 
   def self.new_with_session(params, session)

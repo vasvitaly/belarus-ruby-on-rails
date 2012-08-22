@@ -37,6 +37,39 @@ class ParticipantsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to as_admin ? admin_users_path : root_path, :notice => t('admin.participants.participant_successfully_deleted') }
+      format.js
+      format.json { head :ok }
+    end
+  end
+
+  def accept
+    if current_user.is_admin && params[:user_id] && params[:filters]
+      user = User.find(params[:user_id])
+      @participants = user.participants.participants_on(params[:filters])
+      Notifier.accepted_participant_for_meetup(@meetup, user).deliver
+    end
+    @participants.update_all({:accepted => true})
+    user.index!
+
+    respond_to do |format|
+      format.html { redirect_to admin_users_path, :notice => t('admin.participants.participant_successfully_accepted') }
+      format.js
+      format.json { head :ok }
+    end
+  end
+
+  def decline
+    if current_user.is_admin && params[:user_id] && params[:filters]
+      user = User.find(params[:user_id])
+      @participants = user.participants.participants_on(params[:filters])
+      Notifier.declined_participant_for_meetup(@meetup, user).deliver
+    end
+    @participants.update_all({:accepted => false})
+    user.index!
+
+    respond_to do |format|
+      format.html { redirect_to admin_users_path, :notice => t('admin.participants.participant_successfully_declined') }
+      format.js
       format.json { head :ok }
     end
   end

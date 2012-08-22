@@ -1,5 +1,5 @@
 class Participant < ActiveRecord::Base
-  attr_accessible :user, :meetup, :quizzes_attributes
+  attr_accessible :user, :meetup, :quizzes_attributes, :accepted
   belongs_to :user
   belongs_to :meetup
   has_many :quizzes
@@ -17,4 +17,14 @@ class Participant < ActiveRecord::Base
       where('participants.meetup_id' => meetup_ids)
     end
   }
+
+  before_create :set_accepted
+
+  def set_accepted
+    if self.meetup.premoderation
+      self.accepted = false
+    end
+
+    true
+  end
 end

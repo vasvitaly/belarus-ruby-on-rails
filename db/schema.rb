@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822113620) do
+ActiveRecord::Schema.define(:version => 20120822130741) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20120822113620) do
     t.string   "letter_subject"
     t.text     "letter_body"
     t.string   "url"
+    t.boolean  "premoderation",  :default => false
   end
 
   create_table "participants", :force => true do |t|
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20120822113620) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "accepted",   :default => true
   end
 
   add_index "participants", ["meetup_id"], :name => "index_participants_on_meetup_id"

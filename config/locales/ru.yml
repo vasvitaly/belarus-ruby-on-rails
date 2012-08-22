@@ -30,6 +30,10 @@ ru:
       number: 'Номер'
       delete_ok: 'Пользователь успешно удален'
       reversed: 'Для каждого кроме выбранных групп'
+      accepted: 'Участие'
+      accepted_options:
+        '0': 'Запрещено'
+        '1': 'Разрешено'
     messages:
       title: 'Рассылка'
       invalid_user_group: ' содержит неправильный фильтр'
@@ -38,7 +42,11 @@ ru:
       send_button: 'Послать сообщение'
     participants:
       participant_successfully_deleted: 'Участник успешно удален'
-      delete: 'Отменить участие в мероприятии'
+      participant_successfully_declined: 'Участник успешно запрещен'
+      participant_successfully_accepted: 'Участник успешно разрешен'
+      delete: 'Удалить участника из мероприятя'
+      decline: 'Запретить участие в мероприятии'
+      accept: 'Разрешить участие в мероприятии'
   errors:
     changes_not_saved: 'Не удалось сохранить изменения'
   profile:
@@ -98,6 +106,7 @@ ru:
     url: 'URL для мероприятия'
     more_info: 'Подробнее.'
     can_not_be_blank: 'Не может быть пустым'
+    premoderation: 'Премодерация'
   articles:
     article_successfully_created: 'Статья была успешно сохранена'
     article_successfully_updated: 'Статья была успешно обновлена'

@@ -30,6 +30,10 @@ en:
       number: 'Number'
       delete_ok: 'User deleted successfully'
       reversed: 'For everybody except selected groups'
+      accepted: 'Participating'
+      accepted_options:
+        '0': 'Declined'
+        '1': 'Accepted'
     messages:
       title: 'Send mail to users'
       invalid_user_group: ' contains not valid user group'
@@ -38,7 +42,11 @@ en:
       send_button: 'Send Message'
     participants:
       participant_successfully_deleted: 'Participant successfully deleted'
-      delete: 'Cancel participation in meetup'
+      participant_successfully_declined: 'Participant successfully declined'
+      participant_successfully_accepted: 'Participant successfully accepted'
+      delete: 'Delete participat from this meetup'
+      decline: 'Decline participation in meetup'
+      accept: 'Accept participation in meetup'
   errors:
     changes_not_saved: 'Unable to save changes'
   profile:
@@ -98,6 +106,7 @@ en:
     url: 'URL for event'
     more_info: 'More info...'
     can_not_be_blank: "Can't be blank"
+    premoderation: 'Premoderation'
   articles:
     article_successfully_created: 'Article was successfully created'
     article_successfully_updated: 'Article was successfully updated'

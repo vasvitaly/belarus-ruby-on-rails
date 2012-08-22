@@ -10,6 +10,8 @@
                   :hint => t('admin.users.all_user_remark'),
                   :required => false %>
 
+      <%= f.input :accepted, :label => t('admin.users.accepted'), :required => false, :input_html => {:name => 'accepted'}, :as => :select, :collection => ["1", "0"], :label_method => lambda { |el| t("admin.users.accepted_options.#{el}") }, :selected => params[:accepted], :include_blank => true %>
+
       <%= f.input :query, :label => t('admin.users.search'), :required => false, :input_html => {:value => params.try(:[], :search).try(:[], :query)} %>
 
       <%= f.input :start, :label => t('admin.users.period'), :required => false, :input_html => {:class => 'datepicker', :name => 'search[date][start]', :value => params.try(:[], :search).try(:[], :date).try(:[], :start)} %>

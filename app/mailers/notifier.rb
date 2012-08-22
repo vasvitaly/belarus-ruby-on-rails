@@ -27,4 +27,16 @@ class Notifier < ActionMailer::Base
     mail :to => "info@belarusrubyonrails.org", :subject => "#{@meetup.topic} - удален участник мероприятия",
       :body => "Email: #{participant.email}"
   end
+
+  def accepted_participant_for_meetup(meetup, participant)
+    @meetup = meetup
+    mail :to => participant.email, :subject => "#{@meetup.topic} - одобрено участие",
+         :body => "Ваше участие одобрено. Мы Вас ждем!"
+  end
+
+  def declined_participant_for_meetup(meetup, participant)
+    @meetup = meetup
+    mail :to => participant.email, :subject => "#{@meetup.topic} - отклонено участие",
+         :body => "К сожалению Ваше участие отклонено :("
+  end
 end

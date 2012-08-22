@@ -9,6 +9,9 @@ class Admin::UsersController < ApplicationController
         @users = User.search do
           fulltext params[:search][:query] unless params.try(:[], :search).try(:[], :query).blank?
           with :meetup_id, params[:filters] unless params[:filters].blank?
+          unless params[:accepted].blank? || params[:filters].blank?
+            with :accepted, params[:filters].map{|meetup_id| "#{meetup_id}_#{params[:accepted]}"}
+          end
           unless params.try(:[], :search).try(:[], :date).try(:[], :start).blank? || params.try(:[], :search).try(:[], :date).try(:[], :end).blank?
             with :created_at, params[:search][:date][:start]..params[:search][:date][:end]
             with :created_participant_at, params[:search][:date][:start]..params[:search][:date][:end]

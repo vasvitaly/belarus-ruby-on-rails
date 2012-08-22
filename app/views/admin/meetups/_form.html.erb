@@ -47,6 +47,12 @@
       </td>
     </tr>
     <tr>
+      <td><%= f.label :premoderation, t('meetup.premoderation') %></td>
+      <td>
+        <div class="field"><%= f.check_box :premoderation %></div>
+      </td>
+    </tr>
+    <tr>
       <td colspan='2'>
         <%= f.fields_for :questions %>
         <p><%= f.link_to_add 'Добавить вопрос', :questions %></p>
