@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   # Catches any missing methods and calls the general render_error_page method
   def method_missing(*args)
-    render_error_page
+    render_error_page if Rails.env == "production"
   end
 
   # General method to render a 404

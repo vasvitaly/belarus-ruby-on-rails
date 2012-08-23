@@ -40,4 +40,16 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def unsubscribe
+    user = User.find_by_email(params[:email])
+    if user && params[:token] == user.unsubscribe_token
+      user.profile.update_attributes({:subscribed => false, :subscribed_for_comments => false})
+      notice = t("users.successfully_unsubscribed")
+    else
+      notice = t("users.failed_to_unsubscribe")
+    end
+
+    redirect_to(root_path, :notice => notice) and return
+  end
 end

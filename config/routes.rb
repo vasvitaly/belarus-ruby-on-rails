@@ -30,6 +30,7 @@ BelarusRubyOnRails::Application.routes.draw do
   end
 
   resources :users, :only => [:new, :create], :path => '/users/omniauth/'
+  get 'users/unsubscribe', :to => 'users#unsubscribe', :as => 'unsubscribe'
 
   namespace :admin do
     resources :users, :except => [:create] do

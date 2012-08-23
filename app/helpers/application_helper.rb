@@ -58,4 +58,17 @@ module ApplicationHelper
   def button_inner_html(text)
     "<span><span>#{ text }</span></span>".html_safe
   end
+
+  def unsubscribe_link(email, html = false)
+    user = User.find_by_email(email)
+    if user
+      unsubscribe_url = unsubscribe_url(:token => user.unsubscribe_token, :email => user.email)
+      if html
+        link_to("unsubscribe", unsubscribe_url)
+      else
+        "unsubscribe " + unsubscribe_url
+      end
+    end
+  end
+
 end

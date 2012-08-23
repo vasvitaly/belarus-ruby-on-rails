@@ -1,42 +1,51 @@
 # -*- encoding : utf-8 -*-
 class Notifier < ActionMailer::Base
-  default :from => "Белорусское сообщество Ruby On Rails <info@belarusrubyonrails.org>", :charset => 'utf-8'
+  helper :application
+  layout "email"
+  default :from => "Белорусское сообщество Ruby On Rails <info@belarusrubyonrails.org>",
+          :charset => "utf-8",
+          :content_type => "text/html"
 
-  def broadcast_message(to, subject, body)
-    mail(:to => to, :subject => subject, :body => body, :content_type => "text/html")
+  def broadcast_message(to, subject, message)
+    @email = to
+    @message = message
+    mail(:to => to, :subject => subject)
   end
 
   def comment(article)
+    @email = "info@belarusrubyonrails.org"
     @article = article
-    mail(:to => "info@belarusrubyonrails.org")
+    mail(:to => "info@belarusrubyonrails.org", :content_type => "text/plain")
   end
 
   def new_participant_for_meetup(meetup, participant)
+    @email = participant.email
     @meetup = meetup
-    mail :to => participant.email, :subject => @meetup.letter_subject, :body => @meetup.letter_body, :content_type => "text/html"
+    mail :to => participant.email, :subject => @meetup.letter_subject
   end
 
   def new_participant_for_meetup_for_admin(meetup, participant)
-    @meetup = meetup
-    mail :to => "info@belarusrubyonrails.org", :subject => "#{@meetup.topic} - новый участник мероприятия",
-      :body => "ID участника: #{participant.id}, email: #{participant.email}"
+    @email = "info@belarusrubyonrails.org"
+    @participant = participant
+    mail :to => "info@belarusrubyonrails.org", :subject => "#{meetup.topic} - новый участник мероприятия", :content_type => "text/plain"
   end
 
   def removed_participant_for_meetup_for_admin(meetup, participant)
+    @email = "info@belarusrubyonrails.org"
     @meetup = meetup
-    mail :to => "info@belarusrubyonrails.org", :subject => "#{@meetup.topic} - удален участник мероприятия",
-      :body => "Email: #{participant.email}"
+    @participant = participant
+    mail :to => "info@belarusrubyonrails.org", :subject => "#{@meetup.topic} - удален участник мероприятия", :content_type => "text/plain"
   end
 
   def accepted_participant_for_meetup(meetup, participant)
+    @email = participant.email
     @meetup = meetup
-    mail :to => participant.email, :subject => "#{@meetup.topic} - одобрено участие",
-         :body => "Ваше участие одобрено. Мы Вас ждем!"
+    mail :to => participant.email, :subject => "#{@meetup.topic} - одобрено участие"
   end
 
   def declined_participant_for_meetup(meetup, participant)
+    @email = participant.email
     @meetup = meetup
-    mail :to => participant.email, :subject => "#{@meetup.topic} - отклонено участие",
-         :body => "К сожалению Ваше участие отклонено :("
+    mail :to => participant.email, :subject => "#{@meetup.topic} - отклонено участие"
   end
 end

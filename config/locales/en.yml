@@ -164,6 +164,8 @@ en:
     we_need_your_password: 'we need your current password to confirm your changes'
     no_passwd_no_data_changes: 'Now you can''t change your data, because your don''t have password yet. Please click the link bellow for set password.'
     get_new_password: 'Get new password'
+    successfully_unsubscribed: 'Successfully unsubscribed'
+    failed_to_unsubscribe: 'Failed to unsubscribe'
   general:
     altoros: 'Altoros Development'
     more_information: 'More information'

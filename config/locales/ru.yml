@@ -164,6 +164,8 @@ ru:
     we_need_your_password: 'нам нужен Ваш текущий пароль, что бы подтвердить изменения'
     no_passwd_no_data_changes: 'Сейчас Вы не можете изменить данные, т.к. у Вас не задан пароль. Пожалуйства пройдите по ссылке ниже, что бы задать пароль.'
     get_new_password: 'Получить новый пароль'
+    successfully_unsubscribed: 'Вы успешно отписались'
+    failed_to_unsubscribe: 'Не удалось отписаться'
   general:
     altoros: 'ООО Альторос Девелопмент'
     more_information: 'Подробнее'

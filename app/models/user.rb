@@ -170,4 +170,8 @@ class User < ActiveRecord::Base
     end
     answered_questions
   end
+
+  def unsubscribe_token
+    Digest::MD5.hexdigest("#{self.email} #{self.created_at.utc}")
+  end
 end
