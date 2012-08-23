@@ -27,4 +27,13 @@ class Admin::MessagesController < ApplicationController
       render :action => 'new'
     end
   end
+
+  def tryout_message
+    @message = Message.new(params[:message])
+    @participant = Participant.new(:user => current_user)
+    Notifier.broadcast_message(current_user.email, @message.subject, @message.body).deliver
+    respond_to do |format|
+      format.js { render :template => "shared/tryout_message" }
+    end
+  end
 end

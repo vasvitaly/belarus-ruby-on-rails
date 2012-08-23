@@ -1,4 +1,5 @@
 <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+<%= javascript_include_tag "tryout.js" %>
 
 <%= simple_nested_form_for [:admin, @meetup] do |f| %>
   <table class="loginTBL">
@@ -69,6 +70,7 @@
           admin_meetups_path,
           :class => :button
         ) %>
+        <button type="button" class="tryout" data-url="<%= admin_tryout_meetup_message_path %>"><span><span><%= t('admin.messages.tryout_button') %></span></span></button>
       </td>
     </tr>
   </table>

@@ -61,4 +61,13 @@ class Admin::MeetupsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def tryout_message
+    @meetup = Meetup.new(params[:meetup])
+    @participant = Participant.new(:user => current_user, :meetup => @meetup)
+    Notifier.new_participant_for_meetup(@meetup, @participant).deliver
+    respond_to do |format|
+      format.js { render :template => "shared/tryout_message" }
+    end
+  end
 end

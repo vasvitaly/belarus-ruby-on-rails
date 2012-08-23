@@ -35,7 +35,9 @@ BelarusRubyOnRails::Application.routes.draw do
     resources :users, :except => [:create] do
       post '/' => 'users#index', :on => :collection
     end
-    resource :message
+    resource :message do
+      post 'tryout_message', :to => 'messages#tryout_message', :as => 'tryout'
+    end
     resource :dashboard, :only => :show
     resources :articles, :except => [:show]
     resources :static_pages, :except => [:show]
@@ -49,6 +51,7 @@ BelarusRubyOnRails::Application.routes.draw do
     resources :meetups do
       put 'cancel' => 'meetups#cancel'
     end
+    post 'tryout_meetup_message', :to => 'meetups#tryout_message', :as => 'tryout_meetup_message'
     resources :twitter_blocks
   end
 

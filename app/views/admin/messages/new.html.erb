@@ -1,4 +1,6 @@
 <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+<%= javascript_include_tag "tryout.js" %>
+
 <div class="forms">
   <h1><%= t('admin.messages.title') %></h1>
 
@@ -41,6 +43,7 @@
           <td></td>
           <td class="save">
             <button type="submit"><span><span><%= t('admin.messages.send_button') %></span></span></button>
+            <button type="button" class="tryout" data-url="<%= tryout_admin_message_path %>"><span><span><%= t('admin.messages.tryout_button') %></span></span></button>
           </td>
       </table>
   <% end %>

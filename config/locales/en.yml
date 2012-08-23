@@ -40,6 +40,7 @@ en:
       successfully_sent: 'Message is being sent'
       send: 'send mail'
       send_button: 'Send Message'
+      tryout_button: 'Try-out Message'
     participants:
       participant_successfully_deleted: 'Participant successfully deleted'
       participant_successfully_declined: 'Participant successfully declined'
@@ -169,6 +170,7 @@ en:
     partners: 'Partners'
     site_name: 'Belarus Ruby on Rails User Group'
     error_page: "Page you requested doesn't exists"
+    please_check_email: "Please check %{email}"
   menu:
     main: 'Home'
     news: 'Ruby on Rails News'

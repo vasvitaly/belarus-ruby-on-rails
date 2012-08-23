@@ -40,6 +40,7 @@ ru:
       successfully_sent: 'Сообщение будет отослано'
       send: 'осуществлять рассылку'
       send_button: 'Послать сообщение'
+      tryout_button: 'Проверить сообщение'
     participants:
       participant_successfully_deleted: 'Участник успешно удален'
       participant_successfully_declined: 'Участник успешно запрещен'
@@ -169,6 +170,7 @@ ru:
     partners: 'Партнёры'
     site_name: 'Belarus Ruby on Rails User Group'
     error_page: 'Запрошенная страница не существует'
+    please_check_email: "Проверьте пожалуйста %{email}"
   menu:
     main: 'Блог'
     news: 'Планета Ruby'
