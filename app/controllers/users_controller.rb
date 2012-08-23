@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     if user && params[:token] == user.unsubscribe_token
       user.profile.update_attributes({:subscribed => false, :subscribed_for_comments => false})
       notice = t("users.successfully_unsubscribed")
+      Notifier.user_unsubscribed(user).deliver
     else
       notice = t("users.failed_to_unsubscribe")
     end

@@ -13,7 +13,6 @@ class Notifier < ActionMailer::Base
   end
 
   def comment(article)
-    @email = "info@belarusrubyonrails.org"
     @article = article
     mail(:to => "info@belarusrubyonrails.org", :content_type => "text/plain")
   end
@@ -25,13 +24,11 @@ class Notifier < ActionMailer::Base
   end
 
   def new_participant_for_meetup_for_admin(meetup, participant)
-    @email = "info@belarusrubyonrails.org"
     @participant = participant
     mail :to => "info@belarusrubyonrails.org", :subject => "#{meetup.topic} - новый участник мероприятия", :content_type => "text/plain"
   end
 
   def removed_participant_for_meetup_for_admin(meetup, participant)
-    @email = "info@belarusrubyonrails.org"
     @meetup = meetup
     @participant = participant
     mail :to => "info@belarusrubyonrails.org", :subject => "#{@meetup.topic} - удален участник мероприятия", :content_type => "text/plain"
@@ -47,5 +44,10 @@ class Notifier < ActionMailer::Base
     @email = participant.email
     @meetup = meetup
     mail :to => participant.email, :subject => "#{@meetup.topic} - отклонено участие"
+  end
+
+  def user_unsubscribed(user)
+    @user = user
+    mail :to => "info@belarusrubyonrails.org", :subject => "Пользователь отписался от рассылок", :content_type => "text/plain"
   end
 end
