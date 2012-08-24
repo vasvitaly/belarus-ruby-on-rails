@@ -37,6 +37,7 @@ gem 'rspec-rails', :groups => [:development, :test]
 group :development do
   gem 'debugger'
   gem 'capistrano'
+  gem 'rvm-capistrano'
   gem 'mailcatcher'
   gem 'thin'
 end

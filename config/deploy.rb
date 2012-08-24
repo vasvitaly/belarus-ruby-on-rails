@@ -1,16 +1,18 @@
-require 'bundler/capistrano'
+require "rvm/capistrano"
+require "bundler/capistrano"
 require "whenever/capistrano"
 require "delayed/recipes"
-set :application, "belarus-on-rails"
-set :deploy_to, "/home/deploy/belarus-on-rails"
-set :rails_env, 'production'
-set :branch, 'master'
-server '50.57.221.109', :web, :app, :db, :primary => true
+set :application, "belarusjug"
+set :deploy_to, "/home/beljug/belarusjug"
+set :rails_env, "production"
+set :branch, "belarusjug"
+server "192.168.0.124", :web, :app, :db, :primary => true
+#server "91.149.128.229", :web, :app, :db, :primary => true
 set :normalize_asset_timestamps, false
 set :keep_releases, 5
 
 set :use_sudo, false
-set :user, "deploy"
+set :user, "beljug"
 set :scm, :git
 set :repository, "git@github.com:Altoros/belarus-ruby-on-rails.git"
 set :deploy_via, :checkout
@@ -38,7 +40,7 @@ end
 namespace :solr do
   task :kill, :except => {:no_release => true} do
     #run "cd #{current_path} && bundle exec rake sunspot:solr:stop RAILS_ENV=#{rails_env}"
-    run "pidof java | xargs kill"
+    run "pkill java || true"
   end
 
   task :symlink, :except => {:no_release => true} do
@@ -52,7 +54,7 @@ end
 before "deploy:update_code", "solr:kill"
 after "deploy:restart", "solr:symlink"
 
-before "deploy:update_code", "delayed_job:stop"
-after "deploy:update_code", "delayed_job:start"
+after "deploy:stop", "delayed_job:stop"
+after "deploy:start", "delayed_job:start"
 
 after "deploy:restart", "deploy:cleanup"
