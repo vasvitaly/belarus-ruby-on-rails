@@ -170,12 +170,12 @@ en:
     altoros: 'Altoros Development'
     more_information: 'More information'
     partners: 'Partners'
-    site_name: 'Belarus Ruby on Rails User Group'
+    site_name: 'Belarus Java User Group'
     error_page: "Page you requested doesn't exists"
     please_check_email: "Please check %{email}"
   menu:
     main: 'Home'
-    news: 'Ruby on Rails News'
+    news: 'Java News'
     about: 'About'
     friends: 'Friends'
     control_panel: 'Control panel'
@@ -186,7 +186,7 @@ en:
     are_you_sure: 'Are you sure?'
   activerecord:
     models:
-      experience: 'Ruby on Rails level'
+      experience: 'Java level'
     attributes:
       question:
         gist: 'Question'
@@ -205,7 +205,7 @@ en:
         level: 'Level'
         prompt: 'Please select'
       profile:
-        experience_id: 'Ruby on Rails level'
+        experience_id: 'Java level'
         first_name: 'First name'
         last_name: 'Last name'
         subscribed: 'Receive news E-mails'

@@ -2,8 +2,8 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Белорусское сообщество Ruby On Rails"
-    xml.description "Новости сообщества Ruby On Rails в Беларуси"
+    xml.title "Белорусское сообщество Java"
+    xml.description "Новости сообщества Java в Беларуси"
     xml.link articles_url
 
     @articles.each do |post|
