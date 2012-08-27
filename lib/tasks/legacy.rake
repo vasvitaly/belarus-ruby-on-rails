@@ -7,23 +7,23 @@ namespace :legacy do
     end
 
     class LegacyArticle < Legacy
-      set_table_name 'rug_content'
+      set_table_name 'jos_content'
     end
 
     class LegacyRedirection < Legacy
-      set_table_name 'rug_redirection'
+      set_table_name 'jos_redirection'
     end
 
     class LegacyUser < Legacy
-      set_table_name 'rug_users'
+      set_table_name 'jos_users'
     end
 
     class LegacyRecords < Legacy
-      set_table_name 'rug_facileforms_records'
+      set_table_name 'jos_facileforms_records'
     end
 
     class LegacySubrecords < Legacy
-      set_table_name 'rug_facileforms_subrecords'
+      set_table_name 'jos_facileforms_subrecords'
       set_inheritance_column :ruby_type
     end
 
@@ -53,8 +53,8 @@ namespace :legacy do
         :last_name => old_user.name.gsub(/^.*?\s+/, ''),
         :experience_id => default_experience_id
       )
-      user.encrypted_password = old_user.password.scan(/^(.*):/)[0][0]
-      user.password_salt = old_user.password.scan(/:(.*)$/)[0][0]
+      user.encrypted_password = old_user.password
+      user.password_salt = ''
       user.confirm!
       print "\033[0;32m.\033[0m"
     }
@@ -159,11 +159,11 @@ namespace :legacy do
 
     #Import custom news
     print "\033[0;32mImport custom news \033[0m"
-    LegacyArticle.where(:catid => 2, :state => 1).each { |article|
+    LegacyArticle.where(:catid => 1, :state => 1).each { |article|
 
       #getting slug
       slug = LegacyRedirection.where(
-        :newurl => 'index.php?option=com_content&id=' + article.id.to_s + '&task=view'
+        :newurl => 'index.php?option=com_content&id=' + article.id.to_s + '&lang=ru&task=view'
       ).first.oldurl.gsub(/\.html$/, '')
 
       #looking for author of article
@@ -195,11 +195,11 @@ namespace :legacy do
 
     #Import aggregated news
     print "\033[0;32mImport aggregated news \033[0m"
-    LegacyArticle.where(:catid => 1, :state => 1).each { |article|
+    LegacyArticle.where(:catid => 2, :state => 1).each { |article|
 
       #getting slug
       slug = LegacyRedirection.where(
-        :newurl => 'index.php?option=com_content&id=' + article.id.to_s + '&task=view'
+        :newurl => 'index.php?option=com_content&id=' + article.id.to_s + '&lang=ru&task=view'
       ).first.oldurl.gsub(/\.html$/, '')
 
       #getting link to source
