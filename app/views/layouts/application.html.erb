@@ -16,7 +16,7 @@
       <div class="header">
         <div class="block">
           <div class="logo_row">
-            <%= link_to image_tag("logo_ror_belarus.png", { :alt => t('general.site_name') }), root_path, :class => :logo %>
+            <%= link_to image_tag("logo_jug_belarus.png", { :alt => t('general.site_name') }), root_path, :class => :logo %>
             <div class="sublinks">
               <%= render 'devise/menu/login_items' %>
             </div>
@@ -53,13 +53,14 @@
             <h4><%= t('general.partners') %></h4>
             <div class="links">
               <%= link_to image_tag("logo_altoros.png", {:height => 38, :width => 213, :alt => t('general.altoros')}), "http://altoros.com/" %>
-              <%= link_to image_tag("logo_rubymine.png", {:height => 30, :width => 120, :alt => ""}), "http://www.jetbrains.com/ruby/" %>
+              <%= link_to image_tag("apatar.jpg", {:height => 33, :width => 115, :alt => t('general.apatar')}), "http://apatar.com/" %>
+              <%= link_to image_tag("jet_brains.jpg", {:height => 43, :width => 140, :alt => t('general.jetbrains')}), "http://www.jetbrains.com/" %>
             </div>
           </div>
         </div>
       </div>
       <div class="footer">
-        <div class="block"><span class="copy">&copy; <%= t('general.site_name') %>, 2011</span><%= mail_to 'info@belarusjug.org', t('menu.contact') %></div>
+        <div class="block"><span class="copy">&copy; <%= t('general.site_name') %>, 2012</span><%= mail_to 'info@belarusjug.org', t('menu.contact') %></div>
       </div>
     </div>
     <%= render :partial => 'ga' %>

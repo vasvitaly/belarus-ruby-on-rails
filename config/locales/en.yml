@@ -168,6 +168,8 @@ en:
     failed_to_unsubscribe: 'Failed to unsubscribe'
   general:
     altoros: 'Altoros Development'
+    apatar: 'Apatar'
+    jetbrains: 'JetBrains'
     more_information: 'More information'
     partners: 'Partners'
     site_name: 'Belarus Java User Group'

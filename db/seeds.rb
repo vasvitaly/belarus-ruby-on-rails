@@ -48,7 +48,7 @@ title_about = if I18n.locale.to_s == 'ru'
                 'About'
               end
 
-content_friends = '<p><a target="_blank" href="http://belarusjug.org/">Belarus Java User Group</a></p><p><a rel="nofollow" target="_blank" href="http://belarusflex.org">Belarus Flex User Group</a></p>'
+content_friends = '<p><a target="_blank" href="http://belarusrubyonrails.org/">Belarus Ruby on Rails User Group</a></p><p><a rel="nofollow" target="_blank" href="http://belarusflex.org">Belarus Flex User Group</a></p>'
 
 title_friends = if I18n.locale.to_s == 'ru'
                 'Друзья'
