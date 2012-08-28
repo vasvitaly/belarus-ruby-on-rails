@@ -177,6 +177,8 @@ namespace :legacy do
         article.fulltext = '{MORE}' + article.fulltext
       end
       content = (article.introtext + article.fulltext).gsub(/<!--.*?-->/, '')
+      #fix paths
+      content = content.gsub('images/', '/images/').gsub('files/', '/files/').gsub('pub/', '/pub/')
 
       #creating article
       article = Article.create!(
