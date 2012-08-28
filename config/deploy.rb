@@ -6,8 +6,8 @@ set :application, "belarusjug"
 set :deploy_to, "/home/beljug/belarusjug"
 set :rails_env, "production"
 set :branch, "belarusjug"
-server "192.168.0.124", :web, :app, :db, :primary => true
-#server "91.149.128.229", :web, :app, :db, :primary => true
+#server "192.168.0.124", :web, :app, :db, :primary => true
+server "91.149.128.234", :web, :app, :db, :primary => true
 set :normalize_asset_timestamps, false
 set :keep_releases, 5
 
