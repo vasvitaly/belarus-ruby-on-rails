@@ -30,6 +30,9 @@ after "deploy:update_code", :symlink_config_files
 task :symlink_config_files do
   symlinks = {
       "#{shared_path}/ckeditor_assets" => "#{release_path}/public/ckeditor_assets",
+      "#{shared_path}/public/images" => "#{release_path}/public/images",
+      "#{shared_path}/public/files" => "#{release_path}/public/files",
+      "#{shared_path}/public/pub" => "#{release_path}/public/pub",
       "#{shared_path}/config/database.yml" => "#{release_path}/config/database.yml",
       "#{shared_path}/config/social_config.yml" => "#{release_path}/config/social_config.yml"
   }
