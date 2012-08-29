@@ -4,6 +4,7 @@ class Meetup < ActiveRecord::Base
 
   has_many :participants
   has_many :questions
+  has_many :articles
 
   accepts_nested_attributes_for :questions
 
@@ -21,5 +22,9 @@ class Meetup < ActiveRecord::Base
 
   def participant?(user)
     self.participants.where('user_id = ?', user.id).present? if user
+  end
+
+  def active?
+    self.date_and_time > Time.new && !self.cancelled
   end
 end

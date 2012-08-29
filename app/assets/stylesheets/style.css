@@ -141,8 +141,10 @@ button span, a.button span { display:inline-block;overflow:visible;  margin:0; h
 button span span, a.button span span { display:inline-block; margin:0; height:31px; padding:0 10px 0 15px; line-height:31px; white-space:nowrap; background:url(bg_buttons.png) 0 0;}
 button:hover span, a.button:hover span { background-position:100% -93px;}
 button:hover span span, a.button:hover span span { background-position:0 -62px;}
-button:active span, a.button:active span { background-position:100% -155px;}
-button:active span span, a.button:active span span { background-position:0 -124px;}
+button:active span, a.button:active span, button.active span, a.button.active span { background-position:100% -155px;}
+button:active span span, a.button:active span span, button.active span span, a.button.active span span { background-position:0 -124px;}
+button.gray, a.button.gray { color: #737373; font-weight: normal; text-shadow: none;}
+button.gray span, a.button.gray span, button.gray span span, a.button.gray span span { background-image: url(bg_buttons_gray.png);}
 .social_list { overflow:hidden;}
 .social_list a { float:left; margin-left:8px;}
 .social_list a:first-child {margin-left:0;}
@@ -241,7 +243,7 @@ ul.task-list li a { text-decoration: none; }
 .service_links a { color: #5382a1; }
 .item .iteminfo { float: left; }
 .item .addthis_toolbox { float: right; }
-.participate .addthis_toolbox { margin:  15px auto 0; width: 125px; }
+.participate .addthis_toolbox { margin: 15px auto 0;}
 div.fields .required {position: static; color: #000;}
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
@@ -257,3 +259,5 @@ div.fields .required {position: static; color: #000;}
 table.styled {border:1px solid black;}
 table.styled th, table.styled td {border:1px solid black;padding:2px 5px;}
 table.styled th {font-weight:bold;}
+
+.service_buttons {float: right;}

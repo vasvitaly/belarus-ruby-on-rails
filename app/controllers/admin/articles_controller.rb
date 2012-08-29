@@ -22,6 +22,7 @@ class Admin::ArticlesController < ApplicationController
   def new
     @article = Article.internal.new
     @admins = User.admin.keep_if{|x| x.id != current_user.id}.insert(0, current_user)
+    @meetups = Meetup.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,6 +34,7 @@ class Admin::ArticlesController < ApplicationController
   def edit
     @article = Article.internal.find(params[:id])
     @admins = User.admin.keep_if{|x| x.id != current_user.id}.insert(0, current_user)
+    @meetups = Meetup.order("date_and_time desc")
   end
 
   # POST /admin/articles

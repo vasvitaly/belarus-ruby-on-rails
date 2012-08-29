@@ -12,6 +12,7 @@ BelarusRubyOnRails::Application.routes.draw do
   end
 
   resources :aggregated_articles, :only => [:index, :show], :path => '/news/'
+  resources :meetuped_articles, :only => [:index, :show], :path => '/events/'
   resources :profiles
   resources :profiles do
     delete 'avatar' => 'profiles#delete_avatar', :on => :member

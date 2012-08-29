@@ -94,6 +94,7 @@ en:
     save_button: 'Save it!'
     register_at: 'Register to meetup'
     signed_in_to_attend: 'You need to be signed in to attempt to meetup'
+    obsolete: 'Meetup finished'
     registered: 'You are participant !!!'
     unregister: 'unregister'
     subject_for_new_participant_message: 'Participating in event'
@@ -145,6 +146,7 @@ en:
     rss_link: 'Rss link'
     more_tip: 'You can use {MORE} to divide preview part'
     author: 'Author'
+    meetup: 'Meetup'
   users:
     login: 'Login'
     logout: 'Logout'
@@ -178,6 +180,7 @@ en:
   menu:
     main: 'Home'
     news: 'Java News'
+    events: 'Events'
     about: 'About'
     friends: 'Friends'
     control_panel: 'Control panel'
