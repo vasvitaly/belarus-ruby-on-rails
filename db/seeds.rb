@@ -37,9 +37,9 @@ TwitterBlock.create(
 
 StaticPage.delete_all
 content_about = if I18n.locale.to_s == 'ru'
-                  '<p>Белорусская Java User Group - сообщество Rails-девелоперов в Беларуси, созданное для обмена идеями и опытом. Мы также заинтересованы в развитии Java в нашей стране и помогаем друг другу построить успешную IT-карьеру.</p><p>Если Вы тоже желаете участвовать в развитии Belarus Java User Group, присылайте свои идеи на адрес:</p><p><a href="mailto:info@belarusjug.org">info@belarusjug.org</a></p>'
+                  '<p>Белорусская Java User Group распложена в Минске и призвана объединить Java-программистов, пользователей Java и IT-компании в Беларуси, работающие с Java. Мы ориентируемся на регулярные встречи и обмен опытом, рекомендациями и идеями о том, как наилучшим образом использовать Java-технологии в нашей ежедневной работе. Мы также пытаемся помочь нашим участникам найти работу на Java в Беларуси и за её пределами.</p><p>В данный момент координатором сообщества Java-разработчиков является Алексей Хижняк. Если вы хотите связаться с ним или другими организаторами, пишите на <a href="mailto:chair@belarusjug.org">chair@belarusjug.org</a></p>'
                 else
-                  '<p>Belarussian Java User Group is community of Rails-developers in Belarus, was found for exchenging ideas and expirience. We are also interested in developing Java in our country and help each other to build successfull IT-career.</p><p>If you would like take part in developing Belarus Java User Group, please send your ideas to: <a href="mailto:info@belarusjug.org">info@belarusjug.org</a></p>'
+                  '<p>Белорусская Java User Group распложена в Минске и призвана объединить Java-программистов, пользователей Java и IT-компании в Беларуси, работающие с Java. Мы ориентируемся на регулярные встречи и обмен опытом, рекомендациями и идеями о том, как наилучшим образом использовать Java-технологии в нашей ежедневной работе. Мы также пытаемся помочь нашим участникам найти работу на Java в Беларуси и за её пределами.</p><p>В данный момент координатором сообщества Java-разработчиков является Алексей Хижняк. Если вы хотите связаться с ним или другими организаторами, пишите на <a href="mailto:chair@belarusjug.org">chair@belarusjug.org</a></p>'
                 end
 
 title_about = if I18n.locale.to_s == 'ru'
@@ -48,7 +48,7 @@ title_about = if I18n.locale.to_s == 'ru'
                 'About'
               end
 
-content_friends = '<p><a target="_blank" href="http://belarusrubyonrails.org/">Belarus Ruby on Rails User Group</a></p><p><a rel="nofollow" target="_blank" href="http://belarusflex.org">Belarus Flex User Group</a></p>'
+content_friends = '<p><a href="http://jug.com.ua/" rel="nofollow" target="_blank">Сайт украинской группы Java разработчиков</a></p><p><a href="http://jug.org.ua/" rel="nofollow" target="_blank">Java developers community of KPI</a></p><p><a href="http://www.jug.ru" rel="nofollow" target="_blank">JUG.RU</a></p><p><a href="http://jug.vrn.ru/" rel="nofollow" target="_blank">Java User Group Voronezh</a></p><p><a href="http://www.bafpug.com" rel="nofollow" target="_blank">Belarusian Adobe Flash Platform User Group</a></p><p><a href="http://oslab.by/" rel="nofollow" target="_blank">Belarus Open Source Lab</a></p>'
 
 title_friends = if I18n.locale.to_s == 'ru'
                 'Друзья'
