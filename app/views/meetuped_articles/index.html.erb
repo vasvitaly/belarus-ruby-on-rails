@@ -1,0 +1,41 @@
+<% if @articles.empty? %>
+  <%= t('articles.no_news') %>
+<% else %>
+
+  <% @articles.each do |article| %>
+    <div class="item clearfix">
+      <h2>
+        <%= link_to article.title, meetuped_article_path(article) %>
+      </h2>
+      <div class="iteminfo">
+        <span class="date"><%= l(article.created_at, :format => :long) %></span>
+        <span class="author"><%= article.user ? article.user.profile.full_name : '' %></span>
+        <%= link_to article_path(article, :anchor => "comments_block") do %>
+          <span class="comments"><%= article.comments.size %></span>
+        <% end %>
+      </div>
+      <%= render :partial => "sharing_buttons", :locals => { :share => { :url => article_url(article), :title => article.title } } %>
+      <div class='cl_all'></div>
+
+      <p><%= raw article.content.include?('{MORE}') ? article.content.gsub(/(.*?)(\s*<p>\s*)?\{MORE\}.*/m, '\1') : article.content %></p>
+      <div class='service_links'>
+        <%= link_to t('articles.show'), meetuped_article_path(article) %>
+        <% if can? :manage, article %>
+          <%= link_to t('articles.edit'), edit_admin_article_path(article) %>
+          <%= link_to t('articles.delete'), admin_article_path(article),
+                      :confirm => t('common.are_you_sure'), :method => :delete %>
+        <% end %>
+      </div>
+
+      <div class="service_buttons">
+        <%= render :partial => "meetuped_articles/participate_button", :locals => { :article => article } %>
+      </div>
+
+    </div>
+  <% end %>
+
+  <div class="pages">
+    <%= will_paginate @articles %>
+  </div>
+
+<% end %>

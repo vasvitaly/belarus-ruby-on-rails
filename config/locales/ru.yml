@@ -94,6 +94,7 @@ ru:
     save_button: 'Сохранить!'
     register_at: 'Зарегистрироваться на мероприятие'
     signed_in_to_attend: 'Ты должен быть зарегистрированным пользователем, чтобы записаться на мероприятие'
+    obsolete: 'Мероприятие завершено'
     registered: 'Вы участвуете'
     unregister: 'отказаться'
     subject_for_new_participant_message: 'Участие в мероприятии'
@@ -145,6 +146,7 @@ ru:
     rss_link: 'Ссылка на источник'
     more_tip: 'Используйте {MORE} что бы отделить первую часть статьи'
     author: 'Автор'
+    meetup: 'Встреча'
   users:
     login: 'Вход'
     logout: 'Выход'
@@ -176,6 +178,7 @@ ru:
   menu:
     main: 'Блог'
     news: 'Планета Ruby'
+    events: 'События'
     about: 'О нас'
     friends: 'Друзья'
     control_panel: 'Админка'
