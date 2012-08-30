@@ -16,6 +16,8 @@ class Meetup < ActiveRecord::Base
   validates :place, :length => {:maximum => 255}
   validates :date_and_time, :presence => true
   validates_acceptance_of :date_and_time, :if => Proc.new { |meetup| meetup.date_and_time && meetup.date_and_time.past? }, :message => I18n.t('meetup.datetime_must_future')
+  validates :letter_subject, :presence => true
+  validates :letter_body, :presence => true
 
   scope :active, lambda { where('date_and_time > ? AND cancelled = ?', Time.new, false) }
   scope :recent, order('date_and_time')

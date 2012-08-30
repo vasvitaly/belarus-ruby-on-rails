@@ -53,10 +53,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_current_meetup
-    @meetup = Meetup.active.recent.first
-    if @meetup
-      @meetup_share = { :url => @meetup.url, :title => @meetup.topic, :description => @meetup.description }
-    end
+    @meetups = Meetup.active.recent
   end
 
   def ckeditor_authenticate
