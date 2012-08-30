@@ -5,7 +5,7 @@
 
   <p><%= @meetup.description %></p>
 
-  <%= simple_form_for @participant do |f| %>
+  <%= simple_form_for [@meetup, @participant] do |f| %>
       <div class='fields'>
         <%= f.fields_for :quizzes do |ff| %>
             <%= ff.hidden_field :question_id %>

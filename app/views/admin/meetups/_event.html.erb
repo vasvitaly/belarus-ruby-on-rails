@@ -1,5 +1,8 @@
 <div>
-
   <%= event.topic %>
-  <%= link_to('x', admin_meetup_path(event), :method => :delete, :confirm => t('common.are_you_sure')) if can? :destroy, event %>
+  <span class="icons">
+    <%= link_to(image_tag('edit.png', :width => 16, :height => 16), edit_admin_meetup_path(event)) if can? :update, event %>
+    <%= link_to(image_tag('cancel.png', :width => 16, :height => 16), admin_meetup_cancel_path(event), :confirm => t('common.are_you_sure'), :method => :put) if can? :update, event %>
+    <%= link_to(image_tag('delete.png', :width => 16, :height => 16), admin_meetup_path(event), :method => :delete, :confirm => t('common.are_you_sure')) if can? :destroy, event %>
+  </span>
 </div>

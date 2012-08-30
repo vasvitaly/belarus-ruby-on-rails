@@ -261,3 +261,5 @@ table.styled th, table.styled td {border:1px solid black;padding:2px 5px;}
 table.styled th {font-weight:bold;}
 
 .service_buttons {float: right;}
+
+.icons img {width: 16px; height: 16px;}

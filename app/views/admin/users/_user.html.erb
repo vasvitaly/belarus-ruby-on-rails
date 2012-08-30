@@ -14,9 +14,9 @@
       <li><%= link_to(link_to_admin_title(user), admin_user_path(user, :attr => 'admin'), :method => :put, :confirm => t('common.are_you_sure')) if can? :update, user %> </li>
       <li><%= link_to(link_to_banned_title(user), admin_user_path(user, :attr => 'banned'), :method => :put) if can? :ban, user %> </li>
       <% if params[:filters] %>
-          <li><%= link_to(t('admin.participants.delete'), participants_destroy_path(:user_id => user.id, :filters => params[:filters], :format => :js), :method => :delete, :remote => true) if can? :destroy, user %> </li>
-          <li><%= link_to(t('admin.participants.accept'), participants_accept_path(:user_id => user.id, :filters => params[:filters], :format => :js), :method => :get, :remote => true) if can? :update, user %> </li>
-          <li><%= link_to(t('admin.participants.decline'), participants_decline_path(:user_id => user.id, :filters => params[:filters], :format => :js), :method => :get, :remote => true) if can? :update, user %> </li>
+          <li><%= link_to(t('admin.participants.delete'), meetup_participants_destroy_path(:meetup_id => 0, :user_id => user.id, :filters => params[:filters], :format => :js), :method => :delete, :remote => true) if can? :destroy, user %> </li>
+          <li><%= link_to(t('admin.participants.accept'), meetup_participants_accept_path(:meetup_id => 0, :user_id => user.id, :filters => params[:filters], :format => :js), :method => :get, :remote => true) if can? :update, user %> </li>
+          <li><%= link_to(t('admin.participants.decline'), meetup_participants_decline_path(:meetup_id => 0, :user_id => user.id, :filters => params[:filters], :format => :js), :method => :get, :remote => true) if can? :update, user %> </li>
       <% end %>
       <li><%= link_to(t('users.cancel_my_account'), admin_user_path(user), :method => :delete, :confirm => t('common.are_you_sure')) if can? :destroy, user %> </li>
     </ul>
