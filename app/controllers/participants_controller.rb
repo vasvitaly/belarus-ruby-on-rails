@@ -32,7 +32,9 @@ class ParticipantsController < ApplicationController
     else
       user = User.find(current_user.id)
       @participants = user.participants.participants_on(@meetup.id)
-      Notifier.removed_participant_for_meetup_for_admin(@meetup, current_user).deliver
+      @filters.each do |meetup|
+        Notifier.removed_participant_for_meetup_for_admin(meetup, current_user).deliver
+      end
     end
     @participants.destroy_all
     user.index!
@@ -48,7 +50,9 @@ class ParticipantsController < ApplicationController
     if current_user.is_admin && params[:user_id] && params[:filters]
       user = User.find(params[:user_id])
       @participants = user.participants.participants_on(params[:filters])
-      Notifier.accepted_participant_for_meetup(@meetup, user).deliver
+      @filters.each do |meetup|
+        Notifier.accepted_participant_for_meetup(meetup, user).deliver
+      end
     end
     @participants.update_all({:accepted => true})
     user.index!
@@ -64,7 +68,9 @@ class ParticipantsController < ApplicationController
     if current_user.is_admin && params[:user_id] && params[:filters]
       user = User.find(params[:user_id])
       @participants = user.participants.participants_on(params[:filters])
-      Notifier.declined_participant_for_meetup(@meetup, user).deliver
+      @filters.each do |meetup|
+        Notifier.declined_participant_for_meetup(meetup, user).deliver
+      end
     end
     @participants.update_all({:accepted => false})
     user.index!
@@ -77,6 +83,7 @@ class ParticipantsController < ApplicationController
   end
 
   def find_meetup
-    @meetup = Meetup.find(params[:meetup_id])
+    @meetup = Meetup.find(params[:meetup_id]) if params[:meetup_id].to_i > 0
+    @filters = Meetup.find(params[:filters]) unless params[:filters].blank?
   end
 end
