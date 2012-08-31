@@ -2,6 +2,8 @@
 class ParticipantsController < ApplicationController
   load_and_authorize_resource
 
+  before_filter :find_meetup
+
   def new
     @participant = Participant.new
     @meetup.questions.each do |q|
@@ -72,5 +74,9 @@ class ParticipantsController < ApplicationController
       format.js
       format.json { head :ok }
     end
+  end
+
+  def find_meetup
+    @meetup = Meetup.find(params[:meetup_id])
   end
 end

@@ -81,7 +81,7 @@ en:
     time: 'Time'
     create_page: 'Meetup creation'
     update_page: 'Meetup update'
-    show_page: 'Meetup'
+    show_page: 'Meetups'
     create_ok: 'Meetup created successfully'
     cancel_ok: 'Meetup cancelled successfully'
     update_ok: 'Meetup updated successfully'
@@ -233,6 +233,8 @@ en:
         description: 'Description'
         place: 'Place'
         date_and_time: 'Date and time'
+        letter_subject: 'Notification email subject'
+        letter_body: 'Notification email body'
       twitter_block:
         search: 'Search'
         title: 'Title'
@@ -259,6 +261,8 @@ en:
         meetup:
           attributes:
             topic:
+              blank: "can't be blank"
+            letter_subject:
               blank: "can't be blank"
         comment:
           attributes:

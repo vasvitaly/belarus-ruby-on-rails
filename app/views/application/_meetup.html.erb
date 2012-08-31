@@ -1,29 +1,29 @@
-<% if @meetup.try(:persisted?) %>
+<% @meetups.each do |meetup| %>
 <div class="participate">
   <div id='meetup'>
-    <h3><%= @meetup.topic %></h3>
+    <h3><%= meetup.topic %></h3>
 
     <div class="iteminfo">
-      <span class="date"><%= l(@meetup.date_and_time, :format => :long) %></span>
+      <span class="date"><%= l(meetup.date_and_time, :format => :long) %></span>
     </div>
 
-    <p><%= @meetup.description %></p>
-    <% unless @meetup.url.blank? %>
-        <p><%= link_to t('meetup.more_info'), @meetup.url %></p>
+    <p><%= meetup.description %></p>
+    <% unless meetup.url.blank? %>
+        <p><%= link_to t('meetup.more_info'), meetup.url %></p>
     <% end %>
 
     <% if @current_user %>
-      <% if current_user_is_participant? %>
+      <% if current_user_is_participant?(meetup.id) %>
         <%= image_tag("you-participate.png", { :alt => t('meetup.registered'), :title => t('meetup.registered') }) %><br />
-        <small><%= link_to t('meetup.unregister'), meetup_participants_destroy_path(@meetup.id), :method => :delete, :confirm => t('common.are_you_sure') %></small>
+        <small><%= link_to t('meetup.unregister'), meetup_participants_destroy_path(meetup.id), :method => :delete, :confirm => t('common.are_you_sure') %></small>
       <% else %>
-        <%= link_to button_inner_html(t('meetup.attend_to')), new_participant_path(@meetup.id), :class => 'button' %>
+        <%= link_to button_inner_html(t('meetup.attend_to')), new_meetup_participant_path(meetup.id), :class => 'button' %>
       <% end %>
     <% else %>
       <%= t('meetup.signed_in_to_attend') %> <%= link_to t('users.login'), login_path %>
     <% end %>
   </div>
 
-  <%= render :file => "app/views/application/_sharing_buttons.html.erb", :locals => { :share => @meetup_share } %>
+  <%= render :file => "app/views/application/_sharing_buttons.html.erb", :locals => { :share => { :url => meetup.url, :title => meetup.topic, :description => meetup.description } } %>
 </div>
 <% end %>

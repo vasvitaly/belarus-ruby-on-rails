@@ -52,9 +52,8 @@ BelarusRubyOnRails::Application.routes.draw do
       end
     end
     root :to => 'dashboards#show'
-    resources :meetups do
-      put 'cancel' => 'meetups#cancel'
-    end
+    resources :meetups
+    put 'meetups/:id/cancel' => 'meetups#cancel', :as => 'meetup_cancel'
     post 'tryout_meetup_message', :to => 'meetups#tryout_message', :as => 'tryout_meetup_message'
     resources :twitter_blocks
   end

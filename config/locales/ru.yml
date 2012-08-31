@@ -81,7 +81,7 @@ ru:
     time: 'Время'
     create_page: 'Создание мероприятия'
     update_page: 'Редактирование мероприятия'
-    show_page: 'Мероприятие'
+    show_page: 'Мероприятия'
     create_ok: 'Мероприятие успешно создано'
     cancel_ok: 'Мероприятие успешно отменено'
     update_ok: 'Мероприятие успешно отредактировано'
@@ -233,6 +233,8 @@ ru:
         description: 'Содержание'
         place: 'Место'
         date_and_time: 'Дата и время'
+        letter_subject: 'Тема письма уведомления'
+        letter_body: 'Текст письма уведомления'
       twitter_block:
         search: 'Поиск'
         title: 'Заголовок'
@@ -260,11 +262,13 @@ ru:
           attributes:
             topic:
               blank: 'не может быть пустой'
+            letter_subject:
+              blank: 'не может быть пустой'
         comment:
           attributes:
             body:
               blank: 'не может быть пустой'
-              too_short: "недостаточной длины"
+              too_short: 'недостаточной длины'
       messages:
         too_long:
           one:   'слишком большой длины (не может быть больше чем %{count} символ)'
