@@ -1,9 +1,11 @@
 BelarusRubyOnRails::Application.routes.draw do
-  resources :participants, :only => [:new, :create]
-  get 'event/registration/thanks', :to => 'participants#thanks', :as => 'meetup/registration/thanks'
-  delete 'participants/destroy', :to => "participants#destroy", :as => 'participants/destroy'
-  get 'participants/accept', :to => "participants#accept", :as => 'participants/accept'
-  get 'participants/decline', :to => "participants#decline", :as => 'participants/decline'
+  resources :meetups do
+    resources :participants, :only => [:new, :create]
+    get 'registration/thanks', :to => 'participants#thanks'
+    delete 'participants/destroy', :to => 'participants#destroy'
+    get 'participants/accept', :to => 'participants#accept'
+    get 'participants/decline', :to => 'participants#decline'
+  end
 
   resources :articles, :only => [:index, :show] do
     resources :comments, :only => [ :create, :edit, :update, :destroy ], :shallow => true do
