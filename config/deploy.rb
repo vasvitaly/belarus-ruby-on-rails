@@ -50,6 +50,7 @@ namespace :solr do
     run "ln -nfs #{shared_path}/solr #{current_path}/solr"
     run "ls -al #{current_path}/solr/pids/"
     run "cd #{current_path} && bundle exec rake sunspot:solr:start RAILS_ENV=#{rails_env}"
+    sleep(5)
     run "cd #{current_path} && bundle exec rake sunspot:solr:reindex RAILS_ENV=#{rails_env}"
   end
 end
