@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :output, '/var/log/cron.log'
+
 every 1.day do
   runner "RSS.fetch_aggregators"
 end
