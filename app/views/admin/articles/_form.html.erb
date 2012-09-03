@@ -29,7 +29,7 @@
             <tr>
               <td><%= f.label :meetup_id, t('articles.meetup') %></td>
               <td>
-                <div class="field"><%= f.select(:meetup_id, @meetups.map{|x| [x.topic, x.id]}, {:include_blank => true}) %></div>
+                <div class="field"><%= f.select(:meetup_id, @meetups_select.map{|x| [x.topic, x.id]}, {:include_blank => true}) %></div>
               </td>
             </tr>
 
