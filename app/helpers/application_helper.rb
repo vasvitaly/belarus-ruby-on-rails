@@ -7,8 +7,8 @@ module ApplicationHelper
     end
   end
 
-  def current_user_is_participant?(id)
-    Participant.where({:user_id => current_user.id, :meetup_id => id}).length > 0
+  def current_user_is_participant?(meetup_id)
+    Participant.where({:user_id => current_user.id, :meetup_id => meetup_id}).length > 0
   end
 
   def errors_for(object, message = nil)
