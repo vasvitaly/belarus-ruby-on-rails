@@ -22,9 +22,9 @@
 set :output, '/var/log/cron.log'
 
 every 1.day do
-  runner "RSS.fetch_aggregators"
+  runner "require 'rss'; RSS.fetch_aggregators"
 end
 
 every 1.day, :at => '4:30 am' do
-  command "bundle exec backup perform --trigger my_backup -c ~/Backup/config.rb"
+  command "cd /home/beljug/belarusjug/current && bundle exec backup perform --trigger my_backup -c ~/Backup/config.rb"
 end
