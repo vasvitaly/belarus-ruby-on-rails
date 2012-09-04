@@ -32,7 +32,7 @@ class ParticipantsController < ApplicationController
     else
       user = User.find(current_user.id)
       @participants = user.participants.participants_on(@meetup.id)
-      @filters.each do |meetup|
+      (@filters || [@meetup]).each do |meetup|
         Notifier.removed_participant_for_meetup_for_admin(meetup, current_user).deliver
       end
     end
