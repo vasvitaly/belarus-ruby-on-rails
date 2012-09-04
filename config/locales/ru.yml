@@ -45,7 +45,7 @@ ru:
       participant_successfully_deleted: 'Участник успешно удален'
       participant_successfully_declined: 'Участник успешно запрещен'
       participant_successfully_accepted: 'Участник успешно разрешен'
-      delete: 'Удалить участника из мероприятя'
+      delete: 'Удалить участника из мероприятия'
       decline: 'Запретить участие в мероприятии'
       accept: 'Разрешить участие в мероприятии'
   errors:
