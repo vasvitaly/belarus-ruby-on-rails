@@ -40,6 +40,7 @@ group :development do
   gem 'capistrano'
   gem 'mailcatcher'
   gem 'thin'
+  gem 'therubyracer'
 end
 
 gem 'delayed_job', '~> 3.0.3'
