@@ -41,6 +41,7 @@ group :development do
   gem 'rvm-capistrano'
   gem 'mailcatcher'
   gem 'thin'
+  gem 'therubyracer'
 end
 
 gem 'delayed_job', '~> 3.0.3'
