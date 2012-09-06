@@ -199,6 +199,7 @@ en:
         dropdown: 'Drop down'
         checkboxes: 'Check boxes'
         text_field: 'Text field'
+        text_area: 'Text area'
         required: 'Required'
       answer:
         gist: 'Answer'

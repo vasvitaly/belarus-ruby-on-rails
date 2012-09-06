@@ -199,6 +199,7 @@ ru:
         dropdown: 'Выпадающийся список'
         checkboxes: 'Галочки'
         text_field: 'Текстовое поле'
+        text_area: 'Текстовая область'
         required: 'Обязательно'
       answer:
         gist: 'Ответ'
