@@ -13,6 +13,8 @@
             <% question = ff.object.question %>
             <% if question.text_field? %>
                 <%= ff.input :answer, :label => "#{question.gist} #{'*' if question.required}" %>
+            <% elsif question.text_area? %>
+              <%= ff.input :answer, :as => :text, :label => "#{question.gist} #{'*' if question.required}" %>
             <% elsif question.dropdown? %>
                 <%= ff.input :answer, :as => :select, :collection => question.answers.map(&:gist), :include_blank => false, :label => "#{question.gist} #{'*' if question.required}" %>
             <% elsif question.checkboxes? %>

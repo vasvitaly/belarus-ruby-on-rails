@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829142758) do
+ActiveRecord::Schema.define(:version => 20120906065346) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(:version => 20120829142758) do
   create_table "quizzes", :force => true do |t|
     t.integer  "participant_id"
     t.integer  "question_id"
-    t.string   "answer"
+    t.text     "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
