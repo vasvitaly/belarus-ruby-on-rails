@@ -41,7 +41,11 @@ group :development do
   gem 'rvm-capistrano'
   gem 'mailcatcher'
   gem 'thin'
+end
+
+group :development do
   gem 'therubyracer'
+  gem 'quiet_assets'
 end
 
 gem 'delayed_job', '~> 3.0.3'
