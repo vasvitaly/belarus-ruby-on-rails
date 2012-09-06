@@ -2,9 +2,9 @@ class Question < ActiveRecord::Base
   RESPONSE_TYPES = %w(dropdown checkboxes text_field text_area).freeze
   attr_accessible :answers_attributes, :gist, :kind_of_response, :required
   belongs_to  :meetup
-  has_many    :answers
+  has_many    :answers, :dependent => :destroy
   has_many    :quizzes, :dependent => :destroy
-  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :answers, :allow_destroy => true
 
   validates :gist, :presence => true
 
