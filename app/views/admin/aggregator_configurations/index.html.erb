@@ -13,7 +13,7 @@
     </tr>
     <% @aggregator_configurations.each do |aggregator| %>
       <tr>
-        <td><%= link_to aggregator.source, edit_admin_aggregator_configuration_path(aggregator), :title => t('aggregators.editing_aggregator') %></td>
+        <td class="break-word wide"><%= link_to aggregator.source, edit_admin_aggregator_configuration_path(aggregator), :title => t('aggregators.editing_aggregator') %></td>
         <td><%= link_to t('aggregators.delete'), admin_aggregator_configuration_path(aggregator), :confirm => t('common.are_you_sure'), :method => :delete %></td>
       </tr>
     <% end %>
