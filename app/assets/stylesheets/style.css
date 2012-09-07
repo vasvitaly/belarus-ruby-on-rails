@@ -231,6 +231,10 @@ ul.task-list li a { text-decoration: none; }
 .list-table td a { text-decoration: none; color: #5382a1; }
 .list-table tbody tr:hover td, .list-table tbody tr:hover td a { color: #5382a1;}
 
+.break-word { max-width: 90px; word-wrap: break-word; }
+.break-word.wide { max-width: 150px; }
+.break-word.narrow { max-width: 30px; }
+
 .button_font_small {font-size:12px; text-align: center;}
 
 .to_comment button { margin-top: 15px; }

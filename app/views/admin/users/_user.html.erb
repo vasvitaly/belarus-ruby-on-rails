@@ -1,14 +1,18 @@
 <tr>
-  <td><%= @users.total_entries - (user_counter + @users.offset) %></td>
-  <td>
+  <td class="break-word narrow">
+    <%= @users.total_entries - (user_counter + @users.offset) %>
+  </td>
+  <td class="break-word">
     <%= link_to user.profile.full_name, edit_profile_path(user.profile), :title => t('admin.users.edit_profile') %>
     <%= "<span class='warn-message'>#{ t('devise.info.this_is_you') }</span>".html_safe if user == current_user %>
-  </td>
-  <td>
     <%= mail_to user.email, user.email, :title => t('admin.users.send_to', :name => user.profile.full_name) %>
   </td>
-  <td><%= l params[:filters] ? user.participants.last.created_at : user.created_at, :format => :short %></td>
-  <td><%= user.answered_questions(params[:filters]).join("<br />").html_safe %></td>
+  <td class="break-word">
+    <%= l params[:filters] ? user.participants.last.created_at : user.created_at, :format => :short %>
+  </td>
+  <td class="break-word wide">
+    <%= user.answered_questions(params[:filters]).join("<br />").html_safe %>
+  </td>
   <td>
     <ul>
       <li><%= link_to(link_to_admin_title(user), admin_user_path(user, :attr => 'admin'), :method => :put, :confirm => t('common.are_you_sure')) if can? :update, user %> </li>
