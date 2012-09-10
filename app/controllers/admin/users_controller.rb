@@ -42,7 +42,7 @@ class Admin::UsersController < ApplicationController
           I18n.t('activerecord.attributes.experience.level'),
           I18n.t('activerecord.attributes.user.created_at'),
         ]
-        headers += Meetup.find(params[:filters]).collect(&:topic)
+        headers += Meetup.where(:id => params[:filters]).collect(&:topic)
         headers += questions.collect(&:gist)
         headers.each_with_index do |header, i|
           worksheet.write(0, i, header)
@@ -58,7 +58,7 @@ class Admin::UsersController < ApplicationController
             user.profile.experience.level,
             user.created_at,
           ]
-          cells += params[:filters].map do |meetup_id|
+          cells += Array.wrap(params[:filters]).map do |meetup_id|
             Participant.where(:meetup_id => meetup_id, :user_id => user.id).first.try(:accepted).to_s
           end
           cells += question_ids.map do |question_id|
