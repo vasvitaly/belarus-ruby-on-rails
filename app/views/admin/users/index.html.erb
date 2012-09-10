@@ -20,7 +20,7 @@
       <button type="submit" onclick="$(this).closest('form').attr('action', '<%= admin_users_path %>');">
         <span><span><%= t 'admin.users.filter' %></span></span>
       </button>
-      <button type="submit" onclick="$(this).closest('form').attr('action', '<%= admin_users_path(:format => 'csv') %>');">
+      <button type="submit" onclick="$(this).closest('form').attr('action', '<%= admin_users_path(:format => 'xls') %>');">
         <span><span><%= t 'admin.users.download_csv' %></span></span>
       </button>
 
