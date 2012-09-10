@@ -34,6 +34,8 @@ gem 'jquery-rails'
 gem 'ckeditor'
 gem 'paperclip'
 
+gem 'writeexcel'
+
 gem 'rspec-rails', :groups => [:development, :test]
 group :development do
   gem 'debugger'
