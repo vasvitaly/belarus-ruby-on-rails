@@ -227,6 +227,7 @@ en:
         subject: 'Subject'
         body: 'Body'
         reversed: 'Reversed'
+        accepted: 'Participating'
       meetup:
         topic: 'Topic'
         description: 'Description'

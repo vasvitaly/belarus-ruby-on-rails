@@ -30,6 +30,16 @@
           </td>
         </tr>
         <tr>
+          <td>
+            <%= f.label t('activerecord.attributes.message.accepted') %>
+          </td>
+          <td>
+            <div class='field'>
+              <%= f.select :accepted, [[t("admin.users.accepted_options.1"), 1], [t("admin.users.accepted_options.0"), 0]], :include_blank => true %>
+            </div>
+          </td>
+        </tr>
+        <tr>
           <td><%= f.label t('activerecord.attributes.message.subject') %></td>
           <td>
             <div class='field'><%= f.text_field :subject %></div>

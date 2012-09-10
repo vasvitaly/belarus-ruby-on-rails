@@ -227,6 +227,7 @@ ru:
         subject: 'Тема'
         body: 'Содержание'
         reversed: 'Реверсивно'
+        accepted: 'Участие'
       meetup:
         topic: 'Тема'
         description: 'Содержание'

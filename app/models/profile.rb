@@ -29,6 +29,12 @@ class Profile < ActiveRecord::Base
     joins('INNER JOIN participants ON participants.user_id = profiles.user_id')
       .where('participants.meetup_id' => meetup_ids)
   }
+  scope :accepted, lambda { |accepted|
+    unless accepted.blank?
+      joins('INNER JOIN participants ON participants.user_id = profiles.user_id')
+      .where('participants.accepted' => accepted)
+    end
+  }
   scope :filter, lambda{ |*filters|
     filters = filters.flatten.compact
     if filters.present?
