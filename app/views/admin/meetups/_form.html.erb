@@ -34,6 +34,30 @@
       </td>
     </tr>
     <tr>
+      <td><%= f.label :decline_email_subject, t('meetup.decline_email_subject') %></td>
+      <td>
+        <div class="field"><%= f.text_field :decline_email_subject %></div>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :decline_email_body, t('meetup.decline_email_body') %></td>
+      <td>
+        <div class="field"><%= f.cktext_area :decline_email_body %></div>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :accept_email_subject, t('meetup.accept_email_subject') %></td>
+      <td>
+        <div class="field"><%= f.text_field :accept_email_subject %></div>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :accept_email_body, t('meetup.accept_email_body') %></td>
+      <td>
+        <div class="field"><%= f.cktext_area :accept_email_body %></div>
+      </td>
+    </tr>
+    <tr>
       <td><%= f.label :url, t('meetup.url') %></td>
       <td>
         <div class="field"><%= f.text_field :url %></div>

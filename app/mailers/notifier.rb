@@ -37,13 +37,15 @@ class Notifier < ActionMailer::Base
   def accepted_participant_for_meetup(meetup, participant)
     @email = participant.email
     @meetup = meetup
-    mail :to => participant.email, :subject => "#{@meetup.topic} - одобрено участие"
+    subject = @meetup.accept_email_subject.blank? ? "одобрено участие" : @meetup.accept_email_subject
+    mail :to => participant.email, :subject => "#{@meetup.topic} - #{subject}"
   end
 
   def declined_participant_for_meetup(meetup, participant)
     @email = participant.email
     @meetup = meetup
-    mail :to => participant.email, :subject => "#{@meetup.topic} - отклонено участие"
+    subject = @meetup.decline_email_subject.blank? ? "отклонено участие" : @meetup.decline_email_subject
+    mail :to => participant.email, :subject => "#{@meetup.topic} - #{subject}"
   end
 
   def user_unsubscribed(user)
