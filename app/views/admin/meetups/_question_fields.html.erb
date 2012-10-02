@@ -6,5 +6,8 @@
                                %>
 <%= f.input :required %>
 <%= f.fields_for :answers %>
+<%= f.input :min_length %>
+<%= f.input :length %>
+<%= f.input :max_length %>
 <%= f.link_to_add 'Добавить ответ', :answers %>
 <%= f.link_to_remove 'Удалить' %>

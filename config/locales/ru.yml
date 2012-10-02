@@ -112,6 +112,9 @@ ru:
     url: 'URL для мероприятия'
     more_info: 'Подробнее.'
     can_not_be_blank: 'Не может быть пустым'
+    can_not_be_less_than: 'Длина не может быть меньше чем %{min_length}'
+    must_be_equal_to: 'Длина должна быть %{length}'
+    can_not_be_greater_than: 'Длина не может быть больше чем %{max_length}'
     premoderation: 'Премодерация'
   articles:
     article_successfully_created: 'Статья была успешно сохранена'
@@ -203,6 +206,9 @@ ru:
         text_field: 'Текстовое поле'
         text_area: 'Текстовая область'
         required: 'Обязательно'
+        min_length: 'Мин. длина'
+        length: 'Длина'
+        max_length: 'Макс. длина'
       answer:
         gist: 'Ответ'
       article:

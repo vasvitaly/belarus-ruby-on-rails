@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002123526) do
+ActiveRecord::Schema.define(:version => 20121002153629) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
@@ -130,6 +130,9 @@ ActiveRecord::Schema.define(:version => 20121002123526) do
     t.datetime "updated_at"
     t.integer  "kind_of_response"
     t.boolean  "required",         :default => true
+    t.integer  "min_length"
+    t.integer  "length"
+    t.integer  "max_length"
   end
 
   create_table "quizzes", :force => true do |t|
