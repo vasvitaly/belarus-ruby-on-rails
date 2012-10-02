@@ -105,6 +105,10 @@ en:
     nothing_selected: 'Nothing changed'
     letter_subject: 'Notification email subject'
     letter_body: 'Notification email body'
+    decline_email_subject: 'Decline email subject'
+    decline_email_body: 'Decline email body'
+    accept_email_subject: 'Accept email subject'
+    accept_email_body: 'Accept email body'
     url: 'URL for event'
     more_info: 'More info...'
     can_not_be_blank: "Can't be blank"

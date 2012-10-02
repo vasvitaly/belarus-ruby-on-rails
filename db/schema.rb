@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906065346) do
+ActiveRecord::Schema.define(:version => 20121002123526) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"
@@ -87,11 +87,15 @@ ActiveRecord::Schema.define(:version => 20120906065346) do
     t.text     "description"
     t.string   "place"
     t.datetime "date_and_time"
-    t.boolean  "cancelled",      :default => false
+    t.boolean  "cancelled",             :default => false
     t.string   "letter_subject"
     t.text     "letter_body"
     t.string   "url"
-    t.boolean  "premoderation",  :default => false
+    t.boolean  "premoderation",         :default => false
+    t.string   "decline_email_subject"
+    t.text     "decline_email_body"
+    t.string   "accept_email_subject"
+    t.text     "accept_email_body"
   end
 
   create_table "participants", :force => true do |t|
