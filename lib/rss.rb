@@ -7,19 +7,10 @@ module RSS
     AggregatorConfiguration.find_each do |config|
       print "using #{config.source}\n"
       next if config.source.blank?
-      feed_object = config.feed_object
-      if feed_object && feed_object.feed_url == config.source
-        print "feed_object found\n"
-        feed_object = Feedzirra::Feed.update(feed_object)
-        next if !feed_object.has_new_entries?
-        new_entries = feed_object.new_entries
-      else
-        print "feed_object not found\n"
-        feed_object = Feedzirra::Feed.fetch_and_parse(config.source)
-        new_entries = feed_object.entries
-      end
+      feed_object = Feedzirra::Feed.fetch_and_parse(config.source)
+      new_entries = feed_object.entries
       new_entries.each do |entry|
-        print "new entry: #{entry.title}\n"
+        print "found entry: #{entry.title}\n"
         next if (Date.today - entry.published.to_date).to_i != 0
         next unless entry.url
         rss_link = entry.url
@@ -32,6 +23,7 @@ module RSS
                                  :rss_link   => rss_link,
                                  :published  => true,
                                  :created_at => entry.published)
+        print "saved entry: #{entry.title}\n"
       end
       config.update_attributes(:feed_object => feed_object)
     end
