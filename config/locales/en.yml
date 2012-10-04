@@ -116,6 +116,7 @@ en:
     must_be_equal_to: 'Length must be equal to %{length}'
     can_not_be_greater_than: 'Length can not be greater than %{max_length}'
     premoderation: 'Premoderation'
+    registration_closed: 'Registration to event is closed'
   articles:
     article_successfully_created: 'Article was successfully created'
     article_successfully_updated: 'Article was successfully updated'

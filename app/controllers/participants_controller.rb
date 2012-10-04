@@ -3,6 +3,7 @@ class ParticipantsController < ApplicationController
   load_and_authorize_resource
 
   before_filter :find_meetup
+  before_filter :check_registration_status, :only => [:new, :create]
 
   def new
     @participant = Participant.new
@@ -85,5 +86,12 @@ class ParticipantsController < ApplicationController
   def find_meetup
     @meetup = Meetup.find(params[:meetup_id]) if params[:meetup_id].to_i > 0
     @filters = Meetup.find(params[:filters]) unless params[:filters].blank?
+  end
+
+  def check_registration_status
+    unless @meetup.active?
+      flash[:error] = t("meetup.registration_closed")
+      redirect_to root_path
+    end
   end
 end
