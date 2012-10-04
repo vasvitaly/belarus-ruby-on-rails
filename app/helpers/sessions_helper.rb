@@ -12,7 +12,7 @@ module SessionsHelper
   end
 
   def get_stored_location
-    stored_location = session[:return_to]
+    stored_location = session[:return_to] || request.env['omniauth.origin']
     clear_stored_location
     (stored_location || root_path).to_s
   end

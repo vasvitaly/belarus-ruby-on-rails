@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
         format.js   { render :text => e.message, :status => :forbidden }
       end
     else
+      store_location
       respond_to do |format|
         format.html { redirect_to login_path }
         format.js   { render :js => "window.location='#{ login_path }'" }
