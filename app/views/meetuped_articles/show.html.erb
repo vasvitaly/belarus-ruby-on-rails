@@ -15,6 +15,6 @@
         <p><%= raw @article.content.gsub(/\{MORE\}/, '') %></p>
   </div>
 
-  <%= render :partial => "meetuped_articles/participate_button", :locals => { :article => @article } %>
+  <%= render :partial => "application/participate_button", :locals => { :meetup => @article.meetup } %>
   <%= render "comments/index" %>
 </div>

@@ -1,0 +1,9 @@
+<% if meetup && meetup.active? %>
+  <% if @current_user && current_user_is_participant?(meetup.id) %>
+    <%= link_to button_inner_html(t('meetup.unregister')), meetup_participants_destroy_path(meetup.id), :method => :delete, :confirm => t('common.are_you_sure'), :class => 'button gray' %>
+  <% else %>
+    <%= link_to button_inner_html(t('meetup.attend_to')), new_meetup_participant_path(meetup.id), :class => 'button' %>
+  <% end %>
+<% else %>
+    <%= link_to button_inner_html(t('meetup.obsolete')), "javascript:void(0);", :class => 'button gray active' %>
+<% end %>
