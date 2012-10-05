@@ -12,8 +12,8 @@ class Provider::Factory
         Provider::Twitter.new(uid)
       when :github
         Provider::Github.new(uid)
-      when :linked_in
-        Provider::LinkedIn.new(uid)
+      when :linkedin
+        Provider::Linkedin.new(uid)
       else
         raise NoMethodError, "Not defined provider class"
     end

@@ -18,4 +18,4 @@ Feature: OmniAuth authorization via Social Network accounts
         | Vkontakte    | http://vkontakte.ru/                |
         | Twitter      | http://twitter.com/#!/              |
         | Github       | https://github.com/                 |
-        | LinkedIn     | http://www.linkedin.com/pub/        |
+        | Linkedin     | http://www.linkedin.com/pub/        |

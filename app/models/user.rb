@@ -80,26 +80,25 @@ class User < ActiveRecord::Base
   def apply_omniauth(omniauth)
     if omniauth
       build_profile unless profile
-      profile.first_name = omniauth['user_info']['first_name'] if profile.first_name.blank?
-      profile.last_name = omniauth['user_info']['last_name'] if profile.last_name.blank?
-      if omniauth['user_info']['image'].present? && !profile.avatar.exists?
-        profile.avatar = fetch_avatar omniauth['user_info']['image']
+      profile.first_name = omniauth.info.first_name if profile.first_name.blank?
+      profile.last_name = omniauth.info.last_name if profile.last_name.blank?
+      if omniauth.info.image.present? && !profile.avatar.exists?
+        profile.avatar = fetch_avatar omniauth.info.image
       end
 
-      if omniauth.include?('provider') && omniauth.include?('uid')
-        user_tokens.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      if omniauth.provider && omniauth.uid
+        user_tokens.build(:provider => omniauth.provider, :uid => omniauth.uid)
       end
     end
   end
 
-  def self.build_via_social_network(attributes)
-    if attributes['user_info']['email']
-      user = User.find_or_initialize_by_email(:email => attributes['user_info']['email'])
+  def self.build_via_social_network(omniauth, user_attributes = nil)
+    if omniauth.info.email
+      user = User.find_or_initialize_by_email(:email => omniauth.info.email)
     else
       user = User.new
     end
 
-    user_attributes = attributes['user']
     if user_attributes
       user.email = user_attributes['email'] if user_attributes['email']
 
@@ -107,7 +106,7 @@ class User < ActiveRecord::Base
       user.profile_attributes = user_attributes['profile_attributes']
     end
 
-    user.apply_omniauth(attributes)
+    user.apply_omniauth(omniauth)
 
     user
   end

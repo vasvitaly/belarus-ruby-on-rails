@@ -23,7 +23,7 @@ Feature: Social Network authorization without shared email
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Linked In   |
+        | Linkedin    |
 
     @omniauth_test_without_email @omniauth_test_after
     Scenario Outline: A user without shared email signs in and enters reserved email
@@ -41,7 +41,7 @@ Feature: Social Network authorization without shared email
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Linked In   |
+        | Linkedin    |
 
     @omniauth_test_without_email @omniauth_test_after
     Scenario Outline: User doesn't set his Ruby on Rails level
@@ -56,4 +56,4 @@ Feature: Social Network authorization without shared email
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Linked In   |
+        | Linkedin    |
