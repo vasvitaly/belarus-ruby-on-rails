@@ -53,6 +53,7 @@ class Admin::MeetupsController < ApplicationController
 
   def destroy
     @meetup.destroy
+    Article.update_all({:meetup_id => nil}, {:meetup_id => @meetup.id})
 
     respond_to do |format|
       format.html { redirect_to admin_meetups_path, :notice => t('meetup.delete_ok') }
