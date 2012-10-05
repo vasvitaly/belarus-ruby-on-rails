@@ -23,7 +23,7 @@ Feature: OmniAuth authorization via Social Networks
         | Vkontakte   |
         | Twitter     |
         | Google Apps |
-        | Linked In   |
+        | Linkedin    |
 
     @omniauth_test_failure @omniauth_test_after
     Scenario Outline: A user signs in unsuccessfully
@@ -38,7 +38,7 @@ Feature: OmniAuth authorization via Social Networks
         | Vkontakte   | Vkontakte   |
         | Twitter     | Twitter     |
         | Google Apps | Google apps |
-        | Linked In   | Linked in   |
+        | Linkedin    | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
     Scenario Outline: A user after successfull sign in returns to the same page
@@ -56,7 +56,7 @@ Feature: OmniAuth authorization via Social Networks
         | Vkontakte   |
         | Twitter     |
         | Google Apps |
-        | Linked In   |
+        | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
     Scenario Outline: A user previously registered by email successfully signs in
@@ -75,7 +75,7 @@ Feature: OmniAuth authorization via Social Networks
         | Vkontakte   |
         | Twitter     |
         | Google Apps |
-        | Linked In   |
+        | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
     Scenario Outline: A user never registered before successfully signs in
@@ -94,7 +94,7 @@ Feature: OmniAuth authorization via Social Networks
         | Vkontakte   |
         | Twitter     |
         | Google Apps |
-        | Linked In   |
+        | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
     Scenario Outline: User doesn't set his Ruby on Rails level
@@ -110,7 +110,7 @@ Feature: OmniAuth authorization via Social Networks
         | Vkontakte   |
         | Twitter     |
         | Google Apps |
-        | Linked In   |
+        | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
     Scenario Outline: User can subscribe to news mailer
@@ -125,4 +125,4 @@ Feature: OmniAuth authorization via Social Networks
         | Vkontakte   |
         | Twitter     |
         | Google Apps |
-        | Linked In   |
+        | Linkedin    |

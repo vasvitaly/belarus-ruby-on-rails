@@ -20,8 +20,7 @@ class UsersController < ApplicationController
   def create
     omniauth_data = session["devise.omniauth"]
 
-    attributes = {'user' => params[:user]}.merge(omniauth_data)
-    @user = User.build_via_social_network(attributes)
+    @user = User.build_via_social_network(omniauth_data, params[:user])
 
     respond_to do |format|
       if @user.valid?

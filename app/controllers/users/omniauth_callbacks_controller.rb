@@ -12,42 +12,41 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_apps
-    env['omniauth.auth']['uid'] = env['omniauth.auth']['user_info']['email']
+    @omniauth_data.uid = @omniauth_data.info.email
     bind_provider_with_user(:google_apps)
   end
 
   def twitter
-    env["omniauth.auth"]["uid"] = env["omniauth.auth"]["user_info"]["nickname"]
+    @omniauth_data.uid = @omniauth_data.info.nickname
     bind_provider_with_user(:twitter)
   end
 
   def github
-    env['omniauth.auth']['uid'] = env['omniauth.auth']['extra']['user_hash']['login']
-    env['omniauth.auth']['user_info']['first_name'] = env['omniauth.auth']['user_info']['name']
+    @omniauth_data.uid = @omniauth_data.extra.raw_info['login']
     bind_provider_with_user(:github)
   end
 
-  def linked_in
-    user_info = env['omniauth.auth']['user_info']
-    if user_info['public_profile_url']
-      env['omniauth.auth']['uid'] = user_info['public_profile_url'].sub(/http:\/\/www\.linkedin\.com\/pub\//, '')
+  def linkedin
+    user_info = @omniauth_data.extra.raw_info
+    if user_info['publicProfileUrl']
+      @omniauth_data.uid = user_info['publicProfileUrl'].sub(/http:\/\/www\.linkedin\.com\/pub\//, '')
     end
 
-    bind_provider_with_user(:linked_in)
+    bind_provider_with_user(:linkedin)
   end
 
   private
 
   def get_omniauth_data
-    @omniauth_data ||= env["omniauth.auth"]
+    @omniauth_data ||= request.env["omniauth.auth"]
   end
 
   def bind_provider_with_user(provider)
     return unless User.omniauth_providers.index(provider)
 
-    provider = @omniauth_data['provider']
-    uid = @omniauth_data['uid']
-    email = @omniauth_data['user_info']['email']
+    provider = @omniauth_data.provider
+    uid = @omniauth_data.uid
+    email = @omniauth_data.info.email
 
     if current_user
       current_user.bind_social_network(provider, uid)
@@ -65,17 +64,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def register_user
-    session["devise.omniauth"] = @omniauth_data.except('extra')
+    session["devise.omniauth"] = @omniauth_data
+    session["devise.omniauth"].extra = nil
     redirect_to new_user_url
   end
 
   def user_sign_in_and_redirect(user, redirect_url = nil)
     if @omniauth_data
-      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => @omniauth_data['provider'])
+      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => @omniauth_data.provider)
     end
 
     sign_in user
-    current_user.bind_social_network(@omniauth_data['provider'], @omniauth_data['uid'])
+    current_user.bind_social_network(@omniauth_data.provider, @omniauth_data.uid)
 
     if redirect_url
       redirect_to redirect_url

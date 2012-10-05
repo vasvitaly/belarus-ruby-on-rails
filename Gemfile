@@ -11,21 +11,26 @@ gem 'whenever', :require => false
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', '~> 3.1.0'
+  gem 'coffee-rails', '~> 3.1.0'
   gem 'uglifier'
 end
 
 # Authorization and permissions
-gem 'devise'
+gem 'devise', '~> 1.5.3'
 gem 'cancan'
-gem 'oa-oauth', :require => 'omniauth/oauth'
-gem 'oa-vkontakte'
-gem 'oa-openid', :require => 'omniauth/openid'
-gem 'twitter'
+gem 'omniauth'
+gem 'oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-google-apps'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
 
-gem "nested_form", :git => "git://github.com/ka8725/nested_form.git"
-gem "simple_form"
+
+gem 'nested_form'
+gem 'simple_form'
 
 gem 'will_paginate'
 
