@@ -24,10 +24,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.valid?
-        if omniauth_data["user_info"]["email"]
+        if omniauth_data.info.email
           @user.confirm!
           sign_in @user
-          notice = t('devise.omniauth_callbacks.success', :kind => omniauth_data['provider'])
+          notice = t('devise.omniauth_callbacks.success', :kind => omniauth_data.provider)
         else
           @user.save
           notice = t("devise.confirmations.send_instructions")
