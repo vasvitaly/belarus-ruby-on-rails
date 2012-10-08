@@ -155,6 +155,7 @@ en:
     more_tip: 'You can use {MORE} to divide preview part'
     author: 'Author'
     meetup: 'Meetup'
+    form_changed: 'You have unsaved changes'
   users:
     login: 'Login'
     logout: 'Logout'
