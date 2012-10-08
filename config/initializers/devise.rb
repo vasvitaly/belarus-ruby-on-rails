@@ -17,7 +17,7 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   #In order to use OmniAuth OpenID, we have to require openid store.
-  require 'openid/store/filesystem'
+  #require 'openid/store/filesystem'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

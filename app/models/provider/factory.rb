@@ -6,8 +6,8 @@ class Provider::Factory
         Provider::Facebook.new(uid)
       when :vkontakte
         Provider::Vkontakte.new(uid)
-      when :google_apps
-        Provider::GoogleApps.new(uid)
+      when :google_oauth2
+        Provider::GoogleOauth2.new(uid)
       when :twitter
         Provider::Twitter.new(uid)
       when :github

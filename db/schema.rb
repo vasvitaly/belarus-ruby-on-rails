@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005181107) do
+ActiveRecord::Schema.define(:version => 20121008160304) do
 
   create_table "aggregator_configurations", :force => true do |t|
     t.string "source"

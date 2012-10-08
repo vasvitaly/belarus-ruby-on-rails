@@ -16,8 +16,8 @@ Devise.setup do |config|
   credentials = SOCIAL_CONFIG['twitter'] || {}
   config.omniauth :twitter, credentials['app_id'], credentials['secret_key']
 
-  config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'),
-                  :domain => 'gmail.com'
+  credentials = SOCIAL_CONFIG['google'] || {}
+  config.omniauth :google_oauth2, credentials['app_id'], credentials['secret_key']
 
   credentials = SOCIAL_CONFIG['linkedin'] || {}
   config.omniauth :linkedin, credentials['app_id'], credentials['secret_key'],
