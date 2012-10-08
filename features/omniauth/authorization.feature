@@ -22,7 +22,7 @@ Feature: OmniAuth authorization via Social Networks
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Google Apps |
+        | Google      |
         | Linkedin    |
 
     @omniauth_test_failure @omniauth_test_after
@@ -37,7 +37,7 @@ Feature: OmniAuth authorization via Social Networks
         | Github      | Github      |
         | Vkontakte   | Vkontakte   |
         | Twitter     | Twitter     |
-        | Google Apps | Google apps |
+        | Google      | Google      |
         | Linkedin    | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
@@ -55,7 +55,7 @@ Feature: OmniAuth authorization via Social Networks
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Google Apps |
+        | Google      |
         | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
@@ -74,7 +74,7 @@ Feature: OmniAuth authorization via Social Networks
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Google Apps |
+        | Google      |
         | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
@@ -93,7 +93,7 @@ Feature: OmniAuth authorization via Social Networks
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Google Apps |
+        | Google      |
         | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
@@ -109,7 +109,7 @@ Feature: OmniAuth authorization via Social Networks
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Google Apps |
+        | Google      |
         | Linkedin    |
 
     @omniauth_test_success @omniauth_test_after
@@ -124,5 +124,5 @@ Feature: OmniAuth authorization via Social Networks
         | Github      |
         | Vkontakte   |
         | Twitter     |
-        | Google Apps |
+        | Google      |
         | Linkedin    |

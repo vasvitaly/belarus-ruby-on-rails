@@ -1,4 +1,7 @@
 development: &development
+  google:
+    app_id:
+    secret_key:
   facebook:
     app_id:
     secret_key:

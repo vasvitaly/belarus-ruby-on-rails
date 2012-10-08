@@ -11,9 +11,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     bind_provider_with_user(:vkontakte)
   end
 
-  def google_apps
+  def google_oauth2
     @omniauth_data.uid = @omniauth_data.info.email
-    bind_provider_with_user(:google_apps)
+    bind_provider_with_user(:google_oauth2)
   end
 
   def twitter

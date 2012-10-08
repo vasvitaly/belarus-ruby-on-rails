@@ -23,8 +23,8 @@ Before('@omniauth_test_success') do
     }
   }
 
-  OmniAuth.config.mock_auth[:google_apps] = {
-    "provider"  => "google_apps",
+  OmniAuth.config.mock_auth[:google_oauth2] = {
+    "provider"  => "google_oauth2",
     "uid"       => '12345',
     "user_info" => {
       "email" => "user@test.com",
@@ -101,8 +101,8 @@ Before('@omniauth_test_without_email') do
     }
   }
 
-  OmniAuth.config.mock_auth[:google_apps] = {
-    "provider"  => "google_apps",
+  OmniAuth.config.mock_auth[:google_oauth2] = {
+    "provider"  => "google_oauth2",
     "uid"       => '12345',
     "user_info" => {
       "email" => nil,
@@ -157,7 +157,7 @@ Before('@omniauth_test_failure') do
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
   OmniAuth.config.mock_auth[:vkontakte] = :invalid_credentials
-  OmniAuth.config.mock_auth[:google_apps] = :invalid_credentials
+  OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
   OmniAuth.config.mock_auth[:twitter] = :invalid_credentials
   OmniAuth.config.mock_auth[:github] = :invalid_credentials
   OmniAuth.config.mock_auth[:linkedin] = :invalid_credentials
