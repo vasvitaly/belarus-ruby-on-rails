@@ -11,7 +11,7 @@ module RSS
       new_entries = feed_object.entries
       new_entries.each do |entry|
         print "found entry: #{entry.title}\n"
-        next if (Date.today - entry.published.to_date).to_i != 0
+        next if (Time.now.utc.to_date - entry.published.to_date).to_i != 0
         next unless entry.url
         rss_link = entry.url
         complex_rss_link = rss_link.scan(/&url=(.*?)$/)
