@@ -58,6 +58,8 @@ class Admin::ArticlesController < ApplicationController
   # PUT /admin/articles/1.json
   def update
     @article = Article.internal.find(params[:id])
+    @admins = User.admin.keep_if{|x| x.id != current_user.id}.insert(0, current_user)
+    @meetups_select = Meetup.order("date_and_time desc")
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
