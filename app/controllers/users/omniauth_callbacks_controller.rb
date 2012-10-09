@@ -3,6 +3,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   before_filter :get_omniauth_data
 
+  def failure
+    provider_name = Provider::Factory.get_instance(failed_strategy.name.to_s).printable_name
+    set_flash_message :alert, :failure, :kind => provider_name, :reason => failure_message
+    redirect_to after_omniauth_failure_path_for(resource_name)
+  end
+
   def facebook
     bind_provider_with_user(:facebook)
   end
@@ -71,7 +77,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def user_sign_in_and_redirect(user, redirect_url = nil)
     if @omniauth_data
-      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => @omniauth_data.provider)
+      provider_name = Provider::Factory.get_instance(@omniauth_data.provider).printable_name
+      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => provider_name)
     end
 
     sign_in user
