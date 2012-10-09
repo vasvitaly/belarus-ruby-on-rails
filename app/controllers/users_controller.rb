@@ -27,7 +27,8 @@ class UsersController < ApplicationController
         if omniauth_data.info.email
           @user.confirm!
           sign_in @user
-          notice = t('devise.omniauth_callbacks.success', :kind => omniauth_data.provider)
+          provider_name = Provider::Factory.get_instance(omniauth_data.provider).printable_name
+          notice = t('devise.omniauth_callbacks.success', :kind => provider_name)
         else
           @user.save
           notice = t("devise.confirmations.send_instructions")
