@@ -20,6 +20,13 @@
             </tr>
 
             <tr>
+              <td><%= label :drafts, t('articles.drafts') %></td>
+              <td>
+                <div class="field"><%= select_tag(:drafts, "<option></option>".html_safe, :onchange => "restore_article_draft(this.value);") %></div>
+              </td>
+            </tr>
+
+            <tr>
               <td><%= f.label :user_id, t('articles.author') %></td>
               <td>
                 <div class="field"><%= f.select(:user_id, @admins.map{|x| ["#{x.profile.first_name} #{x.profile.last_name}", x.id]}) %></div>

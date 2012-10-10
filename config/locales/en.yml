@@ -156,6 +156,7 @@ en:
     author: 'Author'
     meetup: 'Meetup'
     form_changed: 'You have unsaved changes'
+    drafts: 'Drafts'
   users:
     login: 'Login'
     logout: 'Logout'

@@ -156,6 +156,7 @@ ru:
     author: 'Автор'
     meetup: 'Встреча'
     form_changed: 'У Вас есть несохраненные изменения'
+    drafts: 'Черновики'
   users:
     login: 'Вход'
     logout: 'Выход'
