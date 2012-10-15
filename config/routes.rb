@@ -13,6 +13,8 @@ BelarusRubyOnRails::Application.routes.draw do
     end
   end
 
+  resources :drafts, :only => [:index, :show, :create]
+
   resources :aggregated_articles, :only => [:index, :show], :path => '/news/'
   resources :meetuped_articles, :only => [:index, :show], :path => '/events/'
   resources :profiles
