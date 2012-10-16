@@ -11,6 +11,8 @@ module RSS
       new_entries = feed_object.entries
       new_entries.each do |entry|
         print "found entry: #{entry.title}\n"
+
+        #check article date
         next if (Time.now.utc.to_date - entry.published.to_date).to_i != 0
         next unless entry.url
         rss_link = entry.url
@@ -18,8 +20,28 @@ module RSS
         if complex_rss_link && complex_rss_link.count > 0
           rss_link = complex_rss_link[0][0]
         end
-        AggregatedArticle.create(:title      => entry.title.gsub(%r{</?[^>]+?>}, ''),
-                                 :content    => entry.summary.gsub(%r{</?[^>]+?>}, '').gsub('и другие&nbsp;&raquo;', ''),
+        title = entry.title.gsub(%r{</?[^>]+?>}, '')
+        content = (entry.summary || entry.content)
+                  .gsub(%r{</?[^>]+?>}, '')
+                  .gsub('и другие&nbsp;&raquo;', '')
+                  .gsub('читать дальше', '')
+
+        #check similarity
+        white = Text::WhiteSimilarity.new
+        $similarity = 0
+        published = entry.published.strftime("%Y-%m-%d")
+        AggregatedArticle.where("created_at >= ('#{published}' - INTERVAL 1 WEEK) AND created_at <= ('#{published}' + INTERVAL 1 WEEK)").each do |article|
+          $similarity = [white.similarity(title, article.title), white.similarity(content, article.content)].max
+          if $similarity >= 0.7
+            print "found similarity: #{$similarity}\n"
+            break
+          end
+        end
+        next if $similarity >= 0.7
+
+        #create article
+        AggregatedArticle.create(:title      => title,
+                                 :content    => content,
                                  :rss_link   => rss_link,
                                  :published  => true,
                                  :created_at => entry.published)

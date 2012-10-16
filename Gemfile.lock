@@ -315,6 +315,7 @@ GEM
       sunspot (= 1.3.2)
     sunspot_solr (1.3.2)
     term-ansicolor (1.0.6)
+    text (1.2.1)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
     thin (1.4.1)
@@ -391,6 +392,7 @@ DEPENDENCIES
   simple_form
   sunspot_rails
   sunspot_solr
+  text
   therubyracer
   thin
   truncate_html
