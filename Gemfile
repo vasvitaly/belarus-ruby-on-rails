@@ -72,6 +72,7 @@ gem 'truncate_html'
 gem 'acts_as_tree'
 
 gem 'feedzirra'
+gem 'text'
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'
