@@ -55,7 +55,7 @@ group :development do
 end
 
 gem 'delayed_job', '~> 3.0.3'
-gem 'delayed_job_active_record', '~> 0.3.2'
+gem 'delayed_job_active_record', '~> 0.3.3'
 gem 'daemons', '~> 1.1.8'
 
 gem 'cells'
