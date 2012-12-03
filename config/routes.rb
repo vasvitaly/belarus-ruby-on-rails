@@ -1,4 +1,9 @@
 BelarusRubyOnRails::Application.routes.draw do
+  namespace :ckeditor, :only => [:index, :create, :destroy] do
+    resources :pictures
+    resources :attachment_files
+  end
+
   resources :meetups do
     resources :participants, :only => [:new, :create]
     get 'registration/thanks', :to => 'participants#thanks'
