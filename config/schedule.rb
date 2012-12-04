@@ -21,7 +21,7 @@
 
 set :output, '/var/log/cron.log'
 
-every 1.day, :at => '11:00 am' do
+every 1.day, :at => '4:00 am' do
   runner "require 'rss'; RSS.fetch_aggregators"
 end
 
