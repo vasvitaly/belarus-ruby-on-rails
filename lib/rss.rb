@@ -3,17 +3,18 @@ module RSS
   extend self
 
   def fetch_aggregators
-    print "fetch_aggregators started\n"
+    print "#{DateTime.current} fetch_aggregators started\n"
     AggregatorConfiguration.find_each do |config|
-      print "using #{config.source}\n"
+      print "#{DateTime.current} using #{config.source}\n"
       next if config.source.blank?
       feed_object = Feedzirra::Feed.fetch_and_parse(config.source)
       new_entries = feed_object.entries
       new_entries.each do |entry|
-        print "found entry: #{entry.title}\n"
+        print "#{DateTime.current} found entry: #{entry.title}\n"
 
-        #check article date
-        next if (Time.now.utc.to_date - entry.published.to_date).to_i != 0
+        #article should be published today or yesterday
+        days_difference = (Time.now.utc.to_date - entry.published.to_date).to_i
+        next if !(0..1).to_a.include?(days_difference)
         next unless entry.url
         rss_link = entry.url
         complex_rss_link = rss_link.scan(/&url=(.*?)$/)
@@ -26,14 +27,14 @@ module RSS
                   .gsub('и другие&nbsp;&raquo;', '')
                   .gsub('читать дальше', '')
 
-        #check similarity
+        #check similarity between article for last week
         white = Text::WhiteSimilarity.new
         $similarity = 0
         published = entry.published.strftime("%Y-%m-%d")
         AggregatedArticle.where("created_at >= ('#{published}' - INTERVAL 1 WEEK) AND created_at <= ('#{published}' + INTERVAL 1 WEEK)").each do |article|
           $similarity = [white.similarity(title, article.title), white.similarity(content, article.content)].max
           if $similarity >= 0.7
-            print "found similarity: #{$similarity}\n"
+            print "#{DateTime.current} found similarity: #{$similarity}\n"
             break
           end
         end
@@ -45,10 +46,10 @@ module RSS
                                  :rss_link   => rss_link,
                                  :published  => true,
                                  :created_at => entry.published)
-        print "saved entry: #{entry.title}\n"
+        print "#{DateTime.current} saved entry: #{entry.title}\n"
       end
       config.update_attributes(:feed_object => feed_object)
     end
-    print "fetch_aggregators finished\n"
+    print "#{DateTime.current} fetch_aggregators finished\n"
   end
 end
