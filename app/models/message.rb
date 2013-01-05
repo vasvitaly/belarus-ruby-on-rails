@@ -12,6 +12,27 @@ class Message
   validates :subject, :presence=> true
   validates :body, :presence => true
 
+  class << self
+    def deliver(recipient_group, subject, body, reversed, accepted)
+      list_of_recipients(recipient_group, reversed, accepted).each do |recipient|
+        Notifier.delay.broadcast_message(recipient.user.email, subject, body)
+      end
+    end
+    handle_asynchronously :deliver
+
+    def list_of_recipients(recipient_group, reversed, accepted)
+      if reversed == "yes"
+        if recipient_group
+          Profile.subscribed.accepted(accepted).includes(:user).uniq - Profile.subscribed.accepted(accepted).filter(recipient_group).includes(:user).uniq
+        else
+          Profile.subscribed.accepted(accepted).includes(:user).uniq
+        end
+      else
+        Profile.subscribed.accepted(accepted).filter(recipient_group).includes(:user).uniq
+      end
+    end
+  end
+
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
@@ -21,5 +42,4 @@ class Message
   def persisted?
     false
   end
-
 end

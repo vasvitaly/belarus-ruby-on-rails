@@ -9,19 +9,7 @@ class Admin::MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.valid?
-      recipients = if @message.reversed == "yes"
-        if @message.recipient_group
-          Profile.subscribed.accepted(params[:message][:accepted]).includes(:user).uniq - Profile.subscribed.accepted(params[:message][:accepted]).filter(@message.recipient_group).includes(:user).uniq
-        else
-          Profile.subscribed.accepted(params[:message][:accepted]).includes(:user).uniq
-        end
-      else
-        Profile.subscribed.accepted(params[:message][:accepted]).filter(@message.recipient_group).includes(:user).uniq
-      end
-      recipients.each do |recipient|
-        #Notifier.delay.broadcast_message(recipient.user.email, @message.subject, @message.body)
-        Notifier.broadcast_message(recipient.user.email, @message.subject, @message.body).deliver
-      end
+      Message.deliver(@message.recipient_group, @message.subject, @message.body, @message.reversed, @message.accepted)
       redirect_to admin_root_url, :notice => I18n.t('admin.messages.successfully_sent')
     else
       render :action => 'new'
