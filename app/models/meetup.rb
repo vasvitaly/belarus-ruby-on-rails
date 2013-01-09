@@ -29,4 +29,8 @@ class Meetup < ActiveRecord::Base
   def active?
     self.date_and_time > Time.new && !self.cancelled
   end
+
+  def self.list_of_meetups
+    Meetup.all.map{ |el| el.id.to_s }
+  end
 end
