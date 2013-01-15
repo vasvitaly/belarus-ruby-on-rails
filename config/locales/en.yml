@@ -207,6 +207,7 @@ en:
         gist: 'Question'
         kind_of_response: 'Answer type'
         dropdown: 'Drop down'
+        yes_no_dropdown: 'yes\no question'
         checkboxes: 'Check boxes'
         text_field: 'Text field'
         text_area: 'Text area'
@@ -216,6 +217,9 @@ en:
         max_length: 'Min length'
       answer:
         gist: 'Answer'
+        answer_hint: 'If your answer "Yes". '
+        answer_yes: 'Yes'
+        answer_no: 'No'
       article:
         title: 'Title'
         content: 'Content'

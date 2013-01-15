@@ -207,6 +207,7 @@ ru:
         gist: 'Вопрос'
         kind_of_response: 'Вид ответа'
         dropdown: 'Выпадающийся список'
+        yes_no_dropdown: 'да\нет вопрос'
         checkboxes: 'Галочки'
         text_field: 'Текстовое поле'
         text_area: 'Текстовая область'
@@ -216,6 +217,9 @@ ru:
         max_length: 'Макс. длина'
       answer:
         gist: 'Ответ'
+        answer_hint: 'Если ваш ответ "Да". '
+        answer_yes: 'Да'
+        answer_no: 'Нет'
       article:
         title: 'Заголовок'
         content: 'Содержимое'
