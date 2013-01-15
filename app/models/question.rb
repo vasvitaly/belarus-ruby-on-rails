@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  RESPONSE_TYPES = %w(dropdown checkboxes text_field text_area).freeze
+  RESPONSE_TYPES = %w(dropdown checkboxes text_field text_area yes_no_dropdown).freeze
   attr_accessible :answers_attributes, :gist, :kind_of_response, :required, :min_length, :length, :max_length
   belongs_to  :meetup
   has_many    :answers, :dependent => :destroy
