@@ -1,4 +1,3 @@
-<%= javascript_include_tag "questions" %>
 <div class="forms registration">
   <h2><%= t("meetup.registration_to_meetup") %></h2>
 
@@ -6,7 +5,7 @@
 
   <p><%= @meetup.description %></p>
 
-  <%= simple_form_for [@meetup, @participant] do |f| %>
+  <%= simple_form_for [@meetup, @participant], :html => {:autocomplete => "off"} do |f| %>
       <%= f.hidden_field :meetup_id, :value => @meetup.id, :name => "meetup_id" %>
       <div class='fields'>
         <%= f.fields_for :quizzes do |ff| %>
@@ -33,3 +32,4 @@
       <button type="submit"><span><span><%= t("meetup.confirm_participation") %></span></span></button>
   <% end %>
 </div>
+<%= javascript_include_tag "questions" %>
