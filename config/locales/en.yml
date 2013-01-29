@@ -215,7 +215,6 @@ en:
         max_length: 'Min length'
       answer:
         gist: 'Answer'
-        answer_hint: 'If your answer "Yes". '
         answer_yes: 'Yes'
         answer_no: 'No'
       article:
