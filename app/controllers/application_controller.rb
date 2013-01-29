@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActiveRecord::RecordNotFound, :with => :render_error_page if Rails.env == "production"
-  rescue_from StandardError, :with => :render_error_page if Rails.env == "production"
+  #rescue_from StandardError, :with => :render_error_page if Rails.env == "production"
 
   # Catches any missing methods and calls the general render_error_page method
   def method_missing(*args)
