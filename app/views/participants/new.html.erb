@@ -12,7 +12,7 @@
             <%= ff.hidden_field :question_id %>
             <% question = ff.object.question %>
             <% if question.text_field? %>
-                <%= ff.input :answer, :label => "#{question.gist} #{'*' if question.required}" %>
+                <%= ff.input :answer, :as => :string, :label => "#{question.gist} #{'*' if question.required}" %>
             <% elsif question.text_area? %>
               <%= ff.input :answer, :as => :text, :label => "#{question.gist} #{'*' if question.required}" %>
             <% elsif question.dropdown? %>
