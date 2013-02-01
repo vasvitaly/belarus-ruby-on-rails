@@ -2,8 +2,7 @@ Devise.setup do |config|
 
   credentials = SOCIAL_CONFIG['github'] || {}
   config.omniauth :github, credentials['app_id'], credentials['secret_key'],
-                { :scope => 'user,public_repo',
-                  :client_options => { :ssl => { :ca_path => "/etc/ssl/certs" }}}
+                { :client_options => { :ssl => { :ca_path => "/etc/ssl/certs" }}}
 
   credentials = SOCIAL_CONFIG['facebook'] || {}
   config.omniauth :facebook, credentials['app_id'], credentials['secret_key'],

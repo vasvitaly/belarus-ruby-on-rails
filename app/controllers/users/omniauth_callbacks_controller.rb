@@ -29,6 +29,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def github
     @omniauth_data.uid = @omniauth_data.extra.raw_info['login']
+    @omniauth_data.info.first_name = @omniauth_data.info.name.split(' ')[0]
+    @omniauth_data.info.last_name  = @omniauth_data.info.name.split(' ')[1..-1].join(' ')
     bind_provider_with_user(:github)
   end
 
