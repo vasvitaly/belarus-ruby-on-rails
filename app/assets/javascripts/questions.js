@@ -8,8 +8,9 @@
 });
 
 function addTextArea(name, id) {
+    var hint = $('.hint').text();
     $('#'+id).parent().append("<br />");
-    $('#'+id).parent().append("<textarea type='textarea' cols='40' rows='5' id='"+id+"_textarea' name='"+name+"' " + "'></textarea>");
+    $('#'+id).parent().append("<textarea type='textarea' cols='40' rows='5' id='"+id+"_textarea' name='"+name+"' " + "' placeholder='"+hint+"' ></textarea>");
 }
 
 function dellTextArea(id) {
