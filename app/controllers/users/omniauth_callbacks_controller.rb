@@ -24,13 +24,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def twitter
     @omniauth_data.uid = @omniauth_data.info.nickname
+    split_name
     bind_provider_with_user(:twitter)
   end
 
   def github
     @omniauth_data.uid = @omniauth_data.extra.raw_info['login']
-    @omniauth_data.info.first_name = @omniauth_data.info.name.split(' ')[0]
-    @omniauth_data.info.last_name  = @omniauth_data.info.name.split(' ')[1..-1].join(' ')
+    split_name
     bind_provider_with_user(:github)
   end
 
@@ -93,4 +93,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def split_name
+    @omniauth_data.info.first_name = @omniauth_data.info.name.split(' ')[0]
+    @omniauth_data.info.last_name  = @omniauth_data.info.name.split(' ')[1..-1].join(' ')
+  end
 end
