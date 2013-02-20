@@ -101,6 +101,7 @@ ru:
     registration_to_meetup: 'Регистрация на мероприятие'
     confirm_participation: 'Участие подтверждаю'
     successfully_registered: 'Вы зарегистрировались на мероприятие успешно'
+    successfully_registered_premoderation: 'Ваша заявка принята. Дождитесь подтверждения регистрации.'
     registration_form_incorrect: 'Регистрационная форма содержит ошибки'
     nothing_selected: 'Ничего не выбрано'
     letter_subject: 'Тема письма уведомления'

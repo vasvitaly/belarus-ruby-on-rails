@@ -101,6 +101,7 @@ en:
     registration_to_meetup: 'Registration to event'
     confirm_participation: 'Confirm participation'
     successfully_registered: 'You have been registered successfully'
+    successfully_registered_premoderation: 'Your application is accepted. Wait for the confirmation email.'
     registration_form_incorrect: 'Registration form contains errors'
     nothing_selected: 'Nothing changed'
     letter_subject: 'Notification email subject'
