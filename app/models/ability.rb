@@ -27,7 +27,7 @@ class Ability
         profile.try(:user) == user || user.is_admin?
       end
 
-      can :create, Participant
+      can [:create, :thanks, :destroy], Participant
       can :read, Comment
       can :create, Comment unless user.banned?
       can :manage, Comment do |comment|
@@ -35,8 +35,6 @@ class Ability
       end
 
       can :read, StaticPage
-
-      can :thanks, Participant
     end
   end
 end
