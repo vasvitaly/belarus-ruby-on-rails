@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
       self.participants.last.try(:created_at)
     end
     string :accepted, :multiple => true do
-      self.participants.map{|x| "#{x.meetup_id}_#{x.accepted ? "1" : "0"}"}
+      self.participants.map{|x| "#{x.meetup_id}_#{x.accepted}"}
     end
   end
 

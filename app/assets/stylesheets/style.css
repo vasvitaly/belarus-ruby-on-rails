@@ -228,9 +228,9 @@ ul.task-list li a { text-decoration: none; }
     padding: 10px 8px;
     border-bottom: 2px solid #c46969;
 }
-.list-table td { color: #c46969; padding: 9px 8px 0px 8px; }
+.list-table td { color: #c46969; padding: 9px 8px 0px 8px; border-bottom: 1px solid #c46969; }
 .list-table td a { text-decoration: none; color: #c46969; }
-.list-table tbody tr:hover td, .list-table tbody tr:hover td a { color: #850008;}
+.list-table tbody tr:hover td a:hover { color: #850008;}
 
 .break-word { max-width: 90px; word-wrap: break-word; }
 .break-word.wide { max-width: 150px; }
