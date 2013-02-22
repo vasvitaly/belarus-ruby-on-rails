@@ -17,14 +17,4 @@ class Participant < ActiveRecord::Base
       where('participants.meetup_id' => meetup_ids)
     end
   }
-
-  before_create :set_accepted
-
-  def set_accepted
-    if self.meetup.premoderation
-      self.accepted = false
-    end
-
-    true
-  end
 end
