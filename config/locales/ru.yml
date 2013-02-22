@@ -34,6 +34,7 @@ ru:
       accepted_options:
         '0': 'Запрещено'
         '1': 'Разрешено'
+        '2': 'В ожидании'
     messages:
       title: 'Рассылка'
       invalid_user_group: ' содержит неправильный фильтр'

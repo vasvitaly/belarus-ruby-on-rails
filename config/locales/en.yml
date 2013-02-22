@@ -34,6 +34,7 @@ en:
       accepted_options:
         '0': 'Declined'
         '1': 'Accepted'
+        '2': 'Pending'
     messages:
       title: 'Send mail to users'
       invalid_user_group: ' contains not valid user group'

@@ -6,4 +6,8 @@ module Admin::UsersHelper
   def link_to_banned_title(user)
     user.banned ? t('admin.users.unban') : t('admin.users.ban')
   end
+
+  def accepted_status(user, meetup_id)
+    user.participants.find_by_meetup_id(meetup_id).accepted
+  end
 end

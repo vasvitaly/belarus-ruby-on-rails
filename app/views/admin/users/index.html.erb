@@ -10,7 +10,7 @@
                   :hint => t('admin.users.all_user_remark'),
                   :required => false %>
 
-      <%= f.input :accepted, :label => t('admin.users.accepted'), :required => false, :as => :select, :collection => ["1", "0"], :label_method => lambda { |el| t("admin.users.accepted_options.#{el}") }, :selected => params.try(:[], :search).try(:[], :accepted), :include_blank => true %>
+      <%= f.input :accepted, :label => t('admin.users.accepted'), :required => false, :as => :select, :collection => ["2", "1", "0"], :label_method => lambda { |el| t("admin.users.accepted_options.#{el}") }, :selected => params.try(:[], :search).try(:[], :accepted), :include_blank => true %>
 
       <%= f.input :query, :label => t('admin.users.search'), :required => false, :input_html => {:value => params.try(:[], :search).try(:[], :query)} %>
 
