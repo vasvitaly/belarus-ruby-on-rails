@@ -6,11 +6,11 @@ describe Admin::AggregatorConfigurationsController do
   end
 
   context "when logged in as admin" do
-    let(:sign_in_user) { Factory(:user, :is_admin => true) }
+    let(:sign_in_user) { FactoryGirl.create(:user, :is_admin => true) }
 
     describe "#edit" do
       before(:each) do
-        @aggregator_configuration = Factory(:aggregator_configuration)
+        @aggregator_configuration = FactoryGirl.create(:aggregator_configuration)
         get :edit, :id => @aggregator_configuration.id
       end
 
@@ -29,7 +29,7 @@ describe Admin::AggregatorConfigurationsController do
       end
 
       context "with valid parameters" do
-        let(:attributes) { Factory.attributes_for(:aggregator_configuration) }
+        let(:attributes) { FactoryGirl.attributes_for(:aggregator_configuration) }
 
         it "creates a new AggregatorConfiguration" do
           AggregatorConfiguration.all.should have_at_least(1).item
@@ -41,7 +41,7 @@ describe Admin::AggregatorConfigurationsController do
         end
 
         it "redirects to the created aggregator_configuration" do
-          response.should redirect_to(admin_root_path)
+          response.should redirect_to(admin_aggregator_configurations_path)
         end
       end
 
@@ -60,7 +60,7 @@ describe Admin::AggregatorConfigurationsController do
 
     describe "#update" do
       before(:each) do
-        @aggregator_configuration = Factory(:aggregator_configuration)
+        @aggregator_configuration = FactoryGirl.create(:aggregator_configuration)
         put :update, :id => @aggregator_configuration.id, :aggregator_configuration => attributes
       end
 
@@ -82,7 +82,7 @@ describe Admin::AggregatorConfigurationsController do
         end
 
         it "redirects to the aggregator_configuration" do
-          response.should redirect_to(admin_root_path)
+          response.should redirect_to(admin_aggregator_configurations_path)
         end
       end
 
@@ -102,7 +102,7 @@ describe Admin::AggregatorConfigurationsController do
   end
 
   context "when logged in as user" do
-    let(:sign_in_user) { Factory(:user) }
+    let(:sign_in_user) { FactoryGirl.create(:user) }
 
     describe "#create" do
       it "is forbidden" do

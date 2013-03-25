@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
-  let(:user) { Factory(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   describe "For anonymous user" do
     it "should not reset user password" do
@@ -12,7 +12,7 @@ describe UsersController do
   end
 
   describe "For registered and logged in user" do
-    let(:registered_user) { Factory(:user) }
+    let(:registered_user) { FactoryGirl.create(:user) }
     before(:each) do
       sign_in registered_user
     end
@@ -25,7 +25,7 @@ describe UsersController do
   end
 
   describe "For admins" do
-    let(:admin) { Factory(:user, :is_admin => true) }
+    let(:admin) { FactoryGirl.create(:user, :is_admin => true) }
     before(:each) do
       sign_in admin
     end

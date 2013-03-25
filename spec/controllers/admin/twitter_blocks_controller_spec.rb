@@ -6,7 +6,7 @@ describe Admin::TwitterBlocksController do
   end
 
   context "when logged in as admin" do
-    let(:sign_in_user) { Factory(:user, :is_admin => true) }
+    let(:sign_in_user) { FactoryGirl.create(:user, :is_admin => true) }
 
     describe "#new" do
       before(:each) do
@@ -24,7 +24,7 @@ describe Admin::TwitterBlocksController do
 
     describe "#edit" do
       before(:each) do
-        @twitter_block = Factory(:twitter_block)
+        @twitter_block = FactoryGirl.create(:twitter_block)
         get :edit, :id => @twitter_block.id
       end
 
@@ -43,7 +43,7 @@ describe Admin::TwitterBlocksController do
       end
 
       context "with valid parameters" do
-        let(:attributes) { Factory.attributes_for(:twitter_block) }
+        let(:attributes) { FactoryGirl.attributes_for(:twitter_block) }
 
         it "creates a new TwitterBlock" do
           TwitterBlock.all.should have_at_least(1).item
@@ -74,7 +74,7 @@ describe Admin::TwitterBlocksController do
 
     describe "#update" do
       before(:each) do
-        @twitter_block = Factory(:twitter_block)
+        @twitter_block = FactoryGirl.create(:twitter_block)
         put :update, :id => @twitter_block.id, :twitter_block => attributes
       end
 
@@ -115,7 +115,7 @@ describe Admin::TwitterBlocksController do
 
     describe "#destroy" do
       before(:each) do
-        @twitter_block = Factory(:twitter_block)
+        @twitter_block = FactoryGirl.create(:twitter_block)
         delete :destroy, :id => @twitter_block.id
       end
 
@@ -130,7 +130,7 @@ describe Admin::TwitterBlocksController do
   end
 
   context "when logged in as user" do
-    let(:sign_in_user) { Factory(:user) }
+    let(:sign_in_user) { FactoryGirl.create(:user) }
 
     describe "#new" do
       it "is forbidden" do

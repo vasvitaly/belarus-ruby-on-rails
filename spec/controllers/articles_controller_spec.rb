@@ -10,7 +10,7 @@ describe ArticlesController do
 
     describe "#index" do
       before(:each) do
-        @articles = Factory(:article)
+        @articles = FactoryGirl.create(:article)
         get :index
       end
 
@@ -26,7 +26,7 @@ describe ArticlesController do
     describe "#show" do
       context 'with integer ID' do
         before(:each) do
-          @article = Factory(:article)
+          @article = FactoryGirl.create(:article)
           get :show, :id => @article.id
         end
 
@@ -41,7 +41,7 @@ describe ArticlesController do
 
       context "with word's alias ID" do
         before(:each) do
-          @article = Factory(:article)
+          @article = FactoryGirl.create(:article)
           get :show, :id => @article.slug
         end
 

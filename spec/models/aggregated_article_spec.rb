@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module AggregatedArticleSpecHelper
   def valid_aggregated_article_attributes
-    Factory.attributes_for(:aggregated_article)
+    FactoryGirl.attributes_for(:aggregated_article)
   end
 end
 
@@ -20,6 +20,7 @@ describe AggregatedArticle do
   end
 
   it "should should not be valid without something to attach to" do
+    I18n.locale = :en
     c = valid_aggregated_article_attributes
     c.delete :title
     c.delete :rss_link

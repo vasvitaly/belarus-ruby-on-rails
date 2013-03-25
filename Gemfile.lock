@@ -302,6 +302,7 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+    ruby-ole (1.2.11.6)
     rubyzip (0.9.9)
     russian (0.6.0)
       i18n (>= 0.5.0)
@@ -335,6 +336,8 @@ GEM
       eventmachine (~> 1.0.0)
       thin (~> 1.5.0)
     slop (3.4.4)
+    spreadsheet (0.8.3)
+      ruby-ole (>= 1.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -426,6 +429,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   shoulda
   simple_form
+  spreadsheet
   sunspot_rails
   sunspot_solr
   text

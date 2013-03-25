@@ -9,23 +9,23 @@ describe Message do
   it { should have_at_least(1).error_on(:body) }
 
   it "is not valid if fake recipient group" do
-    message = Factory.build(:message, :recipient_group => ['42'])
+    message = FactoryGirl.build(:message, :recipient_group => ['42'])
     message.should have_at_least(1).error_on(:recipient_group)
   end
 
   it "is valid if existing meetup filter" do
-    meetup = Factory :meetup
-    message = Factory.build(:message, :recipient_group => [meetup.id.to_s])
+    meetup = FactoryGirl.create(:meetup)
+    message = FactoryGirl.build(:message, :recipient_group => [meetup.id.to_s])
     message.should be_valid
   end
 
-  it "is not valid if subject is longer than 100 symbols" do
-    message = Factory.build(:message, :subject => 'a' * 102 )
+  it "is not valid if subject is blank" do
+    message = FactoryGirl.build(:message, :subject => '' )
     message.should have_at_least(1).error_on(:subject)
   end
 
-  it "is not valid if body is longer than 500 symbols" do
-    message = Factory.build(:message, :body => 'a' * 502 )
+  it "is not valid if body is blank" do
+    message = FactoryGirl.build(:message, :body => '' )
     message.should have_at_least(1).error_on(:body)
   end
 end

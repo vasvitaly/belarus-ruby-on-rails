@@ -8,11 +8,11 @@ describe ProfilesController do
   end
 
   context "when logged in as admin" do
-    let(:sign_in_user) { Factory(:user, :is_admin => true) }
+    let(:sign_in_user) { FactoryGirl.create(:user, :is_admin => true) }
 
     describe "#edit" do
       before(:each) do
-        @user = Factory(:user)
+        @user = FactoryGirl.create(:user)
         get :edit, :id => @user.profile.id
       end
 
@@ -27,7 +27,7 @@ describe ProfilesController do
 
     describe "#update" do
       before(:each) do
-        @user = Factory(:user)
+        @user = FactoryGirl.create(:user)
         store_location profile_path(@user.profile)
         put :update, :id => @user.profile.id, :profile => attributes
       end
@@ -64,7 +64,7 @@ describe ProfilesController do
   end
 
   context "when logged in as user" do
-    let(:sign_in_user) { Factory(:user) }
+    let(:sign_in_user) { FactoryGirl.create(:user) }
 
     describe "#show" do
       before(:each) do
@@ -99,7 +99,7 @@ describe ProfilesController do
 
       context "when profile belongs to another user" do
         it "is forbidden" do
-          user = Factory(:user)
+          user = FactoryGirl.create(:user)
           get :edit, :id => user.profile.id
 
           response.status.should eq(403)
@@ -148,7 +148,7 @@ describe ProfilesController do
 
     describe "#avatar" do
       before(:each) do
-        @user = Factory(:user, :profile => Factory(:profile_with_upic))
+        @user = FactoryGirl.create(:user, :profile => FactoryGirl.create(:profile_with_upic))
         sign_in @user
       end
 
@@ -164,7 +164,7 @@ describe ProfilesController do
 
       context 'on foreigner profile' do
         before(:each) do
-          @another_user = Factory(:user, :profile => Factory(:profile_with_upic))
+          @another_user = FactoryGirl.create(:user, :profile => FactoryGirl.create(:profile_with_upic))
           xhr :delete, :delete_avatar, :id => @another_user.profile.id
         end
 
@@ -179,7 +179,7 @@ describe ProfilesController do
     let(:sign_in_user) { User.new }
 
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
 
     describe "#show" do

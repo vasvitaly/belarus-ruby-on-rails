@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ApplicationHelper do
-  let(:user) { Factory.stub(:user, :profile => Factory.build(:profile)) }
+  let(:user) { FactoryGirl.build_stubbed(:user, :profile => FactoryGirl.build(:profile)) }
 
   describe '#errors_for' do
     before(:each) do
@@ -25,7 +25,7 @@ describe ApplicationHelper do
 
       it "should contain right formatted HTML String with error information" do
         errors_for(user).should include "div id='error_explanation'"
-        errors_for(user).should include "<h2>2 error"
+        errors_for(user).should include "<h2>3 error"
       end
 
       it "with custom message should contain custom message" do
@@ -36,7 +36,7 @@ describe ApplicationHelper do
 
   describe '#userpic_url' do
     context 'for user with avatar' do
-      let(:user) { Factory.stub(:user, :profile => Factory.build(:profile_with_upic)) }
+      let(:user) { FactoryGirl.create(:user, :profile => FactoryGirl.create(:profile_with_upic)) }
 
       it 'should contain path to local avatar' do
         userpic_url(user, 50).should include user.profile.avatar.url :thumb

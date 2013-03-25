@@ -6,7 +6,7 @@ describe Admin::ArticlesController do
   end
 
   context "when logged in as admin" do
-    let(:user) { Factory(:user, :is_admin => true) }
+    let(:user) { FactoryGirl.create(:user, :is_admin => true) }
 
     describe "#new" do
       before(:each) do
@@ -24,7 +24,7 @@ describe Admin::ArticlesController do
 
     describe "#edit" do
       before(:each) do
-        @article = Factory(:article)
+        @article = FactoryGirl.create(:article)
         get :edit, :id => @article.id
       end
 
@@ -43,7 +43,7 @@ describe Admin::ArticlesController do
       end
 
       context "with valid parameters" do
-        let(:attributes) { Factory.attributes_for(:article) }
+        let(:attributes) { FactoryGirl.attributes_for(:article) }
 
         it "creates a new Article" do
           Article.all.should have(1).item
@@ -74,7 +74,7 @@ describe Admin::ArticlesController do
 
     describe "#update" do
       before(:each) do
-        @article = Factory(:article)
+        @article = FactoryGirl.create(:article)
         put :update, :id => @article.id, :article => attributes
       end
 
@@ -114,7 +114,7 @@ describe Admin::ArticlesController do
 
     describe "#destroy" do
       before(:each) do
-        @article = Factory(:article)
+        @article = FactoryGirl.create(:article)
         delete :destroy, :id => @article.id
       end
 
@@ -129,7 +129,7 @@ describe Admin::ArticlesController do
   end
 
   context "when logged in as user" do
-    let(:user) { Factory(:user) }
+    let(:user) { FactoryGirl.create(:user) }
 
     describe "#new" do
       it "is forbidden" do
