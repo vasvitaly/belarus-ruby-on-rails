@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '= 3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -11,9 +11,9 @@ gem 'whenever', :require => false
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '~> 3.1.0'
-  gem 'coffee-rails', '~> 3.1.0'
-  gem 'uglifier'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier',     '>= 1.0.3'
 end
 
 # Authorization and permissions
@@ -48,11 +48,9 @@ group :development do
   gem 'rvm-capistrano'
   gem 'mailcatcher'
   gem 'thin'
-end
-
-group :development do
   gem 'therubyracer'
   gem 'quiet_assets'
+  gem 'progress_bar'
 end
 
 gem 'delayed_job', '~> 3.0.3'
@@ -76,12 +74,12 @@ gem 'text'
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'
-gem 'progress_bar'
 
 gem 'backup'
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
+  gem 'treetop'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl_rails'
