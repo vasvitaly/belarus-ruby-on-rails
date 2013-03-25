@@ -6,7 +6,7 @@ describe Admin::MessagesController do
   end
 
   context "when logged in as admin" do
-    let(:sign_in_user) { Factory(:user, :is_admin => true) }
+    let(:sign_in_user) { FactoryGirl.create(:user, :is_admin => true) }
 
     describe "#new" do
       before(:each) do
@@ -21,14 +21,14 @@ describe Admin::MessagesController do
     describe "#create" do
       before(:each) do
         ActionMailer::Base.deliveries = []
-        @user_subscribed = Factory(:user, :profile => Factory(:profile,
+        @user_subscribed = FactoryGirl.create(:user, :profile => FactoryGirl.create(:profile,
                                                   :subscribed => true,
-                                                  :experience => Factory(:experience)))
+                                                  :experience => FactoryGirl.create(:experience)))
         post :create, :message => attributes
       end
 
       context "with valid params" do
-        let(:attributes) { Factory.attributes_for(:message) }
+        let(:attributes) { FactoryGirl.attributes_for(:message) }
 
         it "send message to user group" do
           Delayed::Worker.new.work_off
@@ -56,7 +56,7 @@ describe Admin::MessagesController do
   end
 
   context "when logged in as user" do
-    let(:sign_in_user) { Factory(:user) }
+    let(:sign_in_user) { FactoryGirl.create(:user) }
 
     describe "#new" do
       before(:each) do

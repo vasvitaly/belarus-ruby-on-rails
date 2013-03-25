@@ -4,12 +4,12 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
 
-    after_build do |user|
+    after(:build) do |user|
       user.skip_confirmation!
-      user.profile ||= Factory.build(:profile)
+      user.profile ||= FactoryGirl.build(:profile)
     end
 
-    after_stub do |user|
+    after(:stub) do |user|
       user.confirmed_at = Time.now
       user.confirmation_sent_at = Time.now
     end

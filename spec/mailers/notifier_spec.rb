@@ -1,17 +1,17 @@
 require "spec_helper"
 
 describe Notifier do
-  describe '.custom' do
-    let(:user) { Factory.stub(:user) }
-    let(:message) { Message.new(Factory.attributes_for(:message)) }
-    let(:mail) { Notifier.custom(user.email, message.subject, message.body) }
+  describe '.broadcast_message' do
+    let(:user) { FactoryGirl.build_stubbed(:user) }
+    let(:message) { Message.new(FactoryGirl.attributes_for(:message)) }
+    let(:mail) { Notifier.broadcast_message(user.email, message.subject, message.body) }
 
     it 'renders the subject' do
       mail.subject.should eq(message.subject)
     end
 
     it 'renders the body' do
-      mail.body.should eq(message.body)
+      mail.body.should include(message.body)
     end
 
     it 'renders the receiver email' do
@@ -20,8 +20,8 @@ describe Notifier do
   end
 
   describe '.comment' do
-    let(:user) { Factory.stub(:user) }
-    let(:article) { Factory.stub(:article) }
+    let(:user) { FactoryGirl.build_stubbed(:user) }
+    let(:article) { FactoryGirl.build_stubbed(:article) }
     let(:mail) { Notifier.comment(article) }
 
     it 'renders the article title' do
@@ -29,7 +29,7 @@ describe Notifier do
     end
 
     it 'renders the receiver email' do
-      mail.to.should == [user.email]
+      mail.to.should == ["info@belarusrubyonrails.org"]
     end
   end
 end

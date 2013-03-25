@@ -8,8 +8,10 @@ describe CommentsController do
     ActiveSupport::JSON.decode(response.body)
   end
 
+  pending do
+
   before :each do
-    @comment = Factory(:comment, :article_id => Factory(:article).id, :user => Factory(:user))
+    @comment = FactoryGirl.create(:comment, :article_id => FactoryGirl.create(:article).id, :user => FactoryGirl.create(:user))
   end
   let(:new_comment_body) { 'example of editing comment' }
 
@@ -50,7 +52,7 @@ describe CommentsController do
       end
 
       it "should can't update article binding" do
-        stranger_article = Factory :article
+        stranger_article = FactoryGirl.create(:article)
         original_article_id = @comment.article_id
         xhr :post, :update, { :id => @comment, :comment => { :body => new_comment_body, :article_id => stranger_article }, :format => :json }
         json = parseResponseJSON
@@ -61,7 +63,7 @@ describe CommentsController do
       end
 
       it "should can't update owner of comment" do
-        stranger_user = Factory(:user, :email => "user2@test.com")
+        stranger_user = FactoryGirl.create(:user, :email => "user2@test.com")
         original_owner_id = @comment.user_id
         xhr :post, :update, { :id => @comment, :comment => { :body => new_comment_body, :user_id => stranger_user }, :format => :json }
         json = parseResponseJSON
@@ -90,7 +92,7 @@ describe CommentsController do
       end
 
       it 'should delete nested comment' do
-        nested_comment = Factory(:comment)
+        nested_comment = FactoryGirl.create(:comment)
         @comment.children << nested_comment
         xhr :get, :destroy, { :id => @comment }
         json = parseResponseJSON
@@ -101,8 +103,8 @@ describe CommentsController do
       end
 
       it "should have no access to remove foreign comment" do
-        @stranger_user = Factory(:user, :email => "user2@test.com")
-        @stranger_comment = Factory(:comment, :article_id => Factory(:article).id, :user => @stranger_user)
+        @stranger_user = FactoryGirl.create(:user, :email => "user2@test.com")
+        @stranger_comment = FactoryGirl.create(:comment, :article_id => FactoryGirl.create(:article).id, :user => @stranger_user)
         xhr :get, :destroy, { :id => @stranger_comment }
 
         response.status.should eq(403)
@@ -191,13 +193,13 @@ describe CommentsController do
   context 'email notification' do
     before(:each) do
       ActionMailer::Base.deliveries = []
-      @article = Factory :article
-      @user_subscribed = Factory(:user, :profile => Factory(:profile,
+      @article = FactoryGirl.create(:article)
+      @user_subscribed = FactoryGirl.create(:user, :profile => FactoryGirl.create(:profile,
                                                 :subscribed => true,
                                                 :subscribed_for_comments => true,
-                                                :experience => Factory(:experience)))
-      @user_unsubscribed = Factory(:user, :profile => Factory(:profile,
-                                                :experience => Factory(:experience)))
+                                                :experience => FactoryGirl.create(:experience)))
+      @user_unsubscribed = FactoryGirl.create(:user, :profile => FactoryGirl.create(:profile,
+                                                :experience => FactoryGirl.create(:experience)))
       sign_in @user_subscribed
       xhr :post, :create, { :article_id => @article.id, :comment => { :body => 'Example comment'} }
       sign_out @user_subscribed
@@ -225,4 +227,7 @@ describe CommentsController do
       ActionMailer::Base.deliveries.collect{ |el| el.to }.should_not include([@user_unsubscribed.email])
     end
   end
+
+  end
+
 end

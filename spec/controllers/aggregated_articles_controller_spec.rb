@@ -10,7 +10,7 @@ describe ArticlesController do
 
     describe "#index" do
       before(:each) do
-        @articles = Factory(:article)
+        @articles = FactoryGirl.create(:article)
         get :index
       end
 
@@ -25,7 +25,7 @@ describe ArticlesController do
 
     describe "#show" do
       before(:each) do
-        @article = Factory(:article)
+        @article = FactoryGirl.create(:article)
         get :show, :id => @article.id
       end
 

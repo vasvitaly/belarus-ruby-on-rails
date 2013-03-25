@@ -6,11 +6,11 @@ describe Admin::AggregatedArticlesController do
   end
 
   context "when logged in as admin" do
-    let(:user) { Factory(:user, :is_admin => true) }
+    let(:user) { FactoryGirl.create(:user, :is_admin => true) }
 
     describe "#index" do
       before(:each) do
-        @articles = Factory(:aggregated_article)
+        @articles = FactoryGirl.create(:aggregated_article)
         get :index
       end
 
@@ -25,7 +25,7 @@ describe Admin::AggregatedArticlesController do
 
     describe "#destroy" do
       before(:each) do
-        @article = Factory(:aggregated_article)
+        @article = FactoryGirl.create(:aggregated_article)
         delete :destroy, :id => @article.id
       end
 
@@ -40,7 +40,7 @@ describe Admin::AggregatedArticlesController do
   end
 
   context "when logged in as user" do
-    let(:user) { Factory(:user) }
+    let(:user) { FactoryGirl.create(:user) }
 
     describe "#index" do
       it "is forbidden" do
