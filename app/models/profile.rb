@@ -12,6 +12,7 @@ class Profile < ActiveRecord::Base
                   :avatar,
                   :locale
   has_attached_file :avatar, :styles => { :medium => "98x98#", :thumb => "50x50#" },
+                    :path => ":rails_root/public/system/:attachment/#{Rails.env}/:id/:style/:filename",
                     :url => "/system/:attachment/#{Rails.env}/:id/:style/:filename"
 
   validates :first_name, :presence => true,
