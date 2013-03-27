@@ -13,7 +13,7 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @participant = Participant.new((params[:participant] || {}).merge(:user => current_user, :meetup => @meetup))
+    @participant = Participant.new((params[:participant] || {}).merge(:user => current_user, :meetup => @meetup, :accepted => @meetup.premoderation ? 2 : 1))
     if @participant.save
       @participant.user.index!
       Notifier.new_participant_for_meetup(@meetup, @participant).deliver
