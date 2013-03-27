@@ -6,16 +6,14 @@ set :application, "belarusjug"
 set :deploy_to, "/home/beljug/belarusjug"
 set :rails_env, "production"
 set :branch, "belarusjug"
-#server "192.168.0.124", :web, :app, :db, :primary => true
 server "91.149.128.234", :web, :app, :db, :primary => true
 set :normalize_asset_timestamps, false
-set :keep_releases, 5
-
+set :rvm_ruby_string, "ruby-1.9.3-p392@bror"
 set :use_sudo, false
 set :user, "beljug"
 set :scm, :git
 set :repository, "git@github.com:Altoros/belarus-ruby-on-rails.git"
-set :deploy_via, :checkout
+set :deploy_via, :remote_cache
 set :whenever_command, "bundle exec whenever"
 
 namespace :deploy do
@@ -50,8 +48,7 @@ namespace :solr do
     run "ln -nfs #{shared_path}/solr #{current_path}/solr"
     run "ls -al #{current_path}/solr/pids/"
     run "cd #{current_path} && bundle exec rake sunspot:solr:start RAILS_ENV=#{rails_env}"
-    sleep(5)
-    run "cd #{current_path} && bundle exec rake sunspot:solr:reindex RAILS_ENV=#{rails_env}"
+    run "cd #{current_path} && yes | bundle exec rake sunspot:reindex RAILS_ENV=#{rails_env}"
   end
 end
 
