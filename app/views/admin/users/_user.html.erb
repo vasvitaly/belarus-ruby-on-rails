@@ -8,7 +8,7 @@
     <%= mail_to user.email, user.email, :title => t('admin.users.send_to', :name => user.profile.full_name) %>
   </td>
   <td class="break-word">
-    <%= l params[:filters] ? user.participants.last.created_at : user.created_at, :format => :short %>
+    <%= l params[:filters] && user.participants.last ? user.participants.last.created_at : user.created_at, :format => :short %>
   </td>
   <td class="break-word wide">
     <%= user.answered_questions(params[:filters]).join("<br />").html_safe %>
@@ -17,9 +17,11 @@
     <ul>
       <li><%= link_to(link_to_admin_title(user), admin_user_path(user, :attr => 'admin'), :method => :put, :confirm => t('common.are_you_sure')) if can? :update, user %> </li>
       <li><%= link_to(link_to_banned_title(user), admin_user_path(user, :attr => 'banned'), :method => :put) if can? :ban, user %> </li>
-      <% if params[:filters] %>
-        <li><%= link_to(t('admin.participants.delete'), meetup_participants_destroy_path(:meetup_id => 0, :user_id => user.id, :filters => params[:filters], :format => :js), :method => :delete, :remote => true) if can? :destroy, user %> </li>
+      <% if params[:filters] && params[:filters].length == 1 %>
         <% accepted_status = accepted_status(user,params[:filters][0]) %>
+        <% if accepted_status %>
+          <li><%= link_to(t('admin.participants.delete'), meetup_participants_destroy_path(:meetup_id => 0, :user_id => user.id, :filters => params[:filters], :format => :js), :method => :delete, :remote => true) if can? :destroy, user %> </li>
+        <% end %>
         <% if accepted_status == 2 || accepted_status == 1 %>
           <li><%= link_to(t('admin.participants.decline'), meetup_participants_decline_path(:meetup_id => 0, :user_id => user.id, :filters => params[:filters], :format => :js), :method => :get, :remote => true) if can? :update, user %> </li>
         <% end %>
