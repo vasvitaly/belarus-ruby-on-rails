@@ -8,6 +8,7 @@ module Admin::UsersHelper
   end
 
   def accepted_status(user, meetup_id)
-    user.participants.find_by_meetup_id(meetup_id).accepted
+    participation = user.participants.find_by_meetup_id(meetup_id)
+    participation.accepted if participation
   end
 end

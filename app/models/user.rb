@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     includes(:profile => :experience).joins(:profile).merge(Profile.filter(filters))
   }
 
-  searchable do
+  searchable(:include => [:profile, :participants]) do
     text :email
     text :first_name do
       self.profile.first_name

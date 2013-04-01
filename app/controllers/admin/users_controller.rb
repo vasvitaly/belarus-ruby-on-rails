@@ -6,10 +6,11 @@ class Admin::UsersController < ApplicationController
 
   def index
     store_location
+    params[:filters].delete_if{|f| f.blank?} if params[:filters]
 
     @users = User.search do
       fulltext params[:search][:query] unless params.try(:[], :search).try(:[], :query).blank?
-      with :meetup_id, params[:filters].delete_if{|f| f.blank?} unless params[:filters].blank?
+      with :meetup_id, params[:filters] unless params[:filters].blank?
       unless params.try(:[], :search).try(:[], :accepted).blank? || params[:filters].blank?
         with :accepted, params[:filters].map{|meetup_id| "#{meetup_id}_#{params[:search][:accepted]}"}
       end
