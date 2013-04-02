@@ -374,5 +374,5 @@ ru:
     listing_aggregators: 'Список аггрегаторов'
     fetch: 'Обновить новости'
   languages:
-    ru: "Русский"
-    en: "Английский"
+    ru: 'Русский'
+    en: 'English'
