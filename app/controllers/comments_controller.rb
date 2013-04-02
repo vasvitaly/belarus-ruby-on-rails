@@ -10,14 +10,15 @@ class CommentsController < ApplicationController
     is_create = @comment.save
 
     if is_create
-      comment_html = render_to_string( :partial => "comments/show.html", :locals => { :comment => @comment } )
-      form_html = render_to_string( :partial => "comments/form.html",
+      comment_html = render_to_string( :partial => 'comments/show', :formats => [:html], :locals => { :comment => @comment } )
+      form_html = render_to_string( :partial => 'comments/form',
+                                    :formats => [:html],
                                     :locals => { :comment => @article.comments.build } )
 
       # send notification to all participants of discussion exclude commentator
       @comment.delay.deliver
     else
-      form_html = render_to_string( :partial => "comments/form.html", :locals => { :comment => @comment } )
+      form_html = render_to_string( :partial => 'comments/form', :formats => [:html], :locals => { :comment => @comment } )
     end
 
     render :json => { :create_status => is_create, :form_html => form_html,
@@ -26,7 +27,8 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
-    form_html = render_to_string( :partial => "comments/form.html",
+    form_html = render_to_string( :partial => 'comments/form',
+                                  :formats => [:html],
                                   :locals => { :comment => @comment } )
 
     render :json => { :form_html => form_html }
@@ -36,7 +38,7 @@ class CommentsController < ApplicationController
     @parent_comment = Comment.find(params[:comment_id])
     @comment = @parent_comment.article.comments.build
     @comment.parent = @parent_comment
-    form_html = render_to_string( :partial => "comments/form.html", :locals => { :comment => @comment } )
+    form_html = render_to_string( :partial => 'comments/form', :formats => [:html], :locals => { :comment => @comment } )
 
     render :json => { :form_html => form_html }
   end
@@ -45,8 +47,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     is_updated = @comment.update_attributes(params[:comment])
 
-    content = is_updated ? render_to_string( :partial => "comments/show.html", :locals => { :comment => @comment } ) :
-        render_to_string( :partial => "comments/form.html", :locals => { :comment => @comment } )
+    content = is_updated ? render_to_string( :partial => 'comments/show', :formats => [:html], :locals => { :comment => @comment } ) :
+        render_to_string( :partial => 'comments/form', :formats => [:html], :locals => { :comment => @comment } )
 
     render :json => { :update_status => is_updated, :content_html => content }
   end

@@ -1,37 +1,37 @@
 $(document).ready(function() {
-    $('.new_comment', '#new-article-comment-wrapper').live('ajax:success', function(e, data, textStatus, xhr) {
+    $('#new-article-comment-wrapper').on('ajax:success', '.new_comment', function(e, data, textStatus, xhr) {
         appendComment(data.create_status, data.form_html, data.comment_html, data.comments_count)
     })
 
-    $('.comment-delete-link').live('ajax:success', function(e, data, textStatus, xhr) {
+    $(document).on('ajax:success', '.comment-delete-link', function(e, data, textStatus, xhr) {
         deleteComment(data.comment_div_id, data.comments_count)
     })
 
-    $('.comment-edit-link').live('ajax:success', function(e, data, textStatus, xhr) {
+    $(document).on('ajax:success', '.comment-edit-link', function(e, data, textStatus, xhr) {
         var commentDiv = $(e.target).closest('.comment_wrapper')
         appendCommentForm(commentDiv, data.form_html)
     })
 
-    $('.edit_comment').live('ajax:success', function(e, data, textStatus, xhr) {
+    $(document).on('ajax:success', '.edit_comment', function(e, data, textStatus, xhr) {
         var commentDiv = $(e.target).closest('.comment_wrapper')
         updateComment(data.update_status, data.content_html, commentDiv)
     })
 
-    $('.comment-answer-link').live('ajax:before', function() {
+    $(document).on('ajax:before', '.comment-answer-link', function() {
         $(this).hide()
     })
 
-    $('.comment-answer-link').live('ajax:success', function(e, data, textStatus, xhr) {
+    $(document).on('ajax:success', '.comment-answer-link', function(e, data, textStatus, xhr) {
         var commentDiv = $(e.target).closest('.comment_wrapper')
         appendNestedCommentForm(commentDiv, data.form_html)
     })
 
-    $('.new_comment_comments_form').live('ajax:success', function(e, data, textStatus, xhr) {
+    $(document).on('ajax:success', '.new_comment_comments_form', function(e, data, textStatus, xhr) {
         var commentDiv = $(e.target).closest('.comment_wrapper')
         appendNestedComment(commentDiv, data.create_status, data.form_html, data.comment_html, data.comments_count)
     })
 
-    $('.cancel-comment-link').live('click', function(e) {
+    $(document).on('click', '.cancel-comment-link', function(e) {
         e.preventDefault()
         $(this).closest('.comment_wrapper').fadeOut('slow', function() {
             $(this).closest('.nested_comments_box').siblings('span').find('.comment-answer-link').fadeIn()

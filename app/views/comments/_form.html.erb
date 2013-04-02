@@ -4,7 +4,7 @@
   </div>
     <div class='forms'>
       <%= form_for shallow_comment ? comment : [comment.article, comment],
-                   :format => :json, :remote => true do |f| %>
+                   :format => :json, :remote => true, :html => {:autocomplete => 'off'} do |f| %>
       <% if comment.parent %>
         <%= hidden_field_tag :parent_id, comment.parent.id %>
       <% end %>
