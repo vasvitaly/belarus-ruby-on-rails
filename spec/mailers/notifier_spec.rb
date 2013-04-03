@@ -22,14 +22,14 @@ describe Notifier do
   describe '.comment' do
     let(:user) { FactoryGirl.build_stubbed(:user) }
     let(:article) { FactoryGirl.build_stubbed(:article) }
-    let(:mail) { Notifier.comment(article) }
+    let(:mail) { Notifier.comment(article, user) }
 
     it 'renders the article title' do
       mail.body.should include(article.title)
     end
 
     it 'renders the receiver email' do
-      mail.to.should == ["info@belarusrubyonrails.org"]
+      mail.to.should == [user.email]
     end
   end
 end

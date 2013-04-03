@@ -8,8 +8,6 @@ describe CommentsController do
     ActiveSupport::JSON.decode(response.body)
   end
 
-  pending do
-
   before :each do
     @comment = FactoryGirl.create(:comment, :article_id => FactoryGirl.create(:article).id, :user => FactoryGirl.create(:user))
   end
@@ -51,26 +49,18 @@ describe CommentsController do
         json['content_html'].should have_selector('div.error')
       end
 
-      it "should can't update article binding" do
+      it "shouldn't update article binding" do
         stranger_article = FactoryGirl.create(:article)
-        original_article_id = @comment.article_id
-        xhr :post, :update, { :id => @comment, :comment => { :body => new_comment_body, :article_id => stranger_article }, :format => :json }
-        json = parseResponseJSON
-
-        json['content_html'].should_not be_nil
-
-        Comment.find(@comment.id).article_id.should eq(original_article_id)
+        lambda {
+          xhr :post, :update, { :id => @comment, :comment => { :body => new_comment_body, :article_id => stranger_article }, :format => :json }
+        }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
       end
 
-      it "should can't update owner of comment" do
+      it "shouldn't update owner of comment" do
         stranger_user = FactoryGirl.create(:user, :email => "user2@test.com")
-        original_owner_id = @comment.user_id
-        xhr :post, :update, { :id => @comment, :comment => { :body => new_comment_body, :user_id => stranger_user }, :format => :json }
-        json = parseResponseJSON
-
-        json['content_html'].should_not be_nil
-
-        Comment.find(@comment.id).user_id.should eq(original_owner_id)
+        lambda {
+          xhr :post, :update, { :id => @comment, :comment => { :body => new_comment_body, :user_id => stranger_user }, :format => :json }
+        }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
       end
     end
 
@@ -155,9 +145,9 @@ describe CommentsController do
       end
 
       it "can't create a comment with invalid article" do
-        lambda {
-          xhr :post, :create, :comment => { :body => new_comment_body }, :article_id => '42'
-        }.should raise_error(ActiveRecord::RecordNotFound)
+        expect{
+          xhr :post, :create, :comment => { :body => new_comment_body }, :article_id => '9999'
+        }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
@@ -219,15 +209,13 @@ describe CommentsController do
       ActionMailer::Base.deliveries.should_not be_empty
     end
 
-    it "send message to subscibed user" do
+    it "send message to subscribed user" do
       ActionMailer::Base.deliveries.last.to.should eq([@user_subscribed.email])
     end
 
-    it "don't send message to usubscibed user" do
+    it "don't send message to unsubscribed user" do
       ActionMailer::Base.deliveries.collect{ |el| el.to }.should_not include([@user_unsubscribed.email])
     end
-  end
-
   end
 
 end
