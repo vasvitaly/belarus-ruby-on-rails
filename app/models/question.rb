@@ -17,8 +17,4 @@ class Question < ActiveRecord::Base
   def self.response_type_options_for_select
     RESPONSE_TYPES.map { |r| [human_attribute_name(r), RESPONSE_TYPES.index(r)] }
   end
-
-  def self.answer_options_for_select
-    answers.map(&:gist)
-  end
 end
