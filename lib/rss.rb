@@ -48,7 +48,7 @@ module RSS
                                  :created_at => entry.published)
         print "#{DateTime.current} saved entry: #{entry.title}\n"
       end
-      config.update_attributes(:feed_object => feed_object)
+      #config.update_attributes(:feed_object => feed_object)
     end
     print "#{DateTime.current} fetch_aggregators finished\n"
   end
