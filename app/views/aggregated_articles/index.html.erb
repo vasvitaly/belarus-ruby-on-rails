@@ -5,7 +5,7 @@
   <% @articles.each do |article| %>
   <div class="item">
     <h2>
-      <%= link_to article.title, article.rss_link, :target => :_blank %>
+      <%= link_to article.title, article.rss_link, :target => :_blank, :rel => :nofollow %>
     </h2>
     <div class="iteminfo">
       <span class="date"><%= l(article.created_at, :format => :long) %></span>
@@ -13,7 +13,7 @@
     <div class='cl_all'></div>
     <p><%= article.content.html_safe %></p>
     <div class='service_links'>
-        <%= link_to t('articles.show'), article.rss_link, :target => :_blank %>
+        <%= link_to t('articles.show'), article.rss_link, :target => :_blank, :rel => :nofollow %>
         <% if can? :manage, article %>
         <%= link_to t('articles.delete'), admin_aggregated_article_path(article.id),
                       :confirm => t('common.are_you_sure'), :method => :delete %>
