@@ -17,11 +17,11 @@
             </tr>
             <tr>
                 <th><%= t('activerecord.attributes.profile.experience_id') %></th>
-                <td><%= @profile.experience.level %></td>
+                <td><%= @profile.experience.translated_level %></td>
             </tr>
             <tr>
                 <th><%= t('activerecord.attributes.profile.locale') %></th>
-                <td><%= @profile.locale %></td>
+                <td><%= t("languages.#{@profile.locale}") %></td>
             </tr>
         </table>
         <% if @profile.subscribed_for_comments %>

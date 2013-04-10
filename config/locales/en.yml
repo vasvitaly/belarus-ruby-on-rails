@@ -374,3 +374,9 @@ en:
   languages:
     ru: 'Русский'
     en: 'English'
+  experience:
+    levels:
+      '1': 'What is Ruby on Rails?'
+      '2': 'Beginner'
+      '3': 'Intermediate'
+      '4': 'Expert'
