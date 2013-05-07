@@ -7,6 +7,7 @@ class Message
 
   validates_each :recipient_group do |model, attribute, values|
     filters = Meetup.list_of_meetups
+    values.delete_if(&:blank?)
     model.errors.add attribute, I18n.t('admin.messages.invalid_user_group')  if values && values != (values & filters)
   end
   validates :subject, :presence=> true
@@ -14,6 +15,7 @@ class Message
 
   class << self
     def deliver(recipient_group, subject, body, reversed, accepted)
+      recipient_group.delete_if(&:blank?)
       accepted_recipients = Profile.subscribed.accepted(accepted)
       list_of_recipients(recipient_group, reversed, accepted_recipients).each do |recipient|
         Notifier.delay.broadcast_message(recipient.user.email, subject, body)
