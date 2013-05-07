@@ -21,16 +21,16 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
     t.string   "gist"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.boolean  "published"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "slug"
     t.string   "rss_link"
     t.integer  "user_id"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
     t.integer  "assetable_id"
     t.string   "assetable_type",    :limit => 30
     t.string   "type",              :limit => 30
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
   create_table "comments", :force => true do |t|
     t.integer  "article_id"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "parent_id"
   end
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
     t.datetime "locked_at"
     t.datetime "failed_at"
     t.string   "locked_by"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "queue"
   end
 
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
     t.string   "object_type",  :null => false
     t.integer  "object_id",    :null => false
     t.string   "draft_object"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "drafts", ["object_type", "object_id"], :name => "index_drafts_on_object_type_and_object_id"
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
   create_table "participants", :force => true do |t|
     t.integer  "meetup_id"
     t.integer  "user_id"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "accepted",   :limit => 1, :default => 2
   end
 
@@ -136,8 +136,8 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
   create_table "questions", :force => true do |t|
     t.string   "gist"
     t.integer  "meetup_id"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "kind_of_response"
     t.boolean  "required",         :default => true
     t.integer  "min_length"
@@ -149,16 +149,16 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
     t.integer  "participant_id"
     t.integer  "question_id"
     t.text     "answer"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "static_pages", :force => true do |t|
     t.string   "title"
     t.string   "permalink"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "twitter_blocks", :force => true do |t|
@@ -188,8 +188,8 @@ ActiveRecord::Schema.define(:version => 20130221133739) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.datetime "created_at",                                               :null => false
-    t.datetime "updated_at",                                               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "is_admin",                              :default => false
     t.boolean  "banned"
     t.string   "password_salt"
