@@ -156,6 +156,10 @@ GEM
     i18n (0.6.4)
     i18n-js (2.1.2)
       i18n
+    icalendar2 (0.1.5)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -409,6 +413,7 @@ DEPENDENCIES
   guard-cucumber
   guard-rspec
   i18n-js
+  icalendar2
   jquery-rails
   mailcatcher
   mysql2
