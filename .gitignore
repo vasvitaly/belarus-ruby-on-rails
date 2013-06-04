@@ -1,10 +1,9 @@
 tmtags
 .bundle
 db/*.sqlite3
-log/*.log
+log/*
 tmp/
 .sass-cache/
-.rvmrc*
 .*~
 config/database.yml
 config/social_config.yml
@@ -18,4 +17,3 @@ public/ckeditor_assets/pictures
 solr/data/**/*
 solr/pids/**/*
 .idea/
-log/sunspot-solr-development.log.lck

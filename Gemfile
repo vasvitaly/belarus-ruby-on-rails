@@ -82,6 +82,7 @@ gem 'icalendar2'
 
 group :test do
   gem 'cucumber-rails', :require => false
+  gem 'treetop'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl_rails'
