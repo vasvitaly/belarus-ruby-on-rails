@@ -5,7 +5,7 @@ require "delayed/recipes"
 set :application, "belarus-on-rails"
 set :deploy_to, "/home/deploy/belarus-on-rails"
 set :rails_env, 'production'
-set :branch, 'rails_3_2'
+set :branch, 'master'
 server '50.57.221.109', :web, :app, :db, :primary => true
 set :normalize_asset_timestamps, false
 set :rvm_ruby_string, "ruby-1.9.3-p392@bror"
