@@ -39,7 +39,6 @@ describe Admin::UsersController do
 
     context 'downloaded xls file' do
       before(:each) do
-        require 'iconv'
         @meetup = FactoryGirl.create(:meetup)
         @exp = FactoryGirl.create(:experience)
         @first_user = FactoryGirl.create(:user, :profile => FactoryGirl.create(:profile, :subscribed => true, :experience => @exp))
