@@ -38,7 +38,7 @@ end
 namespace :solr do
   task :kill, :except => {:no_release => true} do
     #run "cd #{current_path} && bundle exec rake sunspot:solr:stop RAILS_ENV=#{rails_env}"
-    run "pidof java | xargs kill"
+    run "pkill java || true"
   end
 
   task :symlink, :except => {:no_release => true} do
