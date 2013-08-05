@@ -196,6 +196,7 @@ en:
     main: 'Home'
     news: 'Java News'
     events: 'Events'
+    videos: 'Videos'
     about: 'About'
     friends: 'Friends'
     control_panel: 'Control panel'
@@ -385,3 +386,5 @@ en:
       '2': 'Beginner'
       '3': 'Intermediate'
       '4': 'Expert'
+  videos:
+    no_videos: 'There is no videos at the moment'
