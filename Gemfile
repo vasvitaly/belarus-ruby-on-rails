@@ -35,7 +35,7 @@ gem 'simple_form'
 
 gem 'will_paginate'
 
-gem 'jquery-rails'
+gem 'jquery-rails', "2.3.0"
 
 gem 'ckeditor'
 gem 'paperclip'
