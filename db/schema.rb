@@ -203,9 +203,10 @@ ActiveRecord::Schema.define(:version => 20130805124758) do
   create_table "videos", :force => true do |t|
     t.string   "content"
     t.string   "title"
+    t.datetime "published_at"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end
