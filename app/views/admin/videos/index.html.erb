@@ -3,7 +3,9 @@
 <%= link_to button_inner_html(t('videos.fetch_videos')), fetch_admin_videos_path, :class => :button %>
 
 <% if @videos.empty? %>
-  <%= t('videos.no_videos') %>
+  <div class="sep">
+    <%= t('videos.no_videos') %>
+  </div>
 <% else %>
   <table class='list-table'>
     <tr>
