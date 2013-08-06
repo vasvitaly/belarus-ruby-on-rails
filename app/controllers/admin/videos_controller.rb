@@ -1,5 +1,6 @@
 class Admin::VideosController < ApplicationController
   load_and_authorize_resource
+  before_filter :find_video, :only => [:destroy, :update]
 
   def index
     authorize! :admin, :dashboard
@@ -26,7 +27,17 @@ class Admin::VideosController < ApplicationController
   end
 
   def destroy
-  	Video.find(params[:id]).destroy
+    @video.destroy
     redirect_to admin_videos_path
+  end
+
+  def update
+    @video.update_attributes(params[:video])
+    redirect_to admin_videos_path
+  end
+
+  private
+  def find_video
+   @video = Video.find(params[:id])
   end
 end

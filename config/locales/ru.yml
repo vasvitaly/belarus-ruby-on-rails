@@ -391,3 +391,6 @@ ru:
     fetch_videos: 'Добавить видео'
     save_video: 'Добавить в ленту'
     editing_video: 'Редактировать видео'
+    update_page: 'Изменить видео'
+    delete: 'Удалить'
+    title: 'Заголовок'

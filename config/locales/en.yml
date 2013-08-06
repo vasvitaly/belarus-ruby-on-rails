@@ -391,3 +391,6 @@ en:
     fetch_videos: 'Fetch videos'
     save_video: 'Add to list'
     editing_video: 'Edit video'
+    update_page: 'Update video'
+    delete: 'Delete'
+    title: 'Title'
