@@ -42,7 +42,7 @@ BelarusRubyOnRails::Application.routes.draw do
   resources :users, :only => [:new, :create], :path => '/users/omniauth/'
   get 'users/unsubscribe', :to => 'users#unsubscribe', :as => 'unsubscribe'
 
-  resources :videos
+  resources :videos, :only => [:index]
 
   namespace :admin do
     resources :users, :except => [:create] do
@@ -65,6 +65,11 @@ BelarusRubyOnRails::Application.routes.draw do
     put 'meetups/:id/cancel' => 'meetups#cancel', :as => 'meetup_cancel'
     post 'tryout_meetup_message', :to => 'meetups#tryout_message', :as => 'tryout_meetup_message'
     resources :twitter_blocks
+    resources :videos do
+      collection do
+        get 'fetch'
+      end
+    end
   end
 
   # The priority is based upon order of creation:

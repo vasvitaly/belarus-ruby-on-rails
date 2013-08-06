@@ -386,3 +386,7 @@ en:
       '4': 'Expert'
   videos:
     no_videos: 'There is no videos at the moment'
+    manage: 'manage videos'
+    list_of_videos: 'List of videos'
+    fetch_videos: 'Fetch videos'
+    save_video: 'Add to list'
