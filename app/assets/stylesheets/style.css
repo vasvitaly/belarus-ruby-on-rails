@@ -268,3 +268,5 @@ table.styled th {font-weight:bold;}
 .service_buttons {float: right;}
 
 .icons img {width: 16px; height: 16px;}
+.video-frame{width: 590px; height: 349px; margin-top: 30px; margin-bottom: 10px;}
+.fetched-video .right span {margin-left: 29px;}
