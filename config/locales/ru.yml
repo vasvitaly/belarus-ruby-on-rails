@@ -263,10 +263,7 @@ ru:
         letter_subject: 'Тема письма уведомления'
         letter_body: 'Текст письма уведомления'
       twitter_block:
-        search: 'Поиск'
-        title: 'Заголовок'
-        subject: 'Тема'
-        footer_text: 'Нижний текст'
+        title: 'Имя'
       static_page:
         title: 'Заголовок'
         permalink: 'Постоянная ссылка'
@@ -352,7 +349,7 @@ ru:
     new_block: 'Добавить новый twitter блок'
     listing_blocks: 'управлять twitter блоками'
     list_title: 'Список twitter блоков'
-    title: 'Заголовок'
+    title: 'Имя'
     delete: 'Удалить'
     are_you_sure: 'Вы уверены, что хотите удалить блок?'
     add_a_block: 'Добавить блок'

@@ -1,3 +1,4 @@
 class TwitterBlock < ActiveRecord::Base
-  validates :search, :presence => true
+  attr_accessible :widget, :title
+  validates_presence_of :widget, :title
 end

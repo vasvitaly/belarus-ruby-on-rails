@@ -80,15 +80,15 @@ describe Admin::TwitterBlocksController do
 
       context "with valid parameters" do
         let(:attributes) do
-          @search = "MyString"
+          @widget = "MyString"
 
-          { :search => @search }
+          { :widget => @widget }
         end
 
         it "updates the requested twitter_block" do
           @twitter_block.reload
 
-          @twitter_block.search.should eq(@search)
+          @twitter_block.widget.should eq(@widget)
         end
 
         it "assigns the requested twitter_block as @twitter_block" do
@@ -101,7 +101,7 @@ describe Admin::TwitterBlocksController do
       end
 
       describe "with invalid parameters" do
-        let(:attributes) { {:search => "" } }
+        let(:attributes) { {:widget => "" } }
 
         it "assigns the twitter_block as @twitter_block" do
           assigns(:twitter_block).should eq(@twitter_block)
