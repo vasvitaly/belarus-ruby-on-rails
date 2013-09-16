@@ -265,10 +265,7 @@ en:
         letter_subject: 'Notification email subject'
         letter_body: 'Notification email body'
       twitter_block:
-        search: 'Search'
         title: 'Title'
-        subject: 'Subject'
-        footer_text: 'Footer text'
       static_pages:
         title: 'Title'
         permalink: 'Permalink'

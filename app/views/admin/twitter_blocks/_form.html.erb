@@ -1,13 +1,6 @@
 <%= form_for([:admin, @twitter_block]) do |f| %>
     <table class="loginTBL">
-        <tr>
-            <td><%= f.label :search %></td>
-            <td>
-              <div class="field"><%= f.text_field :search %></div>
-            </td>
-        </tr>
-
-        <tr>
+         <tr>
             <td><%= f.label :title %></td>
             <td>
               <div class="field"><%= f.text_field :title %></div>
@@ -15,16 +8,9 @@
         </tr>
 
         <tr>
-            <td><%= f.label :subject %></td>
+            <td><%= f.label :widget %></td>
             <td>
-              <div class="field"><%= f.text_field :subject %></div>
-            </td>
-        </tr>
-
-        <tr>
-            <td><%= f.label :footer_text %></td>
-            <td>
-              <div class="field"><%= f.text_field :footer_text %></div>
+              <div class="field"><%= f.text_area :widget %></div>
             </td>
         </tr>
 

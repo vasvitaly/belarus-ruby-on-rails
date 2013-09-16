@@ -14,7 +14,7 @@
     </tr>
   <% @twitter_blocks.each do |block| %>
     <tr>
-      <td><%= link_to "#{block.title} #{block.subject}", edit_admin_twitter_block_path(block) %> </td>
+      <td><%= link_to "#{block.title}", edit_admin_twitter_block_path(block) %> </td>
       <td><%= link_to t('common.delete'), admin_twitter_block_path(block), confirm: t('common.are_you_sure'), method: :delete %></td>
     </tr>
   <% end %>
