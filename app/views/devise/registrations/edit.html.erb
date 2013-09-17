@@ -27,9 +27,7 @@
           </td>
         </tr>
 
-        <%= f.fields_for :profile do |profile_form|%>
-            <%= render 'profiles/subscription', :user => resource, :f => profile_form %>
-        <% end %>
+        <%= render 'profiles/subscription', :user => resource, :f => f %>
 
         <tr>
             <td></td>
