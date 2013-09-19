@@ -386,7 +386,7 @@ ru:
     en: 'English'
   experience:
     levels:
-      '1': 'Что такое Ruby on Rails?'
+      '1': 'Что такое Java?'
       '2': 'Новичок'
       '3': 'Средний'
       '4': 'Эксперт'
