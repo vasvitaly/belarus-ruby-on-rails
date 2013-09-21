@@ -4,10 +4,11 @@
         <tr>
             <td><%= t 'activerecord.attributes.user.email' %></td>
             <td>
-                <div class="field"><%= f.email_field :email %></div>
+            <%= f.fields_for :user, user do |user_form|%>
+                <div class="field"><%= user_form.email_field :email %></div>
+            <% end %>
             </td>
         </tr>
-        <%= f.fields_for :profile do |profile_form|%>
-          <%= render 'profiles/news_comments_subscription', :f => profile_form %>
-        <% end %>
+
+        <%= render 'profiles/news_comments_subscription', :f => f %>
 

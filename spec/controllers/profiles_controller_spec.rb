@@ -203,4 +203,26 @@ describe ProfilesController do
       end
     end
   end
+
+  context "nested #update" do
+    let(:sign_in_user) { FactoryGirl.create(:user, :is_admin => true) }
+
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      store_location profile_path(@user.profile)
+      put :update, :id => @user.profile.id, :profile => user_attributes
+    end
+
+    describe 'with nested params' do
+      let(:user_attributes) do
+        {
+          "user_attributes" => { "email" => "test@mail.com" }
+        }
+      end
+
+      it 'should succeed' do
+        response.status.should be(200)
+      end
+    end
+  end
 end
