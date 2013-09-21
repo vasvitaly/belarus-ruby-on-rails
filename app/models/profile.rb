@@ -10,7 +10,8 @@ class Profile < ActiveRecord::Base
                   :experience_id,
                   :subscribed_for_comments,
                   :avatar,
-                  :locale
+                  :locale,
+                  :user_attributes
   has_attached_file :avatar, :styles => { :medium => "98x98#", :thumb => "50x50#" },
                     :path => ":rails_root/public/system/:attachment/#{Rails.env}/:id/:style/:filename",
                     :url => "/system/:attachment/#{Rails.env}/:id/:style/:filename"
@@ -23,6 +24,8 @@ class Profile < ActiveRecord::Base
   validates_attachment_content_type :avatar, { :content_type =>
                                       ['image/png', 'image/gif', 'image/x-png', 'image/jpeg', 'image/jpg'],
                                       :message => I18n.t('profile.wrong_image_type')}
+
+  accepts_nested_attributes_for :user
 
   scope :subscribed, where('profiles.subscribed = ?', true)
   scope :subscribed_for_comments, where('profiles.subscribed_for_comments = ?', true)
