@@ -43,9 +43,10 @@ class Meetup < ActiveRecord::Base
   def export_to_ics
     calendar = Calendar.new
     meetup = self
+    calendar.version '2.0'
     calendar.event do
-      dtstart     DateTime.parse(meetup.date_and_time.to_s)
-      dtend       DateTime.parse(meetup.finish_date_and_time.to_s)
+      dtstart     meetup.date_and_time.strftime("%Y%m%dT%H%M%S")
+      dtend       meetup.date_and_time.strftime("%Y%m%dT%H%M%S")
       summary     meetup.topic
       description meetup.description
     end
