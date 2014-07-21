@@ -1,15 +1,14 @@
 require "rvm/capistrano"
-set :bundle_dir, "/home/deploy/.rvm/gems/ruby-1.9.3-p392"
-require 'bundler/capistrano'
+require "bundler/capistrano"
 require "whenever/capistrano"
 require "delayed/recipes"
-set :application, "belarus-on-rails"
-set :deploy_to, "/home/deploy/belarus-on-rails"
-set :rails_env, 'production'
-set :branch, 'master'
-server '82.196.4.54', :web, :app, :db, :primary => true
+set :application, "paaspro"
+set :deploy_to, "/home/deploy/paaspro"
+set :rails_env, "production"
+set :branch, "paaspro"
+server "95.85.5.7", :web, :app, :db, :primary => true
 set :normalize_asset_timestamps, false
-set :rvm_ruby_string, "ruby-1.9.3-p392@bror"
+set :rvm_ruby_string, "ruby-1.9.3-p392@paaspro"
 set :use_sudo, false
 set :user, "deploy"
 set :scm, :git
@@ -29,9 +28,9 @@ after "deploy:update_code", :symlink_config_files
 
 task :symlink_config_files do
   symlinks = {
-      "#{shared_path}/ckeditor_assets" => "#{release_path}/public/ckeditor_assets",
-      "#{shared_path}/config/database.yml" => "#{release_path}/config/database.yml",
-      "#{shared_path}/config/social_config.yml" => "#{release_path}/config/social_config.yml"
+    "#{shared_path}/public/ckeditor_assets" => "#{release_path}/public/ckeditor_assets",
+    "#{shared_path}/config/database.yml" => "#{release_path}/config/database.yml",
+    "#{shared_path}/config/social_config.yml" => "#{release_path}/config/social_config.yml"
   }
   run symlinks.map { |from, to| "ln -nfs #{from} #{to}" }.join(" && ")
   run "chmod -R g+rw #{release_path}/public"
