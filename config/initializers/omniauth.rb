@@ -7,7 +7,8 @@ Devise.setup do |config|
   credentials = SOCIAL_CONFIG['facebook'] || {}
   config.omniauth :facebook, credentials['app_id'], credentials['secret_key'],
                 { :scope => 'email',
-                  :client_options => { :ssl => { :ca_path => "/etc/ssl/certs" }}}
+                  :client_options => { :ssl => { :ca_path => "/etc/ssl/certs" }},
+                  :secure_image_url => true}
 
   credentials = SOCIAL_CONFIG['vkontakte'] || {}
   config.omniauth :vkontakte, credentials['app_id'], credentials['secret_key']
