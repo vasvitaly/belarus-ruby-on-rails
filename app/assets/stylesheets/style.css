@@ -1,13 +1,13 @@
 * { margin:0; padding:0; border:none; background:none;}
 ul { list-style:none;}
-a { text-decoration:underline; color:#850008;}
-a:hover { text-decoration:none;}
-body {position:relative;color:#31322c;font:15px/20px Arial, Helvetica, sans-serif;background:#fff;}
+a { text-decoration:underline; color:#3ea7bc;}
+a:hover { text-decoration:none; color: #005580;}
+body {position:relative;color:#3c3d42;font:15px/20px Arial, Helvetica, sans-serif;background:#f1f1f1;}
 h1 { margin:0 0 20px; color:#000;font:normal 24px Arial, Helvetica, sans-serif;}
 h2 {color:#000;font:normal 22px Arial, Helvetica, sans-serif;}
-h3 {color:#850008;font:bold 16px/20px Arial, Helvetica, sans-serif;}
+h3 {color:#3ea7bc;font:bold 16px/20px Arial, Helvetica, sans-serif;}
 h4 {margin-bottom:10px; color:#31322c;font:bold 14px/16px Arial, Helvetica, sans-serif;}
-h5 {margin-bottom:5px; color:#850008;font:bold 14px/16px Arial, Helvetica, sans-serif;}
+h5 {margin-bottom:5px; color:#3ea7bc;font:bold 14px/16px Arial, Helvetica, sans-serif;}
 p {margin:10px 0;}
 :focus {outline:none;}
 input::-moz-focus-inner, button::-moz-focus-inner {border:0;padding:0;}
@@ -28,26 +28,27 @@ ol li span {font-weight:normal;}
 
 .wrapper {position:relative;min-width:950px;}
 .wrapper > .block {margin-top:25px;}
-.header {min-width:950px;height:163px;background:url(bg_header.gif) 0 0 repeat-x; border-bottom:1px solid #c1c1c1;}
+.header {min-width:950px;height:163px;background:#bcd3e6; border-bottom:1px solid #c1c1c1;}
 .block {position:relative; overflow:hidden; width:950px; margin:0 auto;}
 .logo_row {height:120px; border-bottom:1px solid #d3d3d3;}
 a.logo { float:left; margin-top:14px;}
-.sublinks { float:right; margin-top:34px; font-size:12px; line-height:22px; color:#737373;}
-.sublinks span {display:inline-block; *display:inline; padding-left:13px; margin-left:10px; color:#737373; zoom:1;}
-.sublinks a {color:#737373;}
+.sublinks { float:right; margin-top:34px; font-size:12px; line-height:22px; color:#01786e;}
+.sublinks span {display:inline-block; *display:inline; padding-left:13px; margin-left:10px; color:#01786e; zoom:1;}
+.sublinks a {color:#01786e;}
 .sublinks .user {display:inline-block; *display:inline; padding-left:18px;background: url(ico_user.png) 0 4px no-repeat; zoom:1;}
 .menu_row {height:56px; border-top:1px solid #fff;}
 .menu_row ul { float:left; margin-top:10px;}
 .menu_row ul li {display:inline-block; *display:inline; margin-right:30px; font-size:15px; color:#000; zoom:1;}
-.menu_row ul li a {color:#850008;}
+.menu_row ul li a {color:#666;}
+.menu_row ul li:hover a {color:#333333;}
 
-.notification {border-bottom:1px solid #a1cf7a; background:#e3ffcb; font-size:12px; line-height:14px;}
-.notification .block div {min-height:14px; padding:8px 0 7px 21px; background:url(ico_info_success.png) 0 8px no-repeat; color:#387900;}
-.notification-error {border-bottom:1px solid #ffc1c1; background:#ffd8d8; font-size:12px; line-height:14px;}
-.notification-error .block div {min-height:14px; padding:8px 0 7px 21px; background:url(ico_info_error.png) 0 8px no-repeat; color:#c46969;}
+.notification {border-bottom:1px solid #01b0a6; background:#e3ffcb; font-size:12px; line-height:14px;}
+.notification .block div {min-height:14px; padding:8px 0 7px 21px; background:url(ico_info_success.png) 0 8px no-repeat; color:#01786e;}
+.notification-error {border-bottom:1px solid #dafaff; background: #fffbf9; font-size:12px; line-height:14px;}
+.notification-error .block div {min-height:14px; padding:8px 0 7px 21px; background:url(ico_info_error.png) 0 8px no-repeat; color:#0088cc;}
 
 .left { float:left; clear:both; width:650px; padding-bottom:10px;}
-.left a { color:#850008;}
+.left a { color:#3ea7bc;}
 .left .item {padding:20px 0 30px; border-top:1px solid #e0e0e0;}
 .item a { color:#000;}
 .left .item:first-child {padding:10px 0 30px; border-top:none;}
@@ -59,7 +60,7 @@ a.logo { float:left; margin-top:14px;}
 .iteminfo span.comments {background-image:url(ico_message.png);}
 
 .pagination { padding:0 0 40px 0; font-weight:bold; font-size:1px;}
-.pagination a, .pagination > span { display:inline-block; *display:ilnine; height:21px; padding-right:3px; margin-right:3px; vertical-align:top; font-size:14px; line-height:21px; color:#850008; zoom:1;}
+.pagination a, .pagination > span { display:inline-block; *display:ilnine; height:21px; padding-right:3px; margin-right:3px; vertical-align:top; font-size:14px; line-height:21px; color:#3ea7bc; zoom:1;}
 .pagination a span, .pagination > span span { display:block;height:21px; padding:0 4px 0 7px;}
 .pagination a:hover, .pagination .act { background:url(bg_page.png) 100% -21px no-repeat; text-decoration:none; }
 .pagination .act { cursor: default; }
@@ -73,7 +74,7 @@ a.logo { float:left; margin-top:14px;}
 .partners .links a + a + a { float:right; height:30px; margin:8px 0 0;}
 
 .right { float:right;width:250px;}
-.participate { position:relative; padding:20px 22px 22px; margin-bottom:20px; border:2px solid #850008; font-size:12px; line-height:16px;}
+.participate { position:relative; padding:20px 22px 22px; margin-bottom:20px; border:2px solid #3ea7bc; font-size:12px; line-height:16px;}
 .participate ins {background: url(crn.png) 0 0 no-repeat; position:absolute; top:-2px; bottom:auto; left:-2px; width:5px; height:5px;}
 .participate ins + ins {top:-2px; bottom:auto; left:auto; right:-2px; background-position:-5px 0;}
 .participate ins + ins + ins {bottom:-2px; top:auto; left:auto; right:-2px; background-position:-5px -5px;}
@@ -105,7 +106,7 @@ a.logo { float:left; margin-top:14px;}
 .loginTBL td div.profile_image {position:relative; min-height:120px; padding-left:120px;}
 .loginTBL td div.profile_image img {position:absolute; left:0; top:0; border:1px solid #cfcfcf;}
 .loginTBL td div.profile_image label + input[type="file"] {margin-bottom:15px;}
-.loginTBL td div.profile_image a { margin:0; color:#881E24; font-size:15px; text-decoration:none;}
+.loginTBL td div.profile_image a { margin:0; color:#3ea7bc; font-size:15px; text-decoration:none;}
 .loginTBL td div.profile_image a:hover {text-decoration:underline;}
 .loginTBL td.save a { margin-left:20px; font-size:15px; text-decoration:underline;}
 .loginTBL td.save a:hover {text-decoration:none;}
@@ -122,20 +123,20 @@ a.logo { float:left; margin-top:14px;}
 .check label {font-size:14px; color:#000;}
 .forms input[type="checkbox"] {margin:0 4px 0 0;*margin:0 1px 0 -3px;}
 .forms input[type="text"], .forms input[type="password"], .forms input[type="email"] { clear:both; overflow:visible; width:228px;*width:226px; height:27px; color:#737373; font-size:14px; line-height:27px; text-indent:5px; border:1px solid #888888; background:#fff;}
-.forms .field.error {padding:1px;*padding:0 1px;border:1px solid #d37f84; background:#ffd8d8;}
+.forms .field.error {padding:1px;*padding:0 1px;border:1px solid #0088cc; background:#DAFAFF;}
 .forms .field.error input, .forms .field.error select { display:inline-block; *display:inline;zoom:1; vertical-align:middle;}
 .forms .field {padding:1px;*padding:0 1px; background:#fff; border:1px solid #fff;}
 .forms .field input { display:inline-block; *display:inline;zoom:1; vertical-align:middle; position:relative; *left:-5px;}
-.forms .field > a { margin-left:20px; font-size:13px; color:#881e24; text-decoration:none;}
+.forms .field > a { margin-left:20px; font-size:13px; color:#3ea7bc; text-decoration:none;}
 .forms .field > a:hover {text-decoration:underline;}
 .forms .field .msg {display:none;}
-.forms .field.error .msg {display:inline-block; *display:inline; overflow:hidden; max-width:180px; max-height:28px; padding:0 0 0 21px; margin-left:10px; *margin-left:0px; font-size:12px; line-height:14px; background:url(ico_info_error.png) 0 center no-repeat; color:#c46969; vertical-align:middle;zoom:1;vertical-align:middle;}
+.forms .field.error .msg {display:inline-block; *display:inline; overflow:hidden; max-width:180px; max-height:28px; padding:0 0 0 21px; margin-left:10px; *margin-left:0px; font-size:12px; line-height:14px; background:url(ico_info_error.png) 0 center no-repeat; color:#0088cc; vertical-align:middle;zoom:1;vertical-align:middle;}
 .forms select { clear:both; width:228px;font-size:14px; line-height:18px; border:1px solid #888888;}
 .btns { margin:25px 0;}
 .login { overflow:hidden; margin:25px 0;}
 .login button { float:left;}
 .login .links { float:left; margin-left:30px; font-size:12px; line-height:16px;}
-.login .links a { color:#850008;}
+.login .links a { color:#3ea7bc;}
 button, a.button { overflow:visible; height:31px; padding:0 1px 0 0; font-size:16px; font-weight:bold; color:#fff;text-shadow: #1f0002 0px -1px 1px;cursor:pointer;}
 button span, a.button span { display:inline-block;overflow:visible;  margin:0; height:31px; padding:0 5px 0 0;background:url(bg_buttons.png) 100% -31px;}
 button span span, a.button span span { display:inline-block; margin:0; height:31px; padding:0 10px 0 15px; line-height:31px; white-space:nowrap; background:url(bg_buttons.png) 0 0;}
@@ -158,32 +159,32 @@ button.gray span, a.button.gray span, button.gray span span, a.button.gray span 
 
 .twtr-search-widget {margin-bottom:20px;}
 
-.participation { overflow:hidden; padding:0 0 16px 40px; margin-bottom:15px; background:url(ico_info.png) 0 3px no-repeat; color:#3e7600; font-size:17px; line-height:22px; border-bottom:1px solid #c0c0c0;}
+.participation { overflow:hidden; padding:0 0 16px 40px; margin-bottom:15px; background:url(ico_info.png) 0 3px no-repeat; color: #01786e; font-size:17px; line-height:22px; border-bottom:1px solid #c0c0c0;}
 
-a.share { display:inline-block; *display:inline; padding:0 0 0 20px; margin:10px 0; background:url(ico_share.png) 0 4px no-repeat; color:#850008; font-size:14px; zoom:1;}
+a.share { display:inline-block; *display:inline; padding:0 0 0 20px; margin:10px 0; background:url(ico_share.png) 0 4px no-repeat; color:#3ea7bc; font-size:14px; zoom:1;}
 
 div.comments { padding: 10px 0 30px;}
 div.comments h3 {font:normal 20px/26px Arial, Helvetica, sans-serif; color:#31322c;}
-div.comments h3 span { position:relative; bottom:6px; font:bold 14px/26px Arial, Helvetica, sans-serif; color:#850008;}
+div.comments h3 span { position:relative; bottom:6px; font:bold 14px/26px Arial, Helvetica, sans-serif; color:#3ea7bc;}
 .comment { position:relative; min-height:75px; padding:15px 0 15px 85px;}
 .upic { position:absolute; top:15px; left:20px;}
 .upic img { border:1px solid #cfcfcf; width:50px; height:50px }
 .comment_text { font-size:14px; line-height:18px; padding-bottom:5px;}
 .comment .date {display:inline-block; *display:ilnine;margin-right:20px; font-size:12px; color:#898989; zoom:1;}
-.comment a.answer {margin-right:20px;font-size:12px; color:#850008;}
+.comment a.answer {margin-right:20px;font-size:12px; color:#3ea7bc;}
 .comment a.delete {font-size:12px; color:#959595;}
 .thread {padding:20px 0 0; margin-left:-15px; border-left:2px solid #cfcfcf;}
 .comment .comment { padding-left:80px;}
 .comment .comment .upic {left:15px;}
 .login_comments { padding:10px 0 10px 40px; color:#000; font-size:16px; line-height:18px;background:url(ico_comment_login.png) 20px 14px no-repeat;}
-.login_comments a {color:#850008;}
+.login_comments a {color:#3ea7bc;}
 
 .to_comment { position:relative; min-height:100px; padding:20px 0 20px 65px; margin:10px 0 0 20px; border:1px solid #c7c7c7; border-width:1px 0; background:#efefef;}
 .to_comment .upic { position:absolute; top:20px; left:7px;}
 .to_comment textarea { overflow:auto; width: 99%; max-width: 99%; height:90px; max-height:90px; }
 .comment .to_comment {margin-left:-15px;}
 .comment .to_comment textarea {width: 99%; max-width: 99%;}
-a.close { margin-left:20px; color:#881e24; font-size:14px; text-decoration:none;}
+a.close { margin-left:20px; color:#3ea7bc; font-size:14px; text-decoration:none;}
 a.close:hover {text-decoration:underline;}
 
 a.submit {display:inline-block; *display:inline; height:31px; padding:0 5px 0 0; background:url(bg_submit.png) 100% -31px no-repeat; color:#252525; font-weight:bold; line-height:31px; text-decoration:none; zoom:1;text-shadow: #fff 0px 1px 1px;}
@@ -224,13 +225,13 @@ ul.task-list li a { text-decoration: none; }
 .list-table th {
     font-size: 12px;
     font-weight: bold;
-    color: #850008;
+    color: #3ea7bc;
     padding: 10px 8px;
-    border-bottom: 2px solid #c46969;
+    border-bottom: 2px solid #0088cc;
 }
-.list-table td { color: #c46969; padding: 9px 8px 0px 8px; border-bottom: 1px solid #c46969; }
-.list-table td a { text-decoration: none; color: #c46969; }
-.list-table tbody tr:hover td a:hover { color: #850008;}
+.list-table td { color: #0088cc; padding: 9px 8px 0px 8px; border-bottom: 1px solid #0088cc; }
+.list-table td a { text-decoration: none; color: #0088cc; }
+.list-table tbody tr:hover td a:hover { color: #3ea7bc;}
 
 .break-word { max-width: 90px; word-wrap: break-word; }
 .break-word.wide { max-width: 150px; }
@@ -245,7 +246,7 @@ ul.task-list li a { text-decoration: none; }
 .comment .to_comment .upic { left: 10px; }
 .comment .to_comment .forms { right: -5px;  }
 
-.service_links a { color: #850008; }
+.service_links a { color: #3ea7bc; }
 .item .iteminfo { float: left; }
 .item .addthis_toolbox { float: right; }
 .participate .addthis_toolbox { margin: 15px auto 0;}
@@ -259,7 +260,7 @@ div.fields .required {position: static; color: #000;}
 .registration .input > label {display:inline-block;width:190px;padding-right:10px;float:left;}
 .registration .field {float:left;width:228px;}
 .registration .field > label {display:block;}
-.registration .error {color:#c46969}
+.registration .error {color:#0088cc}
 
 table.styled {border:1px solid black;}
 table.styled th, table.styled td {border:1px solid black;padding:2px 5px;}
@@ -270,14 +271,14 @@ table.styled th {font-weight:bold;}
 .icons img {width: 16px; height: 16px;}
 .video-frame{width: 590px; height: 349px; margin-top: 30px; margin-bottom: 10px;}
 .fetched-video .right span {margin-left: 29px;}
-.fetched-video h3 a{text-decoration: none; color: #850000;}
+.fetched-video h3 a{text-decoration: none; color: #3ea7bc;}
 .fetched-video h3 a:hover{color: #000;}
 .fetched-video .description {font-size: 14px; margin-top: 10px;}
 .video_title {width: 360px !important;}
 .sep {margin-top: 30px;}
 .add-item { float: left; margin-right: 10px; margin-top: 3px;}
 .spoiler { font-weight: bold; font-size: 14px; }
-#add-videos-btn { overflow:visible; height:31px; width: auto; font-size:16px; font-weight:bold; text-shadow: #1f0002 0px -1px 1px; cursor:pointer; color: #850000; }
+#add-videos-btn { overflow:visible; height:31px; width: auto; font-size:16px; font-weight:bold; text-shadow: #1f0002 0px -1px 1px; cursor:pointer; color: #3ea7bc; }
 .mp-closed { display: block; }
 .mp-pass { margin-top: 10px; display: block; }
 .timeline .stream { height: 350px !important;}
