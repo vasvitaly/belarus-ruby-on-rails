@@ -137,9 +137,10 @@ a.logo { float:left; margin-top:14px;}
 .login button { float:left;}
 .login .links { float:left; margin-left:30px; font-size:12px; line-height:16px;}
 .login .links a { color:#3ea7bc;}
-button, a.button { overflow:visible; height:31px; padding:0 1px 0 0; font-size:16px; font-weight:bold; color:#fff;text-shadow: #1f0002 0px -1px 1px;cursor:pointer;}
-button span, a.button span { display:inline-block;overflow:visible;  margin:0; height:31px; padding:0 5px 0 0;background:url(bg_buttons.png) 100% -31px;}
-button span span, a.button span span { display:inline-block; margin:0; height:31px; padding:0 10px 0 15px; line-height:31px; white-space:nowrap; background:url(bg_buttons.png) 0 0;}
+button, a.button { overflow:visible; height:31px; padding:0 1px 0 0; font-size:16px; font-weight:bold; color:#fff;text-shadow: #1f0002 0px -1px 1px;cursor:pointer;
+    background: #0088cc; border-radius: 5px;-moz-box-shadow:    3px 3px 5px 6px #fff; -webkit-box-shadow: 3px 3px 5px 6px #fff; box-shadow: 3px 3px 5px 6px #fff;}
+button span, a.button span { display:inline-block;overflow:visible;  margin:0; height:31px; padding:0 5px 0 0;background:none;}
+button span span, a.button span span { display:inline-block; margin:0; height:31px; padding:0 10px 0 15px; line-height:31px; white-space:nowrap; background:none;}
 button:hover span, a.button:hover span { background-position:100% -93px;}
 button:hover span span, a.button:hover span span { background-position:0 -62px;}
 a.button.active {cursor:default;}
