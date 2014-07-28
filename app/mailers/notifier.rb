@@ -2,7 +2,7 @@
 class Notifier < ActionMailer::Base
   helper :application
   layout "email"
-  default :from => "Белорусское сообщество Ruby <info@brug.by>",
+  default :from => "Белорусское сообщество PaaS <info@paaspro.by>",
           :charset => "utf-8",
           :content_type => "text/html"
 
