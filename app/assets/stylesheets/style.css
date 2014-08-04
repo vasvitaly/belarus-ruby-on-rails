@@ -28,7 +28,7 @@ ol li span {font-weight:normal;}
 
 .wrapper {position:relative;min-width:950px;}
 .wrapper > .block {margin-top:25px;}
-.header {min-width:950px;height:163px;background:#bcd3e6; border-bottom:1px solid #c1c1c1;}
+.header {min-width:950px;height:163px; background:#ffffff; border-bottom:1px solid #c1c1c1;}
 .block {position:relative; overflow:hidden; width:950px; margin:0 auto;}
 .logo_row {height:120px; border-bottom:1px solid #d3d3d3;}
 a.logo { float:left; margin-top:14px;}
