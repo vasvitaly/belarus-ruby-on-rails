@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  http_basic_authenticate_with name: 'admin', password: 'admin'
   before_filter :export_i18n_messages
   before_filter :set_current_meetup
   before_filter :set_locale
