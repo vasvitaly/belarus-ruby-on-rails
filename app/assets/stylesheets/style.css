@@ -2,7 +2,7 @@
 ul { list-style:none;}
 a { text-decoration:underline; color:#3ea7bc;}
 a:hover { text-decoration:none; color: #005580;}
-body {position:relative;color:#3c3d42;font:15px/20px Arial, Helvetica, sans-serif;background:#f1f1f1;}
+body {position:relative;color:#3c3d42;font:15px/20px Arial, Helvetica, sans-serif;background:#fff;}
 h1 { margin:0 0 20px; color:#000;font:normal 24px Arial, Helvetica, sans-serif;}
 h2 {color:#000;font:normal 22px Arial, Helvetica, sans-serif;}
 h3 {color:#3ea7bc;font:bold 16px/20px Arial, Helvetica, sans-serif;}
