@@ -5,7 +5,7 @@
 
   <p><%= @meetup.description %></p>
 
-  <%= simple_form_for [@meetup, @participant], :html => {:autocomplete => "off"} do |f| %>
+  <%= simple_form_for [@meetup, @participant], :html => {:autocomplete => "off", :id => 'participation'} do |f| %>
       <%= f.hidden_field :meetup_id, :value => @meetup.id, :name => "meetup_id" %>
       <div class='fields'>
         <%= f.fields_for :quizzes do |ff| %>

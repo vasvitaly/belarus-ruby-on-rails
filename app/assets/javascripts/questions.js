@@ -17,3 +17,9 @@ function dellTextArea(id) {
     $("#"+id+"_textarea").remove();
     $('br').remove();
 }
+
+$('#participation').submit(function(event) {
+  var $submit = $(this).find("button");
+  $submit.addClass("gray");
+  $submit.attr("disabled", "disabled");
+})
