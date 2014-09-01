@@ -67,7 +67,7 @@
       <td><%= f.label "date_and_time", t('meetup.date_and_time') %></td>
       <td>
         <div class="field">
-          <%= f.text_field :date_and_time,  :value => ( @meetup.date_and_time.present? ? @meetup.date_and_time.strftime('%Y-%m-%d %H:%M:%S') : ''), :class => 'datepicker' %>
+          <%= f.text_field :date_and_time,  :value => ( @meetup.date_and_time.present? ? @meetup.date_and_time.strftime('%Y-%m-%d %H:%M:%S') : ''), :class => 'meetup datepicker' %>
         </div>
       </td>
     </tr>
@@ -75,7 +75,7 @@
       <td><%= f.label "finish_date_and_time", t('meetup.finish_date_and_time') %></td>
       <td>
         <div class="field">
-          <%= f.text_field :finish_date_and_time,  :value => ( @meetup.finish_date_and_time.present? ? @meetup.finish_date_and_time.strftime('%Y-%m-%d %H:%M:%S') : ''), :class => 'datepicker' %>
+          <%= f.text_field :finish_date_and_time,  :value => ( @meetup.finish_date_and_time.present? ? @meetup.finish_date_and_time.strftime('%Y-%m-%d %H:%M:%S') : ''), :class => 'meetup datepicker' %>
         </div>
       </td>
     </tr>
