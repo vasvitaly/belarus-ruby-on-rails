@@ -26,7 +26,7 @@ BelarusRubyOnRails::Application.configure do
 #  config.action_mailer.delivery_method = :sendmail
 #  config.action_mailer.sendmail_settings = { :arguments => '-i' }
   config.action_mailer.default :charset => 'utf-8',
-                               :from => 'no-reply@brug.by'
+                               :from => 'no-reply@paaspro.by'
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
