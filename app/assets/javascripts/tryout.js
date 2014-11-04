@@ -1,3 +1,5 @@
+//= require ckeditor/init
+
 $(document).ready(function(){
   $(".tryout").click(function(){
     var button = $(this);

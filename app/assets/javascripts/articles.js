@@ -1,3 +1,5 @@
+//= require ckeditor/init
+
 //ask admin if he really want to leave page
 $(document).ready(function(){
   var submit = false;
