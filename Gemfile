@@ -58,7 +58,7 @@ gem 'delayed_job', '~> 3.0.3'
 gem 'delayed_job_active_record', '~> 0.3.3'
 gem 'daemons', '~> 1.1.8'
 
-gem 'cells'
+# gem 'cells'
 
 gem 'russian', '~> 0.6.0'
 gem 'i18n-js'

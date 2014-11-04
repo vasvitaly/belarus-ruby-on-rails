@@ -402,7 +402,6 @@ DEPENDENCIES
   cancan
   capistrano
   capybara
-  cells
   ckeditor
   coffee-rails (~> 3.2.1)
   cucumber-rails
