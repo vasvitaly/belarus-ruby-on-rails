@@ -1,0 +1,91 @@
+1. ssh to host
+2. ssh-keygen -t rsa
+3. echo 'your key from id_rsa.pub' > .ssh/authorized_keys
+4. sudo apt-get install git
+5. # got from https://github.com/fesplugas/rbenv-installer
+  curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+
+# paste into ~/.bashrc before line:
+  # If not running interactively, don't do anything
+
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+  export RAILS_ENV=production
+
+6. rbenv bootstrap-ubuntu-12-04
+7. # get ruby version from .ruby-version file, eg 2.0.0-rc2 #2.0.0-p353 
+  rbenv install 2.0.0-rc2
+  rbenv global 2.0.0-rc2
+
+9.  gem install passenger 
+    rvmsudo passenger-install-nginx-module
+
+10. sudo apt-get install libcurl4-openssl-dev libsqlite3-dev imagemagick libmagickwand-dev redis-server libmysqlclient-dev
+
+11. Install JS runtime:
+  sudo apt-get install nodejs
+
+
+
+13. sudo mkdir /u/ && sudo chown ethnio:ethnio /u/
+
+14. Place certificates into:
+  ssl_certificate     /etc/ssl/ethn.io.crt;
+  ssl_certificate_key /etc/ssl/ethn.io.key;
+
+15. Install bundler
+  gem install bundler
+# make rbenv rehash to make bundler available global
+  rbenv rehash
+
+16. from you pc:
+  cap production deploy:setup
+
+17. Copy database config to server
+  cd project_root/
+  scp config/database.yml ethnio@ethnio.loc:/u/apps/ethnio/shared/config/database.yml
+
+
+18. Set up monit service
+  sudo apt-get install monit
+  
+19. Get the latest DB from dev.ethn.io
+# ssh to dev.ethn.io and
+# make dump 
+  pg_dump -U ethnio_admin -W ethnio_development > ethnio_development.sql
+# gzip it
+  gzip ethnio_development.sql
+# go to your server
+  cd /u/app/ethnio/shared
+  mkdir db  
+# and copy gzipped db file from dev to current folder using scp:
+  scp root@dev.ethn.io:/u/apps/ethnio/shared/db/ethnio_development.sql.gz ethnio_development.sql.gz
+# unzip it
+  gunzip ethnio_development.sql.gz
+# load it into postgres
+# go to project's root folder and create db:
+  cd /u/apps/ethnio/current
+  bundle exec rake db:create
+# then load dump into created db:
+  psql -U ethnio_admin -W ethnio_production < ethnio_development.sql
+#  psql -U ethnio_admin -W ethnio_dev < 
+
+20. from you pc:
+  cap production deploy 
+
+21. if # 'cap production deploy' wasn't successfull in bundle install part, do on server:
+  cd /u/apps/ethnio/shared/cached-copy
+  
+  bundle install
+
+# from local pc:
+  cap production deploy
+
+
+
+19. On server 
+  cd /u/apps/ethnio/current ; bundle exec rake generate:unicorn
+  sudo cp config/unicorn/unicorn_worker_*.monitrc /etc/monit/unicorn/
+
+20. Start webserver:
+  cap production deploy:start
