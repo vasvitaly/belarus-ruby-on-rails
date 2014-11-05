@@ -1,21 +1,11 @@
 require "rvm/capistrano"
-set :bundle_dir, "/home/deploy/.rvm/gems/ruby-1.9.3-p392"
+
 require 'bundler/capistrano'
 require "whenever/capistrano"
 require "delayed/recipes"
 set :application, "belarus-on-rails"
-set :deploy_to, "/home/deploy/belarus-on-rails"
-set :rails_env, 'production'
-set :branch, 'master'
-server '82.196.4.54', :web, :app, :db, :primary => true
-set :normalize_asset_timestamps, false
-set :rvm_ruby_string, "ruby-1.9.3-p392@bror"
 set :use_sudo, false
-set :user, "deploy"
-set :scm, :git
-set :repository, "git@github.com:Altoros/belarus-ruby-on-rails.git"
-set :ssh_options, { :forward_agent => true }
-set :deploy_via, :remote_cache
+set :normalize_asset_timestamps, false
 set :whenever_command, "bundle exec whenever"
 
 namespace :deploy do
