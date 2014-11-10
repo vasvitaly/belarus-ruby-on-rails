@@ -14,7 +14,7 @@ task :vbox do
   set :git_enable_submodules, 1
   set :rails_env, :production
 
-  before 'deploy', 'deploy:check_revision'
+  # before 'deploy', 'deploy:check_revision'
 
 
 end

@@ -20,7 +20,9 @@
 9.  gem install passenger 
     rvmsudo passenger-install-nginx-module
 
-10. sudo apt-get install libcurl4-openssl-dev libsqlite3-dev imagemagick libmagickwand-dev redis-server libmysqlclient-dev
+10. sudo apt-get install libcurl4-openssl-dev libsqlite3-dev imagemagick libmagickwand-dev redis-server libmysqlclient-dev libxslt1.1 libxslt1-dev
+  libxslt1.1 libxslt1-dev - are for nokogiri
+  
 
 11. Install JS runtime:
   sudo apt-get install nodejs
