@@ -27,7 +27,9 @@ namespace :utils do
 
     if File.directory?(site_styles_dir)
       puts "#{site_styles_dir} exists"
-      FileUtils.ln_s Dir.glob("#{site_styles_dir}/*.(sass|css|scss)"), site_styles_dir, force: true
+      puts Dir.glob("#{site_styles_dir}/*.sass")
+      
+      FileUtils.ln_s Dir.glob("#{site_styles_dir}/*.sass"), styles_dir, force: true
     end
 
   end

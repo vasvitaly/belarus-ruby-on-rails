@@ -5,6 +5,7 @@ log/*
 tmp/
 .sass-cache/
 .*~
+app/assets/stylesheets/style.sass
 config/database.yml
 config/social_config.yml
 config/locales/site_specific.*
