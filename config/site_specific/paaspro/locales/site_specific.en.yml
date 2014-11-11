@@ -10,4 +10,9 @@ en:
     attributes:
       profile:
         experience_id: 'PaaS level'
-
+  experience:
+    levels:
+      '1': 'What is PaaS?'
+      '2': 'Beginner'
+      '3': 'Intermediate'
+      '4': 'Expert'
