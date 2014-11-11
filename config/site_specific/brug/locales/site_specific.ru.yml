@@ -1,0 +1,13 @@
+ru:
+  general:
+    altoros: 'ООО Альторос Девелопмент'
+    site_name: 'Belarus Ruby User Group'
+  menu:
+    news: 'Планета Ruby'
+  activerecord:
+    models:
+      experience: 'Уровень владения Ruby on Rails'
+    attributes:
+      profile:
+        experience_id: 'Уровень владения Ruby on Rails'
+

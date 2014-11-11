@@ -189,15 +189,12 @@ ru:
     successfully_unsubscribed: 'Вы успешно отписались'
     failed_to_unsubscribe: 'Не удалось отписаться'
   general:
-    altoros: 'ООО Альторос Девелопмент'
     more_information: 'Подробнее'
     partners: 'Партнёры'
-    site_name: 'Belarus Ruby User Group'
     error_page: 'Запрошенная страница не существует'
     please_check_email: "Проверьте пожалуйста %{email}"
   menu:
     main: 'Блог'
-    news: 'Планета Ruby'
     events: 'События'
     videos: 'Видео'
     about: 'О нас'
@@ -209,8 +206,6 @@ ru:
     update: 'Сохранить'
     are_you_sure: 'Вы уверены?'
   activerecord:
-    models:
-      experience: 'Уровень владения Ruby on Rails'
     attributes:
       question:
         gist: 'Вопрос'
@@ -236,7 +231,6 @@ ru:
         level: 'Уровень'
         prompt: 'Выбрать'
       profile:
-        experience_id: 'Уровень владения Ruby on Rails'
         first_name: 'Имя'
         last_name: 'Фамилия'
         subscribed: 'Получать новости по E-mail'

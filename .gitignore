@@ -7,6 +7,9 @@ tmp/
 .*~
 config/database.yml
 config/social_config.yml
+config/locales/site-specific.en.yml
+config/locales/site-specific.ru.yml
+config/site_specific.yml
 public/system/*
 public/files/
 public/images/

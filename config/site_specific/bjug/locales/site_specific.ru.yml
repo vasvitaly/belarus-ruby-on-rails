@@ -1,0 +1,13 @@
+ru:
+  general:
+    altoros: 'ООО Альторос Девелопмент'
+    site_name: 'Belarus Java User Group'
+  menu:
+    news: 'Новости Java'
+  activerecord:
+    models:
+      experience: 'Уровень владения Java'
+    attributes:
+      profile:
+        experience_id: 'Уровень владения Java'
+

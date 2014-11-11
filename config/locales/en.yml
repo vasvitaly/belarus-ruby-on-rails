@@ -189,15 +189,12 @@ en:
     successfully_unsubscribed: 'Successfully unsubscribed'
     failed_to_unsubscribe: 'Failed to unsubscribe'
   general:
-    altoros: 'Altoros Development'
     more_information: 'More information'
     partners: 'Partners'
-    site_name: 'Belarus Ruby User Group'
     error_page: "Page you requested doesn't exists"
     please_check_email: "Please check %{email}"
   menu:
     main: 'Home'
-    news: 'Ruby on Rails News'
     events: 'Events'
     videos: 'Videos'
     about: 'About'
@@ -209,8 +206,6 @@ en:
     update: 'Update'
     are_you_sure: 'Are you sure?'
   activerecord:
-    models:
-      experience: 'Ruby on Rails level'
     attributes:
       question:
         gist: 'Question'
@@ -236,7 +231,6 @@ en:
         level: 'Level'
         prompt: 'Please select'
       profile:
-        experience_id: 'Ruby on Rails level'
         first_name: 'First name'
         last_name: 'Last name'
         subscribed: 'Receive news E-mails'
