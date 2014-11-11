@@ -1,7 +1,7 @@
 namespace :utils do
 
   desc "Link site-specific config files and languages into config and localizations folders"
-  task :link_configs, [:site_name] => :environment do |t, args|
+  task :set_site, [:site_name] => :environment do |t, args|
     unless args[:site_name]
       puts "Please pass site folder name as first parameter rake utils:link_configs[site_folder]. Find site-folders in config/site-specific"
       exit
@@ -33,9 +33,10 @@ namespace :utils do
     end
 
     puts images_dir = File.join(Rails.root, 'app', 'assets', 'images')
-    puts site_images_dir = File.join(Rails.root, 'app', 'assets', 'site-images', site_name, 'images')
+    puts site_images_dir = File.join(Rails.root, 'app', 'assets', 'site_images', site_name, 'images')
 
     if File.directory?(site_images_dir)
+      puts "link #{site_name} images into images folder"
       FileUtils.ln_s site_images_dir, images_dir, force: true
     end
 
