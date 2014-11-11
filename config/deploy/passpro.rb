@@ -1,11 +1,12 @@
 desc 'Deployment config for production server'
 task :production do
-  server '82.196.4.54', :web, :app, :db, primary: true
+  server '95.85.5.7', :web, :app, :db, primary: true
+  set :application, "paaspro"
   set :bundle_dir, "/home/deploy/.rvm/gems/ruby-1.9.3-p392"
   set :user, "deploy"
-  set :rvm_ruby_string, "ruby-1.9.3-p392@bror"
+  set :rvm_ruby_string, "ruby-1.9.3-p392@paaspro"
   set :repository, "git@github.com:Altoros/belarus-ruby-on-rails.git"
-  set :deploy_to, "/home/deploy/belarus-on-rails"
+  set :deploy_to, "/home/deploy/paaspro"
   set :branch, 'master'
   set :scm, :git
   set :ssh_options, { forward_agent: true }

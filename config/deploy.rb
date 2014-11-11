@@ -3,7 +3,6 @@ require "rvm/capistrano"
 require 'bundler/capistrano'
 require "whenever/capistrano"
 require "delayed/recipes"
-set :application, "belarus-on-rails"
 set :use_sudo, false
 set :normalize_asset_timestamps, false
 set :whenever_command, "bundle exec whenever"
