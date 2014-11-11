@@ -1,13 +1,13 @@
 ru:
   general:
     altoros: 'ООО Альторос Девелопмент'
-    site_name: 'Belarus Ruby User Group'
+    site_name: 'Belarus PaaS User Group'
   menu:
-    news: 'Планета Ruby'
+    news: 'Планета PaaS'
   activerecord:
     models:
-      experience: 'Уровень владения Ruby on Rails'
+      experience: 'Уровень владения PaaS'
     attributes:
       profile:
-        experience_id: 'Уровень владения Ruby on Rails'
+        experience_id: 'Уровень владения PaaS'
 

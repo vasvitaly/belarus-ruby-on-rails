@@ -1,13 +1,13 @@
 en:
   general:
     altoros: 'Altoros Development'
-    site_name: 'Belarus Ruby User Group'
+    site_name: 'Belarus PaaS User Group'
   menu:
-    news: 'Ruby on Rails News'
+    news: 'PaaS News'
   activerecord:
     models:
-      experience: 'Ruby on Rails level'
+      experience: 'PaaS level'
     attributes:
       profile:
-        experience_id: 'Ruby on Rails level'
+        experience_id: 'PaaS level'
 
