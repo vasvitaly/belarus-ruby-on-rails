@@ -32,6 +32,14 @@ namespace :utils do
       FileUtils.ln_s Dir.glob("#{site_styles_dir}/*.sass"), styles_dir, force: true
     end
 
+    puts images_dir = File.join(Rails.root, 'app', 'assets', 'images')
+    puts site_images_dir = File.join(Rails.root, 'app', 'assets', 'site-images', site_name, 'images')
+
+    if File.directory?(site_images_dir)
+      FileUtils.ln_s site_images_dir, images_dir, force: true
+    end
+
+
   end
   
 end
