@@ -21,6 +21,15 @@ namespace :utils do
         FileUtils.ln_s file_path, symlink_path, force: true
       end
     end
+
+    puts styles_dir = File.join(Rails.root, 'app', 'assets', 'stylesheets')
+    puts site_styles_dir = File.join(styles_dir, site_name)
+
+    if File.directory?(site_styles_dir)
+      puts "#{site_styles_dir} exists"
+      FileUtils.ln_s Dir.glob("#{site_styles_dir}/*.(sass|css|scss)"), site_styles_dir, force: true
+    end
+
   end
   
 end
