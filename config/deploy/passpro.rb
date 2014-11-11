@@ -14,6 +14,11 @@ task :production do
   set :deploy_via, :remote_cache
   set :git_shallow_clone, 1
   
+  symlinks = {
+    # "#{shared_path}/ckeditor_assets" => "#{release_path}/public/ckeditor_assets",
+    "#{shared_path}/config/database.yml" => "#{release_path}/config/database.yml",
+    "#{shared_path}/config/social_config.yml" => "#{release_path}/config/social_config.yml"
+  }
   # before 'deploy', 'deploy:check_revision'
 
 

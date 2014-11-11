@@ -374,12 +374,6 @@ ru:
   languages:
     ru: 'Русский'
     en: 'English'
-  experience:
-    levels:
-      '1': 'Что такое Ruby on Rails?'
-      '2': 'Новичок'
-      '3': 'Средний'
-      '4': 'Эксперт'
   videos:
     no_videos: 'Нет видео в настоящий момент'
     manage: 'управлять видео'

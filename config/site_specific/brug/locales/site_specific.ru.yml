@@ -10,4 +10,9 @@ ru:
     attributes:
       profile:
         experience_id: 'Уровень владения Ruby on Rails'
-
+  experience:
+    levels:
+      '1': 'Что такое Ruby on Rails?'
+      '2': 'Новичок'
+      '3': 'Средний'
+      '4': 'Эксперт'
