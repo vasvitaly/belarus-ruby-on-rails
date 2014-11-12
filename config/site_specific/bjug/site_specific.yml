@@ -1,12 +1,14 @@
 site_name: 'bjug'
-host: 'bjug.by'
-info_mail: 'info@bjug.by'
+host: 'belarusjug.org'
+info_mail: 'info@belarusjug.org'
 notifier:
   default:
-    from: 'Белорусское сообщество Java <info@bjug.by>'
-    to: 'info@brug.by'
+    from: 'Белорусское сообщество Java <info@belarusjug.org>'
+    to: 'info@belarusjug.org'
 xml:
   title: 'Белорусское сообщество Java'
   description: 'Новости сообщества Java в Беларуси'
 devise:
-  mailer_sender: 'Белорусское сообщество PaaS <no-reply@paaspro.by>'
+  mailer_sender: 'Белорусское сообщество Java <no-reply@belarusjug.org>'
+cookie_store:
+  key: '_BelarusJava_session'

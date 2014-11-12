@@ -10,3 +10,5 @@ xml:
   description: 'Новости сообщества Ruby On Rails в Беларуси'
 devise:
   mailer_sender: 'Белорусское сообщество Ruby <no-reply@brug.by>'
+cookie_store:
+  key: '_BelarusRubyOnRails_session'

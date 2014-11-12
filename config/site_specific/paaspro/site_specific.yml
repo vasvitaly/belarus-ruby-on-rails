@@ -10,3 +10,5 @@ xml:
   description: 'Новости сообщества PaaS в Беларуси'
 devise:
   mailer_sender: 'Белорусское сообщество PaaS <no-reply@paaspro.by>'
+cookie_store:
+  key: '_BelarusPaaS_session'

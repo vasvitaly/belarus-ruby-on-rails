@@ -67,7 +67,7 @@ BelarusRubyOnRails::Application.configure do
   config.action_mailer.smtp_settings = {
     :address => 'mail.altoros.com',
     :port => 587,
-    :domain => 'brug.by',
+    :domain => SITE_CONFIG['host'],
     :user_name => 'byror',
     :password => 'NgDa6(8!as',
     :authentication => :login,
