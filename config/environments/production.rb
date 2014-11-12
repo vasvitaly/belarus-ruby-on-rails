@@ -43,7 +43,7 @@ BelarusRubyOnRails::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( vkontakte_block.js twitter_block.js profile.js comments.js tryout.js questions.js articles.js *.css.erb)
+  config.assets.precompile += %w( vkontakte_block.js twitter_block.js profile.js comments.js tryout.js questions.js articles.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -58,7 +58,7 @@ BelarusRubyOnRails::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'brug.by' }
+  config.action_mailer.default_url_options = { :host => SITE_CONFIG['host'] }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp

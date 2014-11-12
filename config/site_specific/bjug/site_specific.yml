@@ -1,1 +1,12 @@
-css_folder: 'brug'
+site_name: 'bjug'
+host: 'bjug.by'
+info_mail: 'info@bjug.by'
+notifier:
+  default:
+    from: 'Белорусское сообщество Java <info@bjug.by>'
+    to: 'info@brug.by'
+xml:
+  title: 'Белорусское сообщество Java'
+  description: 'Новости сообщества Java в Беларуси'
+devise:
+  mailer_sender: 'Белорусское сообщество PaaS <no-reply@paaspro.by>'

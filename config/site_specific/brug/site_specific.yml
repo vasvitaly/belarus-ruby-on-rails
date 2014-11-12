@@ -1,1 +1,12 @@
-css_folder: 'brug'
+site_name: 'brug'
+host: 'brug.by'
+info_mail: 'info@brug.by'
+notifier:
+  default:
+    from: 'Белорусское сообщество Ruby <info@brug.by>'
+    to: 'info@brug.by'
+xml:
+  title: 'Белорусское сообщество Ruby On Rails'
+  description: 'Новости сообщества Ruby On Rails в Беларуси'
+devise:
+  mailer_sender: 'Белорусское сообщество Ruby <no-reply@brug.by>'

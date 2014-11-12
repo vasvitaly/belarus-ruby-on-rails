@@ -1,1 +1,12 @@
-css_folder: 'brug'
+site_name: 'paaspro'
+host: 'paaspro.by'
+info_mail: 'info@paaspro.by'
+notifier:
+  default:
+    from: 'Белорусское сообщество PaaS <info@paaspro.by>'
+    to: 'info@paaspro.by'
+xml:
+  title: 'Белорусское сообщество PaaS'
+  description: 'Новости сообщества PaaS в Беларуси'
+devise:
+  mailer_sender: 'Белорусское сообщество PaaS <no-reply@paaspro.by>'
