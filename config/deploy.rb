@@ -14,11 +14,11 @@ namespace :deploy do
   end
 end
 
-after "deploy:update_code", :symlink_config_files
 
 task :symlink_config_files do
   run symlinks.map { |from, to| "ln -nfs #{from} #{to}" }.join(" && ")
   run "chmod -R g+rw #{release_path}/public"
+  run "cd #{release_path} && bundle exec rake utils:set_site[#{site_name}] RAILS_ENV=#{rails_env}"
 end
 
 namespace :solr do
@@ -36,6 +36,8 @@ namespace :solr do
 end
 
 before "deploy:update_code", "solr:kill"
+after "bundle:install", :symlink_config_files
+
 after "deploy:restart", "solr:symlink"
 
 after "deploy:stop",    "delayed_job:stop"
