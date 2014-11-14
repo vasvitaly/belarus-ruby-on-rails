@@ -1,5 +1,5 @@
 desc 'Deployment config for production server'
-task :production do
+task :bjug do
   server '91.149.128.234', :web, :app, :db, primary: true
   set :application, "belarusjug"
   set :bundle_dir, "/home/deploy/.rvm/gems/ruby-1.9.3-p392"

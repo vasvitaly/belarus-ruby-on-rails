@@ -1,6 +1,7 @@
 desc 'Deployment config for vbox brug server'
 task :vbox_brug do
   server 'vbox', :web, :app, :db, primary: true
+  set :application, "belarus-on-rails"
   set :bundle_dir, "/home/vitali/.rvm/gems/ruby-1.9.3-p392"
   set :user, 'vitali'
   set :rvm_ruby_string, "ruby-1.9.3-p392@bror"

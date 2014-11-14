@@ -31,7 +31,7 @@ if File.directory?(site_styles_dir)
   puts "#{site_styles_dir} exists"
   puts Dir.glob("#{site_styles_dir}/*.sass")
   
-  FileUtils.ln_s Dir.glob("#{site_styles_dir}/*.sass"), styles_dir, force: true
+  FileUtils.ln Dir.glob("#{site_styles_dir}/*.sass"), styles_dir, force: true
 end
 
 puts images_dir = File.join(root, 'app', 'assets', 'images')
