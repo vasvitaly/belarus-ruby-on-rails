@@ -18,7 +18,7 @@ end
 task :symlink_config_files do
   run symlinks.map { |from, to| "ln -nfs #{from} #{to}" }.join(" && ")
   run "chmod -R g+rw #{release_path}/public"
-  run "cd #{release_path} && bundle exec rake utils:set_site[#{site_name}] RAILS_ENV=#{rails_env}"
+  run "cd #{release_path} && ./set_site.rb #{site_name}"
 end
 
 namespace :solr do
