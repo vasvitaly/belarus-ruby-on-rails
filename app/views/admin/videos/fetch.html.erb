@@ -7,19 +7,19 @@
     <% @videos.each do |video| %>
       <div class="item fetched-video">
         <span class="add-item">
-          <%= check_box_tag "fetched_videos[]", { :title => video.title, :description => video.description, :content => video.media_content.first.url, :published_at => "#{video.published_at}" } %>
+          <%= check_box_tag "fetched_videos[]", { :title => video['title'], :description => video['description'], :content => video['url'], :published_at => "#{video['published_at']}" } %>
         </span>
 
         <h3>
-          <%= video.title %>
+          <%= video['title'] %>
         </h3>
         <div class="iteminfo">
-          <span class="date"><%= l(video.published_at, :format => :long) %></span>
+          <span class="date"><%= l(video['published_at'], :format => :long) %></span>
 
           <div class='cl_all'></div>
           <div class='video'>
             <%= link_to ' + ', '#', :class => 'spoiler left' %>
-            <iframe class='video-frame' src="<%= video.media_content.first.url %>"></iframe>
+            <iframe class='video-frame' src="<%= video['url'] %>"></iframe>
           </div>
        </div>
 

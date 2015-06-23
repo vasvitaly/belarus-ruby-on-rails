@@ -1,0 +1,5 @@
+---
+- name: restart sunspot_solr
+  service: name={{ sunspot_solr_app_name }} state=restarted
+  when: sunspot_solr|default(false)
+  ignore_errors: yes

@@ -1,0 +1,20 @@
+brug.by ansible_ssh_port=22
+
+[all]
+brug.by
+
+[application]
+brug.by
+
+[vm]
+brug.by
+
+[development]
+brug.by
+
+[mysql]
+brug.by
+
+[delayed_job]
+brug.by
+

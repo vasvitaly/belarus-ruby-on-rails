@@ -18,7 +18,8 @@ Devise.setup do |config|
 
   #In order to use OmniAuth OpenID, we have to require openid store.
   #require 'openid/store/filesystem'
-
+  config.secret_key = 'ed34b07045d5fc5d22d908668e1b26a58d7066133d829f37a685839006d9b4a0e3bfbef4b0f0635e74252a40ac70752e03f864b6fbf6566a26ada6c6036545da'
+  
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -99,7 +100,7 @@ Devise.setup do |config|
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
-  config.use_salt_as_remember_token = true
+  # config.use_salt_as_remember_token = true
 
   # Options to be passed to the created cookie. For instance, you can set
   # :secure => true in order to force SSL only cookies.
@@ -158,7 +159,7 @@ Devise.setup do |config|
   # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
   # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
   # REST_AUTH_SITE_KEY to pepper)
-  config.encryptor = :md5
+  # config.encryptor = :md5
 
   # ==> Configuration for :token_authenticatable
   # Defines name of the authentication token params key

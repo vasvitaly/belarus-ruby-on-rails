@@ -7,7 +7,7 @@ module RSS
     AggregatorConfiguration.find_each do |config|
       print "#{DateTime.current} using #{config.source}\n"
       next if config.source.blank?
-      feed_object = Feedzirra::Feed.fetch_and_parse(config.source)
+      feed_object = Feedjira::Feed.fetch_and_parse(config.source)
       new_entries = feed_object.entries
       new_entries.each do |entry|
         print "#{DateTime.current} found entry: #{entry.title}\n"

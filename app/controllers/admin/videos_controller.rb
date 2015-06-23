@@ -12,8 +12,20 @@ class Admin::VideosController < ApplicationController
   end
 
   def fetch
-    client = YouTubeIt::Client.new(:dev_key => SOCIAL_CONFIG['youtube']['dev_key'])
-    fetched_videos = client.videos_by(:user => SOCIAL_CONFIG['youtube']['username']).videos
+    # client = YouTubeIt::Client.new(:dev_key => SOCIAL_CONFIG['youtube']['dev_key'])
+    # fetched_videos = client.videos_by(:user => SOCIAL_CONFIG['youtube']['username']).videos
+    options = { developer_key: SOCIAL_CONFIG['youtube']['dev_key'],
+      application_name: 'AltorosSystemsYT',
+      application_version: 2.0,
+      log_level: 3 
+    }
+    client = Yourub::Client.new(options)
+    fetched_videos = []
+    fields = 'items(id,snippet(title,thumbnails,description,publishedAt),player(embedHtml))'
+    part = 'snippet,player'
+    client.search({query: SOCIAL_CONFIG['youtube']['username']}, part, fields) do |v|
+      fetched_videos << v
+    end
 
     @videos = Video.screening(fetched_videos).paginate(
       :per_page => 10,

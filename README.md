@@ -6,7 +6,7 @@ Belarusian Ruby User Group - Ruby-developer community, created for the exchange 
 
 To run application on your local:
 
-    mailcatcher
+    mailcatcher -ip=0.0.0.0
     rake sunspot:solr:start
     rails s
     rake jobs:work
@@ -38,3 +38,9 @@ or simple `rspec spec`.
  + Make your feature addition or bug fix.
  + Add tests for it.
  + Send a pull request.
+
+
+
+
+#mysqldump -udeploy -pra1ls1nbelarus --default-character-set=utf8 BelarusRubyOnRails_production > brug_dump_2015_06_12.sql
+#scp deploy@brug.by:/home/deploy/dumps/brug_dump_2015_06_12.sql brug_dump_2015_06_12.sql

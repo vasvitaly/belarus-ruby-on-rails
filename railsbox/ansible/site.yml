@@ -1,0 +1,36 @@
+---
+- hosts: vm
+  roles:
+    - swap
+
+- hosts: all
+  gather_facts: no
+  roles:
+    - { role: apt_proxy, when: use_apt_proxy }
+    - ubuntu_fix_locale
+  tasks:
+    - apt: update_cache=yes
+
+- hosts: mysql
+  roles:
+    - mysql
+
+
+- hosts: application
+  handlers:
+    - include: roles/delayed_job/handlers/main.yml
+  roles:
+    - base
+    - { role: ruby, tags: ruby }
+    # - vim
+    - webserver
+    - sunspot_solr
+
+- hosts: delayed_job
+  handlers:
+    - include: roles/unicorn/handlers/main.yml
+  roles:
+    - base
+    - ruby
+    - { role: delayed_job, tags: delayed_job }
+

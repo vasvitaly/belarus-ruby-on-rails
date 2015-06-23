@@ -1,0 +1,19 @@
+---
+- include: remote.yml
+  when: target == 'server'
+
+- name: Create and migrate DB
+  command: /bin/bash -l -c 'rake db:create db:migrate' chdir={{ app_path }}
+  sudo_user: '{{ user_name }}'
+  ignore_errors: yes
+  tags:
+    - rails
+    - db
+
+- name: Restore initial DB dump
+  command: /bin/bash -l -c 'mysql -u{{ mysql_db_user }} -p{{ mysql_db_password }} --default-character-set=utf8 {{ mysql_db_name }} < db/brug_dump.sql' chdir={{ app_path }}
+  sudo_user: '{{ user_name }}'
+  ignore_errors: yes
+  tags:
+    - rails
+    - db

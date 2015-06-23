@@ -1,4 +1,4 @@
-require Rails.root.join('lib', 'devise', 'encryptors', 'md5')
+require Rails.root.join('lib', 'devise', 'encryptor', 'md5')
 
 class User < ActiveRecord::Base
   has_many :user_tokens, :dependent => :delete_all
@@ -8,10 +8,9 @@ class User < ActiveRecord::Base
   has_one :profile, :dependent => :destroy
 
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  # :token_authenticatable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         :encryptable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   attr_accessible :id, :email, :password, :password_confirmation, :remember_me, :profile_attributes, :created_at
   accepts_nested_attributes_for :profile
@@ -59,13 +58,19 @@ class User < ActiveRecord::Base
     end
   end
 
-  def password_required?
-    (user_tokens.empty? || password.present? || reset_password_token.present? ) && super
-  end
+  # def password_required?
+  #   (user_tokens.empty? || password.present? || reset_password_token.present? ) && super
+  # end
 
   def valid_password?(password)
     return false if encrypted_password.blank?
-    Devise.secure_compare(Devise::Encryptors::Md5.digest(password, nil, self.password_salt, nil), self.encrypted_password)
+    if Devise.secure_compare(Devise::Encryptor.digest_md5(password, nil, self.password_salt, nil), self.encrypted_password)
+      self.password = self.password_confirmation = password
+      self.save
+      true
+    else
+      super
+    end
   end
 
   def bind_social_network(provider, uid)

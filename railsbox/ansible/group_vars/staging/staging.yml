@@ -1,0 +1,8 @@
+---
+rails_env: production
+target: server
+vm_swap: 1024
+vm_cores: 2
+host: 192.168.20.50
+port: 22
+username: vagrant

@@ -1,0 +1,19 @@
+localhost ansible_ssh_port=2203
+
+[all]
+localhost
+
+[application]
+localhost
+
+[vm]
+localhost
+
+[mysql]
+localhost
+
+[delayed_job]
+localhost
+
+[staging]
+localhost

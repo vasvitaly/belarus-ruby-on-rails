@@ -1,0 +1,15 @@
+---
+
+- name: Add LC_ALL locale to the environment in Ubuntu 14.04
+  lineinfile: "dest=/etc/environment state=present line='LC_ALL=en_US.UTF-8'"
+
+- name: Apply LANG locale to the environment in Ubuntu 14.04
+  lineinfile: "dest=/etc/environment state=present line='LANG=en_US.UTF-8'"
+
+- name: Generate utf-8 locale in Ubuntu 14.04
+  sudo: true
+  command: locale-gen en_US.UTF-8
+
+- name: Reconfigure locales in Ubuntu 14.04
+  sudo: true
+  command: dpkg-reconfigure locales

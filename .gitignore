@@ -9,6 +9,7 @@ app/assets/images
 app/assets/images/
 app/assets/stylesheets/style.sass
 config/database.yml
+config/database.yml.*
 config/social_config.yml
 config/locales/site_specific.*
 config/locales/site_specific
@@ -18,8 +19,11 @@ public/files/
 public/images/
 public/pub/
 public/assets
+public/*.tar.gz
 public/ckeditor_assets/attachments
 public/ckeditor_assets/pictures
 solr/data/**/*
 solr/pids/**/*
+solr/*
+db/*.sql
 .idea/

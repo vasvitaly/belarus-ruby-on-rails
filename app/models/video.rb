@@ -8,9 +8,27 @@ class Video < ActiveRecord::Base
       contents = pluck :content
 
       fetched_videos.each do |video|
-        videos.push(video) unless contents.include?(video.media_content.first.url)
+        html = video['player']['embedHtml']
+        url_with_http = nil
+        if html =~ /src="([^"]+)"/
+          url = $1
+          url_with_http = url.include?('http:') ? url : "http:#{url}"
+          unless contents.include?(url_with_http)
+            videos.push(digest_video(video, url)) 
+          end
+        end
       end
       videos
+    end
+
+    def digest_video(video, url)
+      if video['snippet'].present?
+        video['title'] = video['snippet']['title']
+        video['description'] = video['snippet']['description']
+        video['published_at'] = video['snippet']['publishedAt'].present? ? DateTime.parse(video['snippet']['publishedAt']) : Time.now
+      end
+      video['url'] = url
+      video
     end
 
     def add_videos(fetched_videos_params)
