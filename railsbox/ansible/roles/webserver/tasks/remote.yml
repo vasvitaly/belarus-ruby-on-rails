@@ -2,6 +2,9 @@
 - name: Authorize current user
   authorized_key: user={{ user_name }} key='{{ lookup('file', '~/.ssh/id_rsa.pub') }}'
 
+- name: Create rails_env.sh
+  template: src=rails_env.sh.j2 dest={{ profile_d_path }}/rails_env.sh owner={{ user_name }} group={{ group_name }}
+
 - name: Allow to start / stop app with sudo
   template: src=sudoers.d.conf.j2 dest=/etc/sudoers.d/{{ app_name }} validate='visudo -cf %s'
 
@@ -12,6 +15,7 @@
     - '{{ releases_path }}'
     - '{{ shared_path }}'
     - '{{ shared_path }}/tmp'
+    - '{{ shared_path }}/public'
     - '{{ shared_path }}/log'
     - '{{ shared_path }}/config'
     - '{{ shared_path }}/vendor'
@@ -26,6 +30,7 @@
   with_items:
     - database
     - secrets
+    - social_config
 
 - name: Copy config/{{ item.item }}.yml to {{ shared_path }}/config
   copy: 
@@ -35,4 +40,59 @@
     group: '{{ group_name }}'
     mode: 0600
   with_items: configs.results
+  when: item.stat.exists
+
+
+- name: Check if db/{{ item }} exists
+  stat:
+    path: ../../db/{{ item }}
+  connection: local
+  sudo: no
+  register: configs
+  with_items:
+    - brug_dump.sql
+
+- name: Copy db/{{ item.item }} to {{ shared_path }}/tmp
+  copy: 
+    src: ../../../../../db/{{ item.item }}
+    dest: '{{ shared_path }}/tmp/{{ item.item }}'
+    owner: '{{ user_name }}'
+    group: '{{ group_name }}'
+    mode: 0600
+  with_items: configs.results
+  when: item.stat.exists
+
+- name: Check if public/assets gzip exists
+  stat:
+    path: ../../public/{{ item }}.tar.gz
+  connection: local
+  sudo: no
+  register: assets
+  with_items:
+    - ckeditor_assets
+    - system
+
+- name: Copy public/{{ item.item }} to {{ shared_path }}/public
+  copy: 
+    src: ../../../../../public/{{ item.item }}.tar.gz
+    dest: '{{ shared_path }}/public/{{ item.item }}.tar.gz'
+    owner: '{{ user_name }}'
+    group: '{{ group_name }}'
+    mode: 0600
+  with_items: assets.results
+  when: item.stat.exists
+
+- name: Untar {{ shared_path }}/{{ item.item }}
+  command: tar -xzf {{ item.item }}.tar.gz chdir={{ shared_path }}/public
+  with_items: assets.results
+  when: item.stat.exists
+
+- name: Set right permissions for {{ shared_path }}/{{ item.item }}
+  file: 
+    path: "{{ shared_path }}/public/{{ item.item }}"
+    owner: '{{ user_name }}'
+    group: '{{ group_name }}'
+    mode: 0755
+    recurse: yes
+  with_items: assets.results
   when: item.stat.exists

@@ -1,4 +1,4 @@
-localhost ansible_ssh_port=2203
+localhost ansible_ssh_port=2222
 
 [all]
 localhost

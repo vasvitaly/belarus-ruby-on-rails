@@ -24,7 +24,8 @@
     - { role: ruby, tags: ruby }
     # - vim
     - webserver
-    - sunspot_solr
+    - unicorn
+    - solr
 
 - hosts: delayed_job
   handlers:

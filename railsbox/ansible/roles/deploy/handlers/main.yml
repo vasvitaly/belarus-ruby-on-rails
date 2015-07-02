@@ -1,2 +1,3 @@
 ---
 - include: ../../delayed_job/handlers/main.yml
+- include: ../../sunspot_solr/handlers/main.yml

@@ -41,7 +41,7 @@ postgresql_db_name: myapp
 postgresql_db_user: vagrant
 postgresql_db_password: 
 postgresql_extensions:
-delayed_job_command: script/delayed_job run
+delayed_job_command: rake jobs:work
 sunspot_solr_command: rake sunspot:solr:start
 sidekiq_command: sidekiq
 resque_command: rake resque:work
@@ -54,6 +54,9 @@ app_name: '{{ vm_name }}'
 user_name: '{{ "vagrant" if target == "virtualbox" else app_name }}'
 group_name: '{{ user_name }}'
 
+releases_path: '{{ path }}/releases'
+shared_path: '{{ path }}/shared'
+
 user_home_path: '/home/{{ user_name }}'
 
 ssl_certificate_path: /etc/nginx/ssl/{{ server_name }}.crt
@@ -62,12 +65,11 @@ ssl_certificate_key_path: /etc/nginx/ssl/{{ server_name }}.key
 server_path: "{{ path }}/current"
 app_path: '{{ path if target == "virtualbox" else server_path }}'
 app_public_path: "{{ app_path }}/public"
-app_config_path: "{{ app_path }}/config"
+app_config_path: '{{ app_path if target == "virtualbox" else shared_path }}/config'
+# app_config_path: "{{ app_path }}/config"
 app_temp_path: "{{ app_path }}/tmp"
 app_logs_path: "{{ app_path }}/log"
 
-releases_path: '{{ path }}/releases'
-shared_path: '{{ path }}/shared'
 
 unicorn_sock_path: "/tmp/unicorn.{{ rails_env }}.sock"
 unicorn_config_path: "{{ app_config_path }}/unicorn.{{ rails_env }}.rb"

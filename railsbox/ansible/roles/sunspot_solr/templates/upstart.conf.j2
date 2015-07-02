@@ -8,6 +8,7 @@ stop on runlevel [016]
 env PATH=$PATH:/usr/local/bin:/usr/bin:/bin
 env HOME={{ user_home_path }}
 
+expect daemon
 respawn
 
 setuid {{ user_name }}
@@ -15,7 +16,4 @@ setgid {{ group_name }}
 
 chdir {{ app_path }}
 
-script
-  /bin/bash -l -c 'bundle exec {{ sunspot_solr_command }}'
-  sleep 5
-end script
+exec /bin/bash -l -c 'bundle exec {{ sunspot_solr_command }} 2>&1'

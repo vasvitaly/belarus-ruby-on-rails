@@ -30,6 +30,31 @@
 - name: Create application user
   user: name={{ user_name }} group={{ group_name }} shell=/bin/bash home={{ user_home_path }}
 
+- name: Make sure user`s .ssh folder exists
+  file: 
+    path: '/home/{{ user_name }}/.ssh'
+    state: directory
+    owner: '{{ user_name }}'
+    group: '{{ group_name }}'
+    mode: 0700
+
+
+- name: Copy id_rsa key for github to the user`s ssh folder
+  copy: 
+    src: '../../../../ssh_keys/id_rsa'
+    dest: '/home/{{ user_name }}/.ssh/id_rsa'
+    owner: '{{ user_name }}'
+    group: '{{ group_name }}'
+    mode: 0600
+
+- name: Copy id_rsa.pub for github to the user`s ssh folder
+  copy: 
+    src: '../../../../ssh_keys/id_rsa.pub'
+    dest: '/home/{{ user_name }}/.ssh/id_rsa.pub'
+    owner: '{{ user_name }}'
+    group: '{{ group_name }}'
+    mode: "u=rw,g=r,o=r"
+
 - name: Setup script to read application environment
   template: src=read_environment.sh.j2 dest=/etc/profile.d/read_environment.sh
   notify:

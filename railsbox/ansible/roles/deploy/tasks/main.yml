@@ -24,24 +24,27 @@
   file: src={{ shared_path }}/{{ item }} dest={{ this_release_path }}/{{ item }} state=link force=yes
   with_items:
     - config/database.yml
-    - config/secrets.yml
-    - config/unicorn.rb
+    - config/social_config.yml
+    - config/unicorn.{{ rails_env }}.rb
     - log
     - tmp
     - vendor/bundle
+    - public/system
+    - public/ckeditor_assets
 
 - name: Install bundle
-  command: 'bundle install --deployment --without="development test"'
-  args:
-    chdir: '{{ this_release_path }}'
+  command: /bin/bash -l -c 'bundle install --deployment --without="development test"' chdir={{ this_release_path }}
+
+- name: Set site
+  command: /bin/bash -l -c 'ruby set_site.rb {{app_name}} ln' chdir={{ this_release_path }}
 
 - name: Precompile assets
-  command: bundle exec rake assets:precompile chdir={{ this_release_path }}
+  command: /bin/bash -l -c 'bundle exec rake assets:precompile' chdir={{ this_release_path }}
   environment:
     RAILS_ENV: '{{ rails_env }}'
 
 - name: Migrate database
-  command: bundle exec rake db:migrate chdir={{ this_release_path }}
+  command: /bin/bash -l -c 'bundle exec rake db:migrate' chdir={{ this_release_path }}
   environment:
     RAILS_ENV: '{{ rails_env }}'
 
@@ -55,3 +58,6 @@
   shell: "ls -1t {{ releases_path }}|tail -n +{{ keep_releases + 1 }}|xargs rm -rf"
   args:
     chdir: '{{ releases_path }}'
+
+- name: Update solr cache
+  command: /bin/bash -l -c 'bundle exec rake sunspot:reindex' chdir={{ app_path }}

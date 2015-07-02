@@ -1,4 +1,3 @@
 ---
 dependencies:
   - nginx
-  - unicorn
