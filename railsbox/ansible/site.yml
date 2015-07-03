@@ -25,7 +25,7 @@
     # - vim
     - webserver
     - unicorn
-    - solr
+    - java
 
 - hosts: delayed_job
   handlers:

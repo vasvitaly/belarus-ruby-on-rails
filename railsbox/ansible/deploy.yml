@@ -1,5 +1,7 @@
 ---
 - hosts: application
+  handlers:
+    - include: roles/delayed_job/handlers/main.yml
   sudo: no
   remote_user: '{{ user_name }}'
   roles:

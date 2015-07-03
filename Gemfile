@@ -61,6 +61,7 @@ gem 'feedjira', '~> 2.0.0'
 gem 'text'
 
 gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 gem 'backup'
 
@@ -82,7 +83,6 @@ group :development do
 #   gem 'therubyracer'
 #   gem 'quiet_assets'
   gem 'progress_bar'
-  gem 'sunspot_solr'
 
 end
 # group :test do
