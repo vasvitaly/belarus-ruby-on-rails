@@ -51,9 +51,12 @@
 - name: Symlink new release
   file: src={{ this_release_path }} dest={{ app_path }} state=link force=yes
 
+- name: Stop sunspot solr cache
+  command: /bin/bash -l -c 'bundle exec rake sunspot:solr:stop' chdir={{ app_path }}
+  ignore_errors: yes
 
 - name: Remove solr cache
-  command: rm -rf sunspot/ chdir={{ app_path }}
+  command: /bin/bash -l -c 'rm -rf solr' chdir={{ app_path }}
 
 - name: Restart unicorn
   command: sudo {{ server_restart_command }}
@@ -62,6 +65,9 @@
   shell: "ls -1t {{ releases_path }}|tail -n +{{ keep_releases + 1 }}|xargs rm -rf"
   args:
     chdir: '{{ releases_path }}'
+
+- name: Start sunspot solr
+  command: /bin/bash -l -c 'bundle exec rake sunspot:solr:start' chdir={{ app_path }}
 
 - name: Reindex sunspot solr cache
   command: /bin/bash -l -c 'bundle exec rake sunspot:reindex' chdir={{ app_path }}

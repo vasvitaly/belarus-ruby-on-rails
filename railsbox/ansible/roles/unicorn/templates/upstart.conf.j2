@@ -17,6 +17,5 @@ chdir {{ app_path }}
 
 script
   /bin/bash -l -c 'bundle exec unicorn -c {{ unicorn_config_path }}'
-  /bin/bash -l -c 'bundle exec {{ sunspot_solr_command }} 2>&1'
   sleep 5
 end script
