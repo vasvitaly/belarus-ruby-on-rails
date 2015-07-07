@@ -1,4 +1,8 @@
 ---
 - name: restart application
-  service: name={{ unicorn_app_name }} state=restarted
+  command: "sudo {{ server_restart_command }}"
   when: "'application' in group_names"
+
+- name: restart server application
+  command: "sudo {{ server_restart_command }}"
+  when: "'application' in group_names && target == 'server'"

@@ -1,0 +1,11 @@
+---
+
+- include_vars: ../../unicorn/defaults/main.yml
+- include_vars: ../../delayed_job/defaults/main.yml
+
+
+- name: restart Server application
+  command: "sudo {{ server_restart_command }}"
+
+- name: restart Delayed job
+  command: "sudo {{ delayed_job_restart_command }}"

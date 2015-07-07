@@ -1,2 +1,4 @@
 ---
 delayed_job: true
+delayed_job_restart_command: /sbin/restart {{ delayed_job_app_name }}
+delayed_job_start_command:  /sbin/start {{ delayed_job_app_name }}

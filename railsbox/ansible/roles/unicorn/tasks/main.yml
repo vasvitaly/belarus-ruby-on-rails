@@ -8,4 +8,4 @@
 
 - name: Create upstart config
   template: src=upstart.conf.j2 dest=/etc/init/{{ unicorn_app_name }}.conf
-  notify: restart application
+  notify: restart server application

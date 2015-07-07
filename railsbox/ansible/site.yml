@@ -29,7 +29,6 @@
 
 - hosts: delayed_job
   handlers:
-    - include: roles/unicorn/handlers/main.yml
   roles:
     - base
     - ruby

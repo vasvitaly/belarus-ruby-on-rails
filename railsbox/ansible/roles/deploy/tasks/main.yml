@@ -14,6 +14,7 @@
   register: git
   notify:
     - restart delayed_job
+    - restart application
 
 - debug: msg='Updated repo from {{ git.before }} to {{ git.after }}'
 
@@ -51,15 +52,12 @@
 - name: Symlink new release
   file: src={{ this_release_path }} dest={{ app_path }} state=link force=yes
 
-- name: Stop sunspot solr cache
+- name: Stop solr
   command: /bin/bash -l -c 'bundle exec rake sunspot:solr:stop' chdir={{ app_path }}
   ignore_errors: yes
 
 - name: Remove solr cache
   command: /bin/bash -l -c 'rm -rf solr' chdir={{ app_path }}
-
-- name: Restart unicorn
-  command: sudo {{ server_restart_command }}
 
 - name: Cleanup
   shell: "ls -1t {{ releases_path }}|tail -n +{{ keep_releases + 1 }}|xargs rm -rf"

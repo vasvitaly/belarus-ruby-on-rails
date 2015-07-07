@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook $@ -s -u vagrant -i inventory ../ansible/deploy.yml
+ansible-playbook $@ -i inventory ../ansible/deploy.yml

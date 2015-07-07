@@ -1,5 +1,10 @@
 ---
 - name: restart delayed_job
-  service: name={{ delayed_job_app_name }} state=restarted
+  command: "sudo {{ delayed_job_restart_command }}"
+  when: delayed_job|default(false)
+  ignore_errors: yes
+
+- name: start delayed_job
+  command: "sudo {{ delayed_job_start_command }}"
   when: delayed_job|default(false)
   ignore_errors: yes

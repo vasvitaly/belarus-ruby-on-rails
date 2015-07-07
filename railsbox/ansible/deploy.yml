@@ -2,6 +2,8 @@
 - hosts: application
   handlers:
     - include: roles/delayed_job/handlers/main.yml
+    - include: roles/unicorn/handlers/main.yml
+    - include: roles/sunspot_solr/handlers/main.yml
   sudo: no
   remote_user: '{{ user_name }}'
   roles:
