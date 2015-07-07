@@ -22,10 +22,9 @@
   roles:
     - base
     - { role: ruby, tags: ruby }
-    # - vim
     - webserver
     - unicorn
-    - java
+    - sunspot_solr
 
 - hosts: delayed_job
   handlers:
