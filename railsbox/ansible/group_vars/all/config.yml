@@ -1,6 +1,7 @@
 ---
 vm_name: brug
-path: /brug
+app_name: '{{ vm_name }}'
+
 git_branch: master
 vm_os: ubuntu/trusty64
 environments:
@@ -24,7 +25,7 @@ server_name: localhost
 rails_version: 3
 ruby_install: rbenv
 ruby_version: 2.0.0-p645
-environment_file: /brug/.envrc
+environment_file: '/{{ vm_name }}/.envrc'
 databases:
   - mysql
 background_jobs:
@@ -34,7 +35,7 @@ mysql_orm: activerecord
 mongodb_orm: none
 redis_orm: none
 mongodb_db_name: myapp
-mysql_db_name: brug
+mysql_db_name: '{{ app_name }}'
 mysql_db_user: vagrant
 mysql_db_password: qw12
 postgresql_db_name: myapp
@@ -47,11 +48,12 @@ sidekiq_command: sidekiq
 resque_command: rake resque:work
 server_type: nginx_unicorn
 git_url: git@github.com:/vasvitaly/belarus-ruby-on-rails.git
-delayed_job_app_name: brug-delayed_job
-sunspot_solr_app_name: brug_sunspot_solr
+delayed_job_app_name: '{{ app_name }}-delayed_job'
+sunspot_solr_app_name: '{{ app_name }}-sunspot_solr'
 
 app_name: '{{ vm_name }}'
-user_name: '{{ "vagrant" if target == "virtualbox" else app_name }}'
+path: '/{{ app_name }}'
+user_name: '{{ "vagrant" if target == "virtualbox" else vm_name }}'
 group_name: '{{ user_name }}'
 
 releases_path: '{{ path }}/releases'

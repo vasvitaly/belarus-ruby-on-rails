@@ -36,4 +36,14 @@ If you experienced any errors with connection just try to run 'ssh vagrant@local
 6. Run '. deploy.sh' to deploy the app.
 
 
-Note, it is recommended to manually restart the server (use ssh and sudo shutdown -r now) after first provisioning
+Note, it is recommended to manually restart the server (use ssh and sudo shutdown -r now) after first provisioning and deploy.
+It is necessary to let system know about installed app services.
+
+In case you need to migrate current app to the another server you will need to:
+  1. Get current server db dump and place it as db/brug_dump.sql 
+  2. Pack public/ckeditor_assets/ into public/ckeditor_assets.tar.gz
+  2. Pack public/system/ into public/system.tar.gz
+
+Provisioning role will find them and restore on the new server. Please see ansible role webserver for more info.
+
+

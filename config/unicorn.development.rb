@@ -1,4 +1,4 @@
-# Ansible managed: /Users/vasvitali/projects/belarus-ruby-on-rails/railsbox/ansible/roles/unicorn/templates/unicorn.rb.j2 modified on 2015-06-12 11:59:54 by vasvitali on vitalis-mbp.altoros.corp
+# Ansible managed: /Users/vasvitali/projects/brug/railsbox/ansible/roles/unicorn/templates/unicorn.rb.j2 modified on 2015-06-12 11:59:54 by vasvitali on 192.168.1.35
 
 working_directory '/brug'
 

@@ -45,17 +45,17 @@
 
 - name: Check if db/{{ item }} exists
   stat:
-    path: ../../db/{{ item }}
+    path: ../../db/{{ app_name }}{{ item }}
   connection: local
   sudo: no
   register: configs
   with_items:
-    - brug_dump.sql
+    - '_dump.sql'
 
-- name: Copy db/{{ item.item }} to {{ shared_path }}/tmp
+- name: Copy db/{{ app_name }}{{ item.item }} to {{ shared_path }}/tmp
   copy: 
-    src: ../../../../../db/{{ item.item }}
-    dest: '{{ shared_path }}/tmp/{{ item.item }}'
+    src: ../../../../../db/{{ app_name }}{{ item.item }}
+    dest: '{{ shared_path }}/tmp/{{ app_name }}{{ item.item }}'
     owner: '{{ user_name }}'
     group: '{{ group_name }}'
     mode: 0600
@@ -64,7 +64,7 @@
 
 - name: Check if public/assets gzip exists
   stat:
-    path: ../../public/{{ item }}.tar.gz
+    path: ../../public/{{ app_name }}_{{ item }}.tar.gz
   connection: local
   sudo: no
   register: assets
@@ -72,9 +72,9 @@
     - ckeditor_assets
     - system
 
-- name: Copy public/{{ item.item }} to {{ shared_path }}/public
+- name: Copy public/{{ app_name }}_{{ item.item }} to {{ shared_path }}/public
   copy: 
-    src: ../../../../../public/{{ item.item }}.tar.gz
+    src: ../../../../../public/{{ app_name }}_{{ item.item }}.tar.gz
     dest: '{{ shared_path }}/public/{{ item.item }}.tar.gz'
     owner: '{{ user_name }}'
     group: '{{ group_name }}'
