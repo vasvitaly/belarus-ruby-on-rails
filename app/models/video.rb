@@ -2,6 +2,17 @@ class Video < ActiveRecord::Base
   attr_accessible :title, :description, :content, :published_at
   validates_presence_of :title, :published_at, :content
 
+  before_save :digest_content
+
+  def digest_content
+    if self.content =~ /src="([^"]+)"/
+      url = $1
+      url_with_http = url.include?('http') ? url : "http:#{url}"
+      self.content = url_with_http
+    end
+  end
+
+
   class << self
     def screening(fetched_videos)
       videos = []

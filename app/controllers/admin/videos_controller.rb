@@ -33,8 +33,13 @@ class Admin::VideosController < ApplicationController
     )
   end
 
+  def new
+    @video = Video.new
+  end
+
   def create
     Video.add_videos(params[:fetched_videos]) if params[:fetched_videos]
+    Video.create(params[:video]) if params[:video]
 
     redirect_to admin_videos_path
   end

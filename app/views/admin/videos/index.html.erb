@@ -1,6 +1,7 @@
 <h1><%= t('videos.list_of_videos') %></h1>
 
-<%= link_to button_inner_html(t('videos.fetch_videos')), fetch_admin_videos_path, :class => :button %>
+<%#= link_to button_inner_html(t('videos.fetch_videos')), fetch_admin_videos_path, :class => :button %>
+<%= link_to button_inner_html(t('videos.fetch_videos')), new_admin_video_path, :class => :button %>
 
 <% if @videos.empty? %>
   <div class="sep">

@@ -1,0 +1,38 @@
+<div class="forms">
+  <%= form_for([:admin, @video]) do |f| %>
+    <table class="loginTBL">
+      <tr>
+        <td><%= f.label :title %></td>
+        <td>
+          <div class="field"><%= f.text_field :title %></div>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <%= f.label :content %>
+          </td>
+          <td>
+            <div class="field"><%= f.text_field :content %></div>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :description %>
+        </td>
+        <td colspan="2"><div class="field"><%= f.text_area :description %></div></td>
+      </tr>
+      <tr>
+          <td><%= f.label :published_at %></td>
+          <td>
+            <%= f.datetime_select(:published_at, {}, {style: 'width:auto'}) %>
+          </td>
+      </tr>
+      <tr>
+          <td></td>
+          <td class="save">
+            <button type="submit"><span><span><%=t('articles.create') %></span></span></button>
+          </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
