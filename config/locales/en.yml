@@ -266,6 +266,11 @@ en:
         source: 'Source'
       comment:
         body: 'Comment'
+      video:
+        title: 'Title'
+        description: 'Description'
+        content: 'URL'
+        published_at: 'Published at'
     errors:
       models:
         profile:

@@ -266,6 +266,11 @@ ru:
         source: 'Источник'
       comment:
         body: 'Коментарий'
+      video:
+        title: 'Заголовок'
+        description: 'Описание'
+        content: 'URL'
+        published_at: 'Дата публикации'
     errors:
       models:
         profile:
